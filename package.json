@@ -60,5 +60,8 @@
       "cd packages/server && yarn lint:fix",
       "git add"
     ]
+  },
+  "engines": {
+    "node": "12.15.0"
   }
 }
