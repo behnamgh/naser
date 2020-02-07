@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h3>Speakers agenda</h3>
+        <h3>calendars list</h3>
         <table>
           <tbody>
             {
