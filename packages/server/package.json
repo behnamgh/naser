@@ -13,7 +13,7 @@
     "lint:fix": "tslint --project tsconfig.json --fix",
     "tsc": "tsc --project tsconfig.json",
     "start:dev": "nodemon --watch 'src/**/*.ts' --ignore 'node_modules/**/*' --exec ts-node src/index.ts",
-    "start": "node dist/index.ts"
+    "start": "node dist/"
   },
   "author": "",
   "license": "MIT",
