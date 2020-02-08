@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import HttpClient from './utils/HttpClient';
 
@@ -23,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h3>Speakers agenda</h3>
+        <h3>calendars list</h3>
         <table>
           <tbody>
             {
