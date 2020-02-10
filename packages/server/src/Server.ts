@@ -1,4 +1,4 @@
-import {GlobalAcceptMimesMiddleware, ServerLoader, ServerSettings} from "@tsed/common";
+import { GlobalAcceptMimesMiddleware, ServerLoader, ServerSettings } from "@tsed/common";
 import "@tsed/swagger";
 import * as bodyParser from "body-parser";
 import * as compress from "compression";

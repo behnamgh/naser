@@ -12,12 +12,11 @@
     "test:e2e": "lerna run test:e2e",
     "test:client": "lerna run test --scope=@project/client",
     "test:server": "lerna run test --scope=@project/server",
-    "lint": "lerna run lint",
-    "lint:fix": "lerna run lint:fix",
     "build": "lerna run build --stream",
     "build:client": "lerna run build --scope=@project/client --stream",
     "build:server": "lerna run build --scope=@project/server --stream",
     "start": "lerna run start --stream --parallel",
+    "start:dev": "lerna run start:dev --stream --parallel",
     "start:client": "lerna run start --scope=@project/client --stream",
     "start:server": "lerna run start --scope=@project/server --stream",
     "start:prod": "cross-env NODE_ENV=production pm2-docker --raw processes.config.js --no-deamon",
@@ -43,22 +42,6 @@
       "**/@types/**",
       "**/@tsed",
       "**/@tsed/**"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "post-commit": "git update-index --again"
-    }
-  },
-  "lint-staged": {
-    "packages/client/**/*.{js,vue}": [
-      "cd packages/client && yarn lint:fix",
-      "git add"
-    ],
-    "packages/server/**/*.{ts}": [
-      "cd packages/server && yarn lint:fix",
-      "git add"
     ]
   },
   "engines": {
