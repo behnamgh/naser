@@ -12,8 +12,6 @@
     "test:e2e": "lerna run test:e2e",
     "test:client": "lerna run test --scope=@project/client",
     "test:server": "lerna run test --scope=@project/server",
-    "lint": "lerna run lint",
-    "lint:fix": "lerna run lint:fix",
     "build": "lerna run build --stream",
     "build:client": "lerna run build --scope=@project/client --stream",
     "build:server": "lerna run build --scope=@project/server --stream",

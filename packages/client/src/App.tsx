@@ -1,11 +1,11 @@
 import React from 'react';
+import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
   return (
     <div className="App">
-      Naser Web page
-    
+      Naser - SON OF MAN
     </div>
   );
 }
