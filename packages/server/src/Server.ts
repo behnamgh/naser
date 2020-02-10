@@ -60,7 +60,6 @@ export class Server extends ServerLoader {
   }
 
   $afterRoutesInit() {
-    this.expressApp.get(`/admin`, (req, res) => res.redirect("http://localhost:3001"));
     this.expressApp.get(`*`, (req, res) => {
       res.sendFile(path.join(clientDir, "index.html"));
     });
