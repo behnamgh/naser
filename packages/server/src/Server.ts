@@ -5,6 +5,8 @@ import * as compress from "compression";
 import * as cookieParser from "cookie-parser";
 import * as methodOverride from "method-override";
 import * as path from "path";
+import * as cors from "cors";
+import "./providers/PassportJWTService";
 
 const rootDir = __dirname;
 const clientDir = path.join(rootDir, "../../client/build");
@@ -54,7 +56,8 @@ export class Server extends ServerLoader {
       .use(bodyParser.json())
       .use(bodyParser.urlencoded({
         extended: true
-      }));
+      }))
+      .use(cors({ origin: true, credentials: true }));
 
     return null;
   }

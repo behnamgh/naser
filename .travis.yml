@@ -33,7 +33,7 @@ jobs:
     - stage: test
       name: 'Tests'
       script:
-        - yarn lint || travis_terminate 1;
+        # - yarn lint || travis_terminate 1;
         - yarn test || travis_terminate 1;
     #######################################################################
     # STAGE: DEPLOY
