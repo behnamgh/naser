@@ -15,7 +15,7 @@
     "build": "lerna run build --scope=dashboard",
     "build:client": "lerna run build --scope=@project/client --stream",
     "build:server": "lerna run build --scope=@project/server --stream",
-    "start": "lerna run build --scope=dashboard && serve -s packages/dashboard/build",
+    "start": "lerna run build --scope=dashboard && yarn global add serve && serve -s packages/dashboard/build",
     "start:dev": "lerna run start:dev --stream --parallel",
     "start:client": "lerna run start --scope=@project/client --stream",
     "start:server": "lerna run start --scope=@project/server --stream",
