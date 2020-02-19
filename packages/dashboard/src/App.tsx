@@ -7,7 +7,6 @@ import Dashboard from "./pages/Dashboard"
 
 const App = () => {
   const user = useAuth();
-  console.log(user);
 
   return (
     <BrowserRouter>

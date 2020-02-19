@@ -1,7 +1,6 @@
 import { EndpointInfo, Middleware, HeaderParams, Required, Next } from "@tsed/common";
 import { NotFound, Unauthorized } from "ts-httpexceptions";
-import { CalendarsService } from "../services/calendars/CalendarsService";
-import { UsersService } from "../services/user/user-service";
+import { UsersService } from "../services/user-service";
 import tokenHelper from "../utils/token-helper";
 
 @Middleware()
@@ -25,7 +24,7 @@ export class IsAuthenticated {
 
         } catch (error) {
             console.log(["error", error]);
-            throw new NotFound(error);
+            throw new NotFound(error.message);
 
         }
     }

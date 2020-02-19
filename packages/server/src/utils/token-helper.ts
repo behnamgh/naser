@@ -2,7 +2,7 @@ import { sign, verify } from "jsonwebtoken";
 import { User } from "../models/User";
 
 const tokenHelper = {
-    generateToken: (user: User, extraData: any = null) => sign(
+    generateToken: (user: any) => sign(
         {
             ...user,
             tokenCreationDate: new Date()
