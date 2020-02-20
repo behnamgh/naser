@@ -9,14 +9,14 @@ import GEARSTAND from './images/gears-stands.png'
 import DOWNFRAME from './images/down-frame-1.png'
 import LIGHTEN_LOGO from './images/naser-lighten-logo.png'
 
-import News from './js/views/News'
-import Footer from './js/views/Footer'
-import Header from './js/views/Header'
-import Videos from './js/views/Videos'
-import Gallery from './js/views/Gallery'
-import GamePlay from './js/views/GamePlay'
+import News from './views/News'
+import Footer from './views/Footer'
+import Header from './views/Header'
+import Videos from './views/Videos'
+import Gallery from './views/Gallery'
+import GamePlay from './views/GamePlay'
 
-import ReactPageScroller from './js/scroll/ReactPageScroller'
+import ReactPageScroller from 'react-page-scroller';
 
 import './sass/main.scss';
 
