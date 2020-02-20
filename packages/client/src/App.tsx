@@ -9,18 +9,14 @@ import GEARSTAND from './images/gears-stands.png'
 import DOWNFRAME from './images/down-frame-1.png'
 import LIGHTEN_LOGO from './images/naser-lighten-logo.png'
 
-import News from './views/News'
-import Footer from './views/Footer'
-import Header from './views/Header'
-import Videos from './views/Videos'
-import Gallery from './views/Gallery'
-import GamePlay from './views/GamePlay'
+import Sample from './components/sample-template';
 
 import ReactPageScroller from 'react-page-scroller';
 
 import './sass/main.scss';
 
 class App extends Component<any, any> {
+  
   myRef: any;
   myRef3: any;
   myRef2: any;
@@ -36,10 +32,7 @@ class App extends Component<any, any> {
 
 
   componentDidMount = () => {
-    window.addEventListener("wheel", event => event.deltaY > 0
-      ? this.setClockside()
-      : this.removeClockSide()
-    )
+
   }
 
   setClockside = () => {
@@ -111,12 +104,12 @@ class App extends Component<any, any> {
           containerHeight={window.innerHeight * 0.5}
           customPageNumber={this.state.currentpage}
         >
-          <Header />
-          <Videos />
-          <GamePlay />
-          <News />
-          <Gallery />
-          <Footer />
+          <Sample title="Header" />
+          <Sample title="Videos" />
+          <Sample title="GamePlay" />
+          <Sample title="News" />
+          <Sample title="Gallery" />
+          <Sample title="Footer" />
         </ReactPageScroller>
       </div>
 
