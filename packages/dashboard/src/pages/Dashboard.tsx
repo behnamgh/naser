@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Grid, Hidden } from '@material-ui/core';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import Pages from './Pages';
 import Add from './Add';
 
@@ -59,8 +59,10 @@ export default function Dashboard() {
                     </Grid>
                 </Hidden>
                 <Grid item sm={10}>
-                    <Route path="/dashboard" exact component={Pages} />
-                    <Route path="/dashboard/add" component={Add} />
+                    <Router>
+                        <Route path="/dashboard" exact component={Pages} />
+                        <Route path="/dashboard/add" component={Add} />
+                    </Router>
                 </Grid>
             </Grid>
         </div>
