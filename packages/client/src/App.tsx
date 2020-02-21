@@ -36,15 +36,21 @@ class App extends Component<any, any> {
   }
 
   setClockside = () => {
-    this.myRef.current.style.animation = "clockwiseSpin 2s linear infinite"
-    this.myRef2.current.style.animation = "clockwiseSpin 2s linear infinite"
-    this.myRef3.current.style.animation = "clockwiseSpin 2s linear infinite"
+    console.log(this.state.currentPage)
+    if(this.state.currentPage !== 5){
+      this.myRef.current.style.animation = "clockwiseSpin 2s linear infinite"
+      this.myRef2.current.style.animation = "clockwiseSpin 2s linear infinite"
+      this.myRef3.current.style.animation = "clockwiseSpin 2s linear infinite"
+    }
   }
 
   removeClockSide = () => {
-    this.myRef.current.style.animation = "antiClockwiseSpin 2s linear infinite"
-    this.myRef2.current.style.animation = "antiClockwiseSpin 2s linear infinite"
-    this.myRef3.current.style.animation = "antiClockwiseSpin 2s linear infinite"
+    if (this.state.currentPage !== 1) {
+      this.myRef.current.style.animation = "antiClockwiseSpin 2s linear infinite"
+      this.myRef2.current.style.animation = "antiClockwiseSpin 2s linear infinite"
+      this.myRef3.current.style.animation = "antiClockwiseSpin 2s linear infinite"
+    }
+
   }
   componentWillUnmount = () => {
     window.removeEventListener("wheel", event => event.deltaY > 0
@@ -97,7 +103,21 @@ class App extends Component<any, any> {
         <img src={DOWNFRAME} alt="bottom" />
       </div>
 
-
+      <div className="content">
+        <ReactPageScroller
+          pageOnChange={this.handlePageChange}
+          containerWidth={window.innerWidth * 0.4}
+          containerHeight={window.innerHeight * 0.5}
+          customPageNumber={this.state.currentpage}
+        >
+          <Sample title="Header" />
+          <Sample title="Videos" />
+          <Sample title="GamePlay" />
+          <Sample title="News" />
+          <Sample title="Gallery" />
+          <Sample title="Footer" />
+        </ReactPageScroller>
+      </div>
 
     </div>
     );
