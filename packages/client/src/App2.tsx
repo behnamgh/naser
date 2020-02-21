@@ -7,7 +7,15 @@ import LOGO from './images/naser-logo.png'
 import TOPFRAME from './images/top-frame@3x.png'
 import GEARSTAND from './images/gears-stands.png'
 // import DOWNFRAME from './images/down-frame-1@3x.png'
+import TABS from './images/tabs-frame@3x.png'
 import LIGHTEN_LOGO from './images/naser-lighten-logo.png'
+import NEWS from './images/news@3x.png'
+import HOME from './images/Home@3x.png'
+import GALLERY from './images/gallery@3x.png'
+import GAMEPLAY from './images/gamePlay@3x.png'
+import VIDEO from './images/video@3x.png'
+import JOIN from './images/join@3x.png'
+import LIGHT from './images/tabs-frame-light@3x.png'
 
 import Sample from './components/sample-template';
 
@@ -29,7 +37,7 @@ const App = () => {
                 ? setClockside()
                 : removeClockSide())
         }
-    }, []);
+    });
 
     useEffect(() => {
         myRef.current.style.animationPlayState = "paused"
@@ -53,6 +61,7 @@ const App = () => {
         setCurrentPage(number)
     };
 
+
     // const getPagesNumbers = () => {
     //     const pageNumbers = [];
 
@@ -64,6 +73,15 @@ const App = () => {
 
     //     return [...pageNumbers];
     // };
+    
+    let lightPosition 
+
+    if(currentPage === 0) { lightPosition = "32.8% "} 
+    else if(currentPage === 1) { lightPosition = "38.8% "} 
+    else if(currentPage === 2) { lightPosition = "44.1% "} 
+    else if(currentPage === 3) { lightPosition = "50.2% "} 
+    else if(currentPage === 4) { lightPosition = "55.7% "} 
+    else if(currentPage === 5) { lightPosition = "61.4% "} 
 
     return (<div className="App">
         <div className="walls">
@@ -83,6 +101,21 @@ const App = () => {
 
         <div className="frames">
             <img src={TOPFRAME} alt="top" />
+        </div>
+
+        <div className="tabs">
+            <div className="tabs__container">
+                <img src={TABS} alt=""/>
+                <img src={LIGHT} alt=""  style={{ top: `${lightPosition}` }}/>
+
+            </div>
+
+            <img src={HOME} className="tabs-h" style={{  right: currentPage === 0 ? '14%' : '12.7%' }} onClick={() => handlePageChange(0)} alt=""/>
+            <img src={VIDEO} className="tabs-v" style={{  right: currentPage === 1 ? '14%' : '12.7%' }} onClick={() => handlePageChange(1)} alt=""/>
+            <img src={GAMEPLAY} className="tabs-p" style={{  right: currentPage === 2 ? '14%' : '12.7%' }} onClick={() => handlePageChange(2)} alt=""/>
+            <img src={GALLERY} className="tabs-g" style={{  right: currentPage === 3 ? '14%' : '12.7%' }} onClick={() => handlePageChange(3)} alt=""/>
+            <img src={NEWS} className="tabs-n" style={{  right: currentPage === 4 ? '14%' : '12.7%' }} onClick={() => handlePageChange(4)} alt=""/>
+            <img src={JOIN} className="tabs-j" style={{  right: currentPage === 5 ? '14%' : '12.7%' }} onClick={() => handlePageChange(5)} alt=""/>
         </div>
 
         <div className="content">
