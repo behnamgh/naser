@@ -97,21 +97,7 @@ class App extends Component<any, any> {
         <img src={DOWNFRAME} alt="bottom" />
       </div>
 
-      <div className="content">
-        <ReactPageScroller
-          pageOnChange={this.handlePageChange}
-          containerWidth={window.innerWidth * 0.4}
-          containerHeight={window.innerHeight * 0.5}
-          customPageNumber={this.state.currentpage}
-        >
-          <Sample title="Header" />
-          <Sample title="Videos" />
-          <Sample title="GamePlay" />
-          <Sample title="News" />
-          <Sample title="Gallery" />
-          <Sample title="Footer" />
-        </ReactPageScroller>
-      </div>
+
 
     </div>
     );

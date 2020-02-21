@@ -65,8 +65,5 @@
     "sinon-chai": "^3.1.0",
     "supertest": "4.0.2",
     "tslint": "^5.12.0"
-  },
-  "engines": {
-    "node": "12.16.1"
   }
 }

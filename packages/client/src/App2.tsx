@@ -4,9 +4,9 @@ import GEARS1 from './images/gears-1.png'
 import GEARS2 from './images/gears-2.png'
 import GEARS3 from './images/gears-3.png'
 import LOGO from './images/naser-logo.png'
-import TOPFRAME from './images/top-frame.png'
+import TOPFRAME from './images/top-frame@3x.png'
 import GEARSTAND from './images/gears-stands.png'
-import DOWNFRAME from './images/down-frame-1.png'
+import DOWNFRAME from './images/down-frame-1@3x.png'
 import LIGHTEN_LOGO from './images/naser-lighten-logo.png'
 
 import Sample from './components/sample-template';
@@ -83,7 +83,7 @@ const App = () => {
 
         <div className="frames">
             <img src={TOPFRAME} alt="top" />
-            <img src={DOWNFRAME} alt="bottom" />
+            {/* <img src={DOWNFRAME} alt="bottom" /> */}
         </div>
 
         <div className="content">
