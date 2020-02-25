@@ -2,8 +2,10 @@
 
 This project for presenting Naser - Sone of Man game into world.
 
-trello: https://trello.com/b/QaA160ZU/
-test: https://son-of-man.herokuapp.com/
+[Preview](https://son-of-man.herokuapp.com "Preview WebPage")
+
+[Scrum board in Trello](https://trello.com/b/QaA160ZU/ "Scrum board for developer")
+
 
 ## Instruction
 
@@ -12,8 +14,8 @@ Dcoker and pm2 are the other technologies that we use.
 
 ### Start
 
-with "yarn start" you can start the project
+with `yarn start` you can start the project
 
 
 ### Start Development
-yarn start:dev
+`yarn start:dev`
