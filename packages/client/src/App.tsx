@@ -20,7 +20,7 @@ import Sample from './components/sample-template';
 import { FullPage, Slide } from 'react-full-page';
 import './sass/main.scss';
 const App = () => {
-  const [currentPage, setCurrentPage] = useState(null);
+  const [currentPage] = useState(null);
   const [gearRotation, updateGearRotation] = useState<string>("");
 
 
