@@ -1,0 +1,198 @@
+
+// All styles here...
+@import './header.scss';
+
+
+.App{
+    background-color: #000000;
+    height: 100vh;
+    // position: relative;
+    // overflow: hidden;
+}
+
+.walls{
+    img{
+        position: fixed;
+        width: 10%;
+        height: 100%;
+        z-index: 2;
+    }
+    img:first-child{
+        left: 0;
+    }
+    img:last-child{
+        right: 0;
+    }
+}
+
+.frames{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img{
+        // width: 80%;
+        position: fixed;
+    }
+
+    img:first-child{
+        top: 2%;
+        height: 53%;
+    }
+
+    img:last-child{
+        bottom: 0;
+        height: 52.5%;
+    }
+}
+.fixed{
+    position: fixed;
+}
+
+.gear-stand{
+    // width: 4.5%;
+    height: 30%;
+    z-index: 100;
+    left: 10%;
+    top: 34%;
+}
+
+.gear-1{
+    left: 10%;
+    top: 45.8%;
+    // width: 5%;
+    z-index: 100;
+    height: 9%;
+}
+
+.gear-2{
+    left: 9.4%;
+    top: 51.5%;
+    // width: 6%;
+    height: 12%;
+    z-index: 1;
+}
+
+.gear-3{
+    left: 11%;
+    top: 37.8%;
+    // width: 5%;
+    height: 10%;
+    z-index: 1;
+}
+
+.logo{
+    position: relative;
+    top: 2%;
+    // width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+
+    img:first-child{
+        position: absolute;
+        top: -17%;
+        // width: 500px;
+        // width: 34%;
+        max-height: 100%;
+    }
+
+    img:last-child{
+        position: absolute;
+        // width: 25%;
+        height: 70%;
+        top: 12%;
+    }
+}
+
+.content{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    left: 10%;
+    top: 0;
+    color:white;
+    z-index: 127;
+
+    >div{
+        width: 100% !important;
+        height: 100% !important;
+
+    }
+
+    .section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: inherit;
+        height: inherit;
+    }
+}
+
+.tabs{
+    &__container{
+        img:first-child{
+            height: 48%;
+            z-index: 129;
+            position: fixed;
+            right: 9.5%;
+            top: 32%;
+        }
+        img:last-child{
+            top: 44.1%;
+            z-index: 129;
+            height: 12%;
+            right: 10.8%;
+            position: fixed;
+        }
+
+    }
+
+    > img {
+        height: 5.6%;
+        position: fixed;
+        right: 12.7%;
+        transition: all 0.2s ease-in-out;
+        z-index: 128;
+        cursor: pointer;
+    }
+
+    &-h{ top: 35.5%; } 
+    &-v{ top: 41.2%;}
+    &-p{ top: 46.9%;}
+    &-g{ top: 52.6%;}
+    &-n{ top: 58.3%;}
+    &-j{ top: 64%;}
+
+}
+.cloclwise,.antianticloclwise{
+    animation: clockwiseSpin 2s linear infinite;
+}
+.anticloclwise{
+    animation: antiClockwiseSpin 2s linear infinite;
+}
+.rotate {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+
+
+@keyframes antiClockwiseSpin {
+	100% {transform: rotate(-360deg);}	
+}
+
+@keyframes antiClockwiseSpin {
+	100% {transform: rotate(-360deg);}	
+}
+
+@-webkit-keyframes clockwiseSpin {
+	100% {-webkit-transform: rotate(360deg);transform: rotate(360deg);}  
+}
+@keyframes clockwiseSpin {
+	100% {-webkit-transform: rotate(360deg);transform: rotate(360deg);}	
+}

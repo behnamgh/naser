@@ -4,7 +4,7 @@ import { Strategy } from "passport-local";
 import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt";
 import { compareSync } from "bcryptjs"
 import { NotFound } from "ts-httpexceptions";
-import { UsersService } from "../services/user/user-service";
+import { UsersService } from "../services/user-service";
 import tokenHelper from "../utils/token-helper";
 
 @Service()
@@ -30,7 +30,6 @@ export class PassportLocalService implements BeforeRoutesInit, AfterRoutesInit {
     $afterRoutesInit() {
         this.initializeLogin();
         this.initializeVerify();
-        this.initializeMemberLogin();
     }
 
     public initializeLogin() {
@@ -42,31 +41,24 @@ export class PassportLocalService implements BeforeRoutesInit, AfterRoutesInit {
             passwordField: "password",
             passReqToCallback: true // allows us to pass back the entire request to the callback
         }, (req, username, password, done) => {
+            console.log([username, password]);
+
             this.login(username, password)
                 .then((user) => done(null, user))
                 .catch((err) => done(err));
         }));
     }
 
-    public initializeMemberLogin() {
-        Passport.use("memberLogin", new Strategy({
-            // by default, local strategy uses username and password, we will override with email
-            usernameField: "mobileNumber",
-            passwordField: "confirmCode",
-            passReqToCallback: true // allows us to pass back the entire request to the callback
-        }, (req, mobileNumber, confirmCode, done) => {
-            this.memberLogin(mobileNumber, confirmCode)
-                .then((user) => done(null, user))
-                .catch((err) => done(err));
-        }));
-    }
+
 
     public initializeVerify() {
         Passport.use("verify", new JWTStrategy({
             jwtFromRequest: ExtractJwt.fromHeader("authorization"),
             secretOrKey: tokenHelper.secretOrPrivateKey.toString()
-        }, (jwt_payload, done) => {
-            this.verify(jwt_payload.userId, jwt_payload.extraData)
+        }, (jwt_payload: any, done) => {
+            console.log(["jwt_payload", jwt_payload]);
+
+            this.verify(jwt_payload._id, jwt_payload.extraData)
                 .then((data) => done(null, data))
                 .catch((err) => done(err));
         }));
@@ -76,15 +68,14 @@ export class PassportLocalService implements BeforeRoutesInit, AfterRoutesInit {
         try {
             console.log("in login", username, password);
 
-            const user = await this.userService.getUserById(username);
+            const user = await this.userService.findByUsername(username);
+            console.log(["?", user]);
 
 
             if (user && password === user.password) {
-                // user.lastLoginDate = new Date();
-                await this.userService.create(user);
-                const token = tokenHelper.generateToken(user);
+                const token = tokenHelper.generateToken({ username: user.username, role: user.role });
 
-                return { token, ...user };
+                return { token, username: user.username, role: user.role };
             }
             else {
                 throw new NotFound("UNAUTHORIZED123123");
@@ -99,9 +90,9 @@ export class PassportLocalService implements BeforeRoutesInit, AfterRoutesInit {
 
 
 
-    async verify(userId: number, extraData: any): Promise<Object> {
+    async verify(id: string, extraData: any): Promise<Object> {
         try {
-            const user = await this.userService.getUserById(userId.toString());
+            const user = await this.userService.findById(id);
             if (user) {
                 const data = { user, extraData };
 
@@ -118,10 +109,10 @@ export class PassportLocalService implements BeforeRoutesInit, AfterRoutesInit {
 
     async memberLogin(username: string, password: string): Promise<Object> {
         try {
-            const user = await this.userService.getUserById(username);
+            const user = await this.userService.findByUsername(username);
             if (user && password === user.password) {
-                await this.userService.create(user);
-                const token = tokenHelper.generateToken(user, {});
+                await this.userService.save(user);
+                const token = tokenHelper.generateToken(user);
 
                 return { token, ...user };
             }

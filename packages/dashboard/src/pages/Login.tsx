@@ -17,6 +17,10 @@ const useStyles = makeStyles(theme => ({
     paper: {
         marginTop: theme.spacing(8),
         display: 'flex',
+        // border: "1px solid black",
+        padding: "20px",
+        borderRadius: "10px",
+        backgroundColor: "white",
         flexDirection: 'column',
         alignItems: 'center',
     },
@@ -40,7 +44,7 @@ const Login = () => {
     const [formData, setData] = useState<{ username?: string, password?: string }>({});
     const loginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        let response = await new getHttpClient().post("/rest/user/login", formData);
+        let response = await new getHttpClient().post("/user/login", formData);
         userAuth.setSignedIn(response.data);
         history.push("/dashboard")
 
@@ -49,7 +53,7 @@ const Login = () => {
         setData({ ...formData, [event.target.name]: event.target.value })
     }
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" >
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
@@ -57,7 +61,7 @@ const Login = () => {
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign in
-        </Typography>
+                </Typography>
                 <form className={classes.form} noValidate onSubmit={loginSubmit}>
                     <TextField
                         variant="outlined"

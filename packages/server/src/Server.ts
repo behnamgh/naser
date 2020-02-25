@@ -12,28 +12,28 @@ const rootDir = __dirname;
 const clientDir = path.join(rootDir, "../../client/build");
 
 @ServerSettings({
+  mongoose: {
+    url: "mongodb://127.0.0.1:27017/example-mongoose"
+  },
   rootDir,
   acceptMimes: ["application/json"],
   httpPort: process.env.PORT || 8081,
   httpsPort: false,
   logger: {
     debug: true,
-    logRequest: true,
+    logRequest: false,
     requestFields: ["reqId", "method", "url", "headers", "query", "params", "duration"]
   },
-  mount: {
-    "/rest": [
-      `${rootDir}/controllers/**/*.ts` // Automatic Import, /!\ doesn't works with webpack/jest, use  require.context() or manual import instead
-    ]
-  },
+  // mount: {
+  //   "/rest": [
+  //     `${rootDir}/controllers/**/*.ts` // Automatic Import, /!\ doesn't works with webpack/jest, use  require.context() or manual import instead
+  //   ]
+  // },
   swagger: [
     {
       path: "/api-docs"
     }
   ],
-  calendar: {
-    token: true
-  },
   statics: {
     "/": clientDir
   }
