@@ -16,11 +16,8 @@ import GAMEPLAY from './images/gamePlay@3x.png'
 import VIDEO from './images/video@3x.png'
 import JOIN from './images/join@3x.png'
 // import LIGHT from './images/tabs-frame-light@3x.png'
-
 import Sample from './components/sample-template';
-
 import { FullPage, Slide } from 'react-full-page';
-
 import './sass/main.scss';
 const App = () => {
   const [currentPage, setCurrentPage] = useState(null);
@@ -40,12 +37,7 @@ const App = () => {
     updateGearRotation("")
   }
 
-  // const handlePageChange = (number: any) => {
-  //   setCurrentPage(number)
-  // };
   const menuController = ({ scrollToSlide, getCurrentSlideIndex, slidesCount }: { scrollToSlide: (pageNumber: number) => void, getCurrentSlideIndex: () => number, slidesCount: number }) => {
-
-
 
     return <div className="tabs">
       <div className="tabs__container">
