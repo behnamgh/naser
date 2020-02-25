@@ -12722,6 +12722,11 @@ react-error-overlay@^6.0.5:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.5.tgz#55d59c2a3810e8b41922e0b4e5f85dcf239bd533"
   integrity sha512-+DMR2k5c6BqMDSMF8hLH0vYKtKTeikiFW+fj0LClN+XZg4N9b8QUAdHC62CGWNLTi/gnuuemNcNcTFrCvK1f+A==
 
+react-full-page@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/react-full-page/-/react-full-page-0.1.7.tgz#bfe8c04c07c2668d70f7399d6641aedae81baa8e"
+  integrity sha512-KdLAmNRg2Um5l00gKhI5kCD4I5ZnmG6lLmO7EIgwwLxKB17USluiToE7/m9E+rmnzkSVqcKppLE6ZBcfJTRzqg==
+
 react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"

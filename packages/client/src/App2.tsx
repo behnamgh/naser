@@ -19,7 +19,7 @@ import LIGHT from './images/tabs-frame-light@3x.png'
 
 import Sample from './components/sample-template';
 
-import ReactPageScroller from 'react-page-scroller';
+import { FullPage, Slide } from 'react-full-page';
 
 import './sass/main.scss';
 const App = () => {
@@ -27,61 +27,52 @@ const App = () => {
     let myRef3 = useRef(null as any);
     let myRef2 = useRef(null as any);
     const [currentPage, setCurrentPage] = useState(null);
-    useEffect(() => {
-        window.addEventListener("wheel", event => event.deltaY > 0
-            ? setClockside()
-            : removeClockSide()
-        )
-        return () => {
-            window.removeEventListener("wheel", event => event.deltaY > 0
-                ? setClockside()
-                : removeClockSide())
+    const [gearRotation, updateGearRotation] = useState<string>("");
+
+
+    const startChange = (data: { from: number, to: number }) => {
+        if (data.from > data.to) {
+            updateGearRotation("cloclwise")
+        } else {
+            updateGearRotation("anticloclwise")
+
         }
-    });
-
-    useEffect(() => {
-        myRef.current.style.animationPlayState = "paused"
-        myRef2.current.style.animationPlayState = "paused"
-        myRef3.current.style.animationPlayState = "paused"
-    }, [currentPage]);
-
-    const setClockside = () => {
-        myRef.current.style.animation = "clockwiseSpin 2s linear infinite"
-        myRef2.current.style.animation = "clockwiseSpin 2s linear infinite"
-        myRef3.current.style.animation = "clockwiseSpin 2s linear infinite"
     }
 
-    const removeClockSide = () => {
-        myRef.current.style.animation = "antiClockwiseSpin 2s linear infinite"
-        myRef2.current.style.animation = "antiClockwiseSpin 2s linear infinite"
-        myRef3.current.style.animation = "antiClockwiseSpin 2s linear infinite"
+    const endChange = (data: { from: number, to: number }) => {
+        updateGearRotation("")
     }
 
     const handlePageChange = (number: any) => {
         setCurrentPage(number)
     };
+    const menuController = ({ scrollToSlide, getCurrentSlideIndex, slidesCount }: { scrollToSlide: (pageNumber: number) => void, getCurrentSlideIndex: () => number, slidesCount: number }) => {
 
 
-    // const getPagesNumbers = () => {
-    //     const pageNumbers = [];
 
-    //     for (let i = 1; i <= 5; i++) {
-    //         pageNumbers.push(
-    //             <button key={i} onClick={handlePageChange}>{i}</button>
-    //         );
-    //     }
+        return <div className="tabs">
+            <div className="tabs__container">
+                <img src={TABS} alt="" />
+                {/* <img src={LIGHT} alt="" style={{ top: `${lightPosition}` }} /> */}
 
-    //     return [...pageNumbers];
-    // };
-    
-    let lightPosition 
+            </div>
+            <img src={HOME} className="tabs-h" style={{ right: currentPage === 0 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(1)} alt="" />
+            <img src={VIDEO} className="tabs-v" style={{ right: currentPage === 1 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(2)} alt="" />
+            <img src={GAMEPLAY} className="tabs-p" style={{ right: currentPage === 2 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(3)} alt="" />
+            <img src={GALLERY} className="tabs-g" style={{ right: currentPage === 3 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(4)} alt="" />
+            <img src={NEWS} className="tabs-n" style={{ right: currentPage === 4 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(5)} alt="" />
+            <img src={JOIN} className="tabs-j" style={{ right: currentPage === 5 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(6)} alt="" />
+        </div>
+    }
 
-    if(currentPage === 0) { lightPosition = "32.8% "} 
-    else if(currentPage === 1) { lightPosition = "38.8% "} 
-    else if(currentPage === 2) { lightPosition = "44.1% "} 
-    else if(currentPage === 3) { lightPosition = "50.2% "} 
-    else if(currentPage === 4) { lightPosition = "55.7% "} 
-    else if(currentPage === 5) { lightPosition = "61.4% "} 
+    let lightPosition
+
+    if (currentPage === 0) { lightPosition = "32.8% " }
+    else if (currentPage === 1) { lightPosition = "38.8% " }
+    else if (currentPage === 2) { lightPosition = "44.1% " }
+    else if (currentPage === 3) { lightPosition = "50.2% " }
+    else if (currentPage === 4) { lightPosition = "55.7% " }
+    else if (currentPage === 5) { lightPosition = "61.4% " }
 
     return (<div className="App">
         <div className="walls">
@@ -94,44 +85,38 @@ const App = () => {
             <img src={LIGHTEN_LOGO} alt="lighten logo" />
         </div>
 
-        <img src={GEARSTAND} className="gear-stand" alt="" />
-        <img src={GEARS1} className="gear-1" ref={myRef} alt="gear one" />
-        <img src={GEARS2} className="gear-2" ref={myRef2} alt="gear two" />
-        <img src={GEARS3} className="gear-3" ref={myRef3} alt="gear 3" />
+        <img src={GEARSTAND} className={`fixed gear-stand`} alt="" />
+        <img src={GEARS1} className={`fixed gear-1 ${gearRotation}`} ref={myRef} alt="gear one" />
+        <img src={GEARS2} className={`fixed gear-2 anti${gearRotation}`} ref={myRef2} alt="gear two" />
+        <img src={GEARS3} className={`fixed gear-3 ${gearRotation}`} ref={myRef3} alt="gear 3" />
 
         <div className="frames">
             <img src={TOPFRAME} alt="top" />
         </div>
 
-        <div className="tabs">
-            <div className="tabs__container">
-                <img src={TABS} alt=""/>
-                <img src={LIGHT} alt=""  style={{ top: `${lightPosition}` }}/>
 
-            </div>
-
-            <img src={HOME} className="tabs-h" style={{  right: currentPage === 0 ? '14%' : '12.7%' }} onClick={() => handlePageChange(0)} alt=""/>
-            <img src={VIDEO} className="tabs-v" style={{  right: currentPage === 1 ? '14%' : '12.7%' }} onClick={() => handlePageChange(1)} alt=""/>
-            <img src={GAMEPLAY} className="tabs-p" style={{  right: currentPage === 2 ? '14%' : '12.7%' }} onClick={() => handlePageChange(2)} alt=""/>
-            <img src={GALLERY} className="tabs-g" style={{  right: currentPage === 3 ? '14%' : '12.7%' }} onClick={() => handlePageChange(3)} alt=""/>
-            <img src={NEWS} className="tabs-n" style={{  right: currentPage === 4 ? '14%' : '12.7%' }} onClick={() => handlePageChange(4)} alt=""/>
-            <img src={JOIN} className="tabs-j" style={{  right: currentPage === 5 ? '14%' : '12.7%' }} onClick={() => handlePageChange(5)} alt=""/>
-        </div>
 
         <div className="content">
-            <ReactPageScroller
-                pageOnChange={handlePageChange}
-                containerWidth={window.innerWidth * 0.4}
-                containerHeight={window.innerHeight * 0.5}
-                customPageNumber={currentPage}
-            >
-                <Sample title="Header" />
-                <Sample title="Videos" />
-                <Sample title="GamePlay" />
-                <Sample title="News" />
-                <Sample title="Gallery" />
-                <Sample title="Footer" />
-            </ReactPageScroller>
+            <FullPage beforeChange={startChange} afterChange={endChange} controls={menuController}>
+                <Slide>
+                    <Sample title="Header" />
+                </Slide>
+                <Slide>
+                    <Sample title="Videos" />
+                </Slide>
+                <Slide>
+                    <Sample title="GamePlay" />
+                </Slide>
+                <Slide>
+                    <Sample title="News" />
+                </Slide>
+                <Slide>
+                    <Sample title="Gallery" />
+                </Slide>
+                <Slide>
+                    <Sample title="Footer" />
+                </Slide>
+            </FullPage>
         </div>
 
     </div>

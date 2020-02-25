@@ -1,1 +1,1 @@
-declare module 'react-page-scroller';
+declare module 'react-full-page';
