@@ -11,6 +11,7 @@ import Container from '@material-ui/core/Container';
 import getHttpClient from "../utils/httpClient"
 import { useAuth } from '../Store/state';
 import { useHistory } from 'react-router-dom';
+import AuthHelper from "../utils/auth"
 
 
 const useStyles = makeStyles(theme => ({
@@ -46,6 +47,7 @@ const Login = () => {
         event.preventDefault();
         let response = await new getHttpClient().post("/user/login", formData);
         userAuth.setSignedIn(response.data);
+        AuthHelper.signIn(response.data.token)
         history.push("/dashboard")
 
     }

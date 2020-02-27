@@ -1,20 +1,20 @@
-export default class Auth {
+export default class AuthHelper {
     public static storageTokenKey = "token";
 
     public static signIn = (token: string) => {
-        localStorage.setItem(Auth.storageTokenKey, token);
+        localStorage.setItem(AuthHelper.storageTokenKey, token);
     }
 
     public static getToken = () => {
-        return localStorage.getItem(Auth.storageTokenKey);
+        return localStorage.getItem(AuthHelper.storageTokenKey);
     }
 
 
     public static isLogged = () => {
-        return !!localStorage.getItem(Auth.storageTokenKey);
+        return !!localStorage.getItem(AuthHelper.storageTokenKey);
     }
 
     public static signOut = () => {
-        localStorage.removeItem(Auth.storageTokenKey);
+        localStorage.removeItem(AuthHelper.storageTokenKey);
     }
 }
