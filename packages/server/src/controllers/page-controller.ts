@@ -17,15 +17,12 @@ export class UserController {
     @Get("/getData")
     @UseBefore(CreateRequestSessionMiddleware)
     async getData(
-        @Session("count") count: any,
-        @Req() req: any
+        @Session("count") count: any
     ) {
         console.log(["count", count]);
 
-
         return {
-            ok: count,
-            ip: req.ipInfo
+            ok: count
         };
     }
     @Get("/:id")

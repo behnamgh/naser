@@ -6,7 +6,7 @@ import * as cookieParser from "cookie-parser";
 import * as methodOverride from "method-override";
 import * as path from "path";
 import * as cors from "cors";
-import * as expressip from "express-ip";
+// import * as expressip from "express-ip";
 import * as session from "express-session";
 import * as connectRedis from "connect-redis";
 import { redis } from "./redis";
@@ -65,7 +65,7 @@ export class Server extends ServerLoader {
         extended: true
       }))
       .use(cors({ origin: true, credentials: true }))
-      .use(expressip().getIpInfoMiddleware)
+      // .use(expressip().getIpInfoMiddleware)
       .use(session({
         store: new redisStore({
           client: redis as any

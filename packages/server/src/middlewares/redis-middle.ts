@@ -1,5 +1,5 @@
 import { Middleware, Req, Next, Err } from "@tsed/common";
-import {BadRequest} from "ts-httpexceptions";
+import { BadRequest } from "ts-httpexceptions";
 
 
 @Middleware()
@@ -11,8 +11,9 @@ export class CreateRequestSessionMiddleware {
         }
         ++request.session.count;
         if (request.session.count === 32) {
-            throw(new BadRequest("Not a number"));
+            throw (new BadRequest("Not a number"));
         }
-        next()
+
+        next();
     }
 }
