@@ -1,9 +1,9 @@
 import { Property, Required, IgnoreProperty } from "@tsed/common";
 import { Description } from "@tsed/swagger";
 import { Model, Ref, ObjectID } from "@tsed/mongoose";
-import { Template } from "./Template";
+// import { Template } from "./Template";
 import { User } from "./User";
-
+import { IContent } from "../types/type";
 @Model()
 export class Page {
 
@@ -12,16 +12,19 @@ export class Page {
 
     @Property()
     @Required()
-    title: string;
-
-    @Ref(Template)
-    @Description("Template ID")
-    templateId: Ref<Template>;
+    name: string;
 
     @Property()
     @Required()
-    contents: object[];
+    title: string;
 
+    // @Ref(Template)
+    // @Description("Template ID")
+    // templateId: Ref<Template>;
+
+    @Property()
+    @Required()
+    contents: IContent[];
 
     @Ref(User)
     @Description("User ID")
