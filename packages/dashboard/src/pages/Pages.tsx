@@ -5,8 +5,7 @@ import usePages from "../components/hooks/usePages";
 const Pages = () => {
     const pages = usePages();
 
-    return (
-        <CardList items={pages} />
+    return (<CardList items={pages} />
     );
 };
 

@@ -15,7 +15,7 @@ export default (
             return Object.assign({}, state, { role });
         case UserActionType.SIGN_IN:
             const { user } = payload;
-            return Object.assign({}, state, { user });
+            return Object.assign({}, state, { ...user });
         case UserActionType.SIGN_OUT:
             return Object.assign({}, state, {
                 role: "",
