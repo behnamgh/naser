@@ -1,6 +1,7 @@
-import { BodyParams, Controller, Get, Post, HeaderParams, Required, Put, Authenticated, Req, Res, UseBefore, UseAfter, UseAuth, Next, Delete } from "@tsed/common";
-import { Page } from "../models/Page";
+import { BodyParams, Controller, Get, Post, Required, Put, Delete, PathParams, HeaderParams, Req, Session, UseBefore } from "@tsed/common";
 import { PagessService } from "../services/page-service";
+import { IContent } from "../types/type";
+import { CreateRequestSessionMiddleware } from "../middlewares/redis-middle";
 
 @Controller("/page")
 export class UserController {
@@ -9,49 +10,51 @@ export class UserController {
     ) {
     }
     @Get("/")
-    async getPages() {
+    async getPages(
+    ) {
         return await this.pageService.getPages();
     }
-    @Get("/template")
-    async getTemplates() {
-        return await this.pageService.getTemplates();
+    @Get("/getData")
+    @UseBefore(CreateRequestSessionMiddleware)
+    async getData(
+        @Session("count") count: any,
+        @Req() req: any
+    ) {
+        console.log(["count", count]);
+
+
+        return {
+            ok: count,
+            ip: req.ipInfo
+        };
     }
+    @Get("/:id")
+    async getPage(
+        @Required() @PathParams("id") id: string
+    ) {
+        return await this.pageService.getPage(id);
+    }
+
     @Post("/")
     async addPage(
-        @Required() @BodyParams("title") title: string
+        @Required() @BodyParams("title") title: string,
+        @Required() @BodyParams("name") name: string,
+        @Required() @BodyParams("contents") contents: IContent[],
+        @BodyParams("active") active: boolean
     ) {
-        return await this.pageService.addNewPage({ title, contents: [{}] }, "5e4c4b88deee7142a50a21d5", "5e45167bebb72d38f99515b1");
-    }
-    @Post("/template")
-    async addTemplate(
-        @Required() @BodyParams("name") name: string
-    ) {
-        return await this.pageService.addNewTemplate({ name, contents: [{}], createdAt: new Date() });
+        return await this.pageService.addNewPage({ title, contents, name, active }, "5e45167bebb72d38f99515b1");
     }
     @Put("/")
     async editPage(
         @Required() @BodyParams("id") id: string,
-        @BodyParams("newPage") newPage: { title?: string, active?: boolean }
+        @BodyParams("newPage") newPage: { title?: string, name?: string, active?: boolean, contents?: IContent[] }
     ) {
         return await this.pageService.editPage(id, newPage);
-    }
-    @Put("/template")
-    async editTemplate(
-        @Required() @BodyParams("id") id: string,
-        @BodyParams("newTemplate") newTemplate: { name?: string, active?: boolean }
-    ) {
-        return await this.pageService.editTemplate(id, newTemplate);
     }
     @Delete("/")
     async deletePage(
         @Required() @BodyParams("id") id: string
     ) {
         return await this.pageService.deletePage(id);
-    }
-    @Delete("/template")
-    async deleteTemplate(
-        @Required() @BodyParams("id") id: string
-    ) {
-        return await this.pageService.deleteTemplate(id);
     }
 }
