@@ -9,7 +9,7 @@ interface ICardListProps {
 const CardList = ({ items }: ICardListProps) => {
     return (
         <Grid container spacing={3}>
-            {items && items.length && items.map(item => <Grid item xs={6} sm={4}>
+            {items && items.length && items.map(item => <Grid item xs={12} sm={4}>
                 <CardItem {...item} />
             </Grid>)}
         </Grid>

@@ -6,10 +6,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { IPage } from "../types/types";
-
+import { Link } from "react-router-dom";
 const useStyles = makeStyles({
     root: {
-        minWidth: 275,
+        padding: "10px"
     },
     bullet: {
         display: 'inline-block',
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 
 interface IMainProps extends IPage {
 }
-export default function CardItem({ title, templateId, active }: IMainProps) {
+export default function CardItem({ id, title, active }: IMainProps) {
     const classes = useStyles();
 
     return (
@@ -35,9 +35,7 @@ export default function CardItem({ title, templateId, active }: IMainProps) {
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                     {title}
                 </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                    {templateId.name}
-                </Typography>
+
                 <Typography variant="body2" component="p">
                     {active}
                     <br />
@@ -46,7 +44,9 @@ export default function CardItem({ title, templateId, active }: IMainProps) {
             </CardContent>
             <CardActions>
                 <Button size="small">
-                    {title}
+                    <Link to={`/dashboard/edit/${id}`}>
+                        Edit
+                    </Link>
                 </Button>
             </CardActions>
         </Card>

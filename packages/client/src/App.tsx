@@ -45,12 +45,12 @@ const App = () => {
         {/* <img src={LIGHT} alt="" style={{ top: `${lightPosition}` }} /> */}
 
       </div>
-      <img src={HOME} className="tabs-h" style={{ right: currentPage === 0 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(1)} alt="" />
-      <img src={VIDEO} className="tabs-v" style={{ right: currentPage === 1 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(2)} alt="" />
-      <img src={GAMEPLAY} className="tabs-p" style={{ right: currentPage === 2 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(3)} alt="" />
-      <img src={GALLERY} className="tabs-g" style={{ right: currentPage === 3 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(4)} alt="" />
-      <img src={NEWS} className="tabs-n" style={{ right: currentPage === 4 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(5)} alt="" />
-      <img src={JOIN} className="tabs-j" style={{ right: currentPage === 5 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(6)} alt="" />
+      <img src={HOME} className="tabs-h" style={{ right: currentPage === 0 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(0)} alt="" />
+      <img src={VIDEO} className="tabs-v" style={{ right: currentPage === 1 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(1)} alt="" />
+      <img src={GAMEPLAY} className="tabs-p" style={{ right: currentPage === 2 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(2)} alt="" />
+      <img src={GALLERY} className="tabs-g" style={{ right: currentPage === 3 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(3)} alt="" />
+      <img src={NEWS} className="tabs-n" style={{ right: currentPage === 4 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(4)} alt="" />
+      <img src={JOIN} className="tabs-j" style={{ right: currentPage === 5 ? '14%' : '12.7%' }} onClick={() => scrollToSlide(5)} alt="" />
     </div>
   }
 
@@ -97,10 +97,10 @@ const App = () => {
           <Sample title="GamePlay" />
         </Slide>
         <Slide>
-          <Sample title="News" />
+          <Sample title="Gallery" />
         </Slide>
         <Slide>
-          <Sample title="Gallery" />
+          <Sample title="News" />
         </Slide>
         <Slide>
           <Sample title="Footer" />

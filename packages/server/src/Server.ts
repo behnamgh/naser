@@ -6,14 +6,20 @@ import * as cookieParser from "cookie-parser";
 import * as methodOverride from "method-override";
 import * as path from "path";
 import * as cors from "cors";
+import * as expressip from "express-ip";
+import * as session from "express-session";
+import * as connectRedis from "connect-redis";
+import { redis } from "./redis";
+
 import "./providers/PassportJWTService";
 
 const rootDir = __dirname;
 const clientDir = path.join(rootDir, "../../client/build");
+const redisStore = connectRedis(session);
 
 @ServerSettings({
   mongoose: {
-    url: "mongodb://127.0.0.1:27017/example-mongoose"
+    url: process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : "mongodb://127.0.0.1:27017/example-mongoose"
   },
   rootDir,
   acceptMimes: ["application/json"],
@@ -39,6 +45,7 @@ const clientDir = path.join(rootDir, "../../client/build");
   }
 })
 export class Server extends ServerLoader {
+
   constructor(settings) {
     super(settings);
   }
@@ -57,9 +64,24 @@ export class Server extends ServerLoader {
       .use(bodyParser.urlencoded({
         extended: true
       }))
-      .use(cors({ origin: true, credentials: true }));
+      .use(cors({ origin: true, credentials: true }))
+      .use(expressip().getIpInfoMiddleware)
+      .use(session({
+        store: new redisStore({
+          client: redis as any
+        }),
+        // name: "qid",
+        secret: "aslkdfjoiq12312",
+        resave: true,
+        saveUninitialized: true,
+        cookie: {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          // secure: true,
+          maxAge: 1000 * 60 // 7 years
+        }
+      }));
 
-    return null;
   }
 
   $afterRoutesInit() {
