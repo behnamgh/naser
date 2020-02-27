@@ -19,7 +19,7 @@ const redisStore = connectRedis(session);
 
 @ServerSettings({
   mongoose: {
-    url: "mongodb://127.0.0.1:27017/example-mongoose"
+    url: process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : "mongodb://127.0.0.1:27017/example-mongoose"
   },
   rootDir,
   acceptMimes: ["application/json"],
