@@ -27,7 +27,7 @@
     "@types/http-proxy": "^1.16.2",
     "@types/mocha": "^7.0.1",
     "@types/mongoose": "^5.7.1",
-    "@types/node": "^12.7.2",
+    "@types/node": "^13.7.6",
     "@types/request-promise": "^4.1.41",
     "@types/supertest": "^2.0.4",
     "@types/swagger-schema-official": "^2.0.9",
