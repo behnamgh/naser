@@ -15,14 +15,13 @@ export class AnalyticsService {
         return doc;
     }
 
-    async readLogs(): Promise<ViewLog[]> {
-        // const result = await this.analyticModel.find();
-        const result = await this.analyticModel.aggregate([ {
+    async readLogs(group?: any): Promise<ViewLog[]> {
+        const result = await group ? this.analyticModel.aggregate([{
             $group: {
-                _id: { ipAddress: "$ipAddress.address" },
+                _id: group,
                 count: { $sum: 1 }
             },
-        }]);
+        }]) : this.analyticModel.find();
         // const result = await this.analyticModel.aggregate([{
         //     $group: {
         //         _id: "$device",

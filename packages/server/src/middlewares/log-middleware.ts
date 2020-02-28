@@ -8,14 +8,20 @@ export class AnalyticsMiddleware {
     }
 
     async use(@Req() request: any, @Next() next: Next) {
+        const now = new Date();
+        const createdAt = {
+            date: `${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`,
+            time: `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+        };
         let obj: any = {
             ipAddress: request.client._peername,
-            device: request.headers["user-agent"]
+            device: request.headers["user-agent"],
+            createdAt,
+            createdAtDate: now
         };
         if (request.ipInfo && request.ipInfo.country) {
             obj = Object.assign(obj, { ipInfo: request.ipInfo });
         }
-        console.log(obj);
         await this.analyticService.addLog(obj);
         next();
     }

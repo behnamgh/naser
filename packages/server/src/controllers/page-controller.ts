@@ -1,8 +1,8 @@
-import { BodyParams, Controller, Get, Post, Required, Put, Delete, PathParams, Req, UseBefore } from "@tsed/common";
+import { BodyParams, Controller, Get, Post, Required, Put, Delete, PathParams, Req, UseBefore, QueryParams } from "@tsed/common";
 import { PagessService } from "../services/page-service";
 import { AnalyticsService } from "../services/analytic-service";
 import { IContent } from "../types/type";
-import { AnalyticsMiddleware } from "../middlewares/redis-middle";
+import { AnalyticsMiddleware } from "../middlewares/log-middleware";
 
 @Controller("/page")
 export class UserController {
@@ -26,8 +26,9 @@ export class UserController {
     }
     @Get("/readData")
     async readData(
+        @QueryParams("mode") mode: string
     ) {
-        return await this.analyticsService.readLogs()
+        return await this.analyticsService.readLogs(mode ? `$${mode}` : undefined);
     }
 
     @Get("/:id")

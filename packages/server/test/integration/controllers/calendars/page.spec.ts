@@ -14,9 +14,9 @@ describe("Pages", () => {
   after(TestContext.reset);
 
   // then run your test
-  describe("GET /rest/page", () => {
+  describe("GET /page", () => {
     it("should return all pages", async () => {
-      const response = await request.get("/rest/page").expect(200);
+      const response = await request.get("/page").expect(200);
       expect(response.body).to.be.an("array");
     });
   });

@@ -21,8 +21,13 @@ export class ViewLog {
     device: string;
 
     @Property()
-    // @Required()
+    @Required()
     @Description("Creation's date")
-    createdAt: Date = new Date();
+    createdAt: { date: string, time: string };
+
+    @Property()
+    @Required()
+    @Description("Creation's date")
+    createdAtDate: Date = new Date();
 
 }
