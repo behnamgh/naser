@@ -1,12 +1,14 @@
-import { BodyParams, Controller, Get, Post, Required, Put, Delete, PathParams, Req, UseBefore } from "@tsed/common";
+import { BodyParams, Controller, Get, Post, Required, Put, Delete, PathParams, Req, UseBefore, QueryParams } from "@tsed/common";
 import { PagessService } from "../services/page-service";
+import { AnalyticsService } from "../services/analytic-service";
 import { IContent } from "../types/type";
-import { CreateRequestSessionMiddleware } from "../middlewares/redis-middle";
+import { AnalyticsMiddleware } from "../middlewares/log-middleware";
 
 @Controller("/page")
 export class UserController {
     constructor(
-        private pageService: PagessService
+        private pageService: PagessService,
+        private analyticsService: AnalyticsService
     ) {
     }
     @Get("/")
@@ -14,15 +16,21 @@ export class UserController {
     ) {
         return await this.pageService.getPages();
     }
+
     @Get("/getData")
-    @UseBefore(CreateRequestSessionMiddleware)
+    @UseBefore(AnalyticsMiddleware)
     async getData(
         @Req() request: any
     ) {
-        return {
-            ok: request["ipInfo"]
-        };
+        return request["ipInfo"];
     }
+    @Get("/readData")
+    async readData(
+        @QueryParams("mode") mode: string
+    ) {
+        return await this.analyticsService.readLogs(mode ? `$${mode}` : undefined);
+    }
+
     @Get("/:id")
     async getPage(
         @Required() @PathParams("id") id: string
