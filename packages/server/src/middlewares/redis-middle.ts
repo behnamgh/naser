@@ -1,19 +1,22 @@
-import { Middleware, Req, Next, Err } from "@tsed/common";
-import { BadRequest } from "ts-httpexceptions";
-
+import { Middleware, PathParams, Req, Required, Next } from "@tsed/common";
+import { NotFound } from "ts-httpexceptions";
+import { AnalyticsService } from "../services/analytic-service";
 
 @Middleware()
-export class CreateRequestSessionMiddleware {
-    use(@Next() next: Next, @Req() request: any) {
-        console.log(["ipInfo", request["ipInfo"]]);
-        // if (!request.session.count) {
-        //     request.session.count = 0;
-        // }
-        // ++request.session.count;
-        // if (request.session.count === 32) {
-        //     throw (new BadRequest("Not a number"));
-        // }
+export class AnalyticsMiddleware {
+    constructor(private analyticService: AnalyticsService) {
+    }
 
+    async use(@Req() request: any, @Next() next: Next) {
+        let obj: any = {
+            ipAddress: request.client._peername,
+            device: request.headers["user-agent"]
+        };
+        if (request.ipInfo && request.ipInfo.country) {
+            obj = Object.assign(obj, { ipInfo: request.ipInfo });
+        }
+        console.log(obj);
+        await this.analyticService.addLog(obj);
         next();
     }
 }

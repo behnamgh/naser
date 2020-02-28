@@ -30,11 +30,11 @@ const clientDir = path.join(rootDir, "../../client/build");
     logRequest: false,
     requestFields: ["reqId", "method", "url", "headers", "query", "params", "duration"]
   },
-  // mount: {
-  //   "/rest": [
-  //     `${rootDir}/controllers/**/*.ts` // Automatic Import, /!\ doesn't works with webpack/jest, use  require.context() or manual import instead
-  //   ]
-  // },
+  mount: {
+    "/": [
+      `${rootDir}/controllers/*.ts`
+    ]
+  },
   swagger: [
     {
       path: "/api-docs"
