@@ -48,7 +48,7 @@ const Login = () => {
         let response = await new getHttpClient().post("/user/login", formData);
         userAuth.setSignedIn(response.data);
         AuthHelper.signIn(response.data.token)
-        history.push("/dashboard")
+        history.push("/admin/dashboard")
 
     }
     const handleTextChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

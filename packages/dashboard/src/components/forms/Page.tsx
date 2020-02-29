@@ -60,7 +60,7 @@ const EditPage = ({ id }: any) => {
                         </Grid>)}
                     <Grid item xs={12}>
                         <Button type="submit">Save</Button>
-                        <Link to="/dashboard"><Button type="submit">back</Button></Link>
+                        <Link to="/admin/dashboard"><Button type="submit">back</Button></Link>
                     </Grid>
                 </Grid>
             </form>}

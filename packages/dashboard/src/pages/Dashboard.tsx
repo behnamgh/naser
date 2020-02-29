@@ -52,7 +52,7 @@ export default function Dashboard() {
         {['Home'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <Link to={`/dashboard`}>
+            <Link to={`/admin/dashboard`}>
               <ListItemText primary={text} />
             </Link>
           </ListItem>
@@ -66,7 +66,7 @@ export default function Dashboard() {
         {pages.map((text: IPage, index: number) => (
           <ListItem button key={text.id}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <Link to={`/dashboard/edit/${text.id}`}>
+            <Link to={`/admin/dashboard/edit/${text.id}`}>
               <ListItemText primary={text.title} />
             </Link>
           </ListItem>
@@ -96,9 +96,9 @@ export default function Dashboard() {
 
           </Grid>
         </Grid>
-        <Route path="/dashboard" title="Dashboard" exact component={Pages} />
-        <Route path="/dashboard/add" title="Add New Page" exact component={Add} />
-        <Route path="/dashboard/edit/:id" title="Edit Page" exact component={EditPage} />
+        <Route path="/admin/dashboard" title="Dashboard" exact component={Pages} />
+        <Route path="/admin/dashboard/add" title="Add New Page" exact component={Add} />
+        <Route path="/admin/dashboard/edit/:id" title="Edit Page" exact component={EditPage} />
       </Router>
     </Container>
   );

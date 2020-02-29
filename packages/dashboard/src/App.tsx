@@ -12,8 +12,9 @@ const App = () => {
     <Router>
       <Switch>
         <Route path="/" exact component={Login} />
-        {user.token && <Route path="/dashboard" component={Dashboard} />}
-        <Route path="/login" component={Login} />
+        <Route path="/admin" exact component={Login} />
+        {user.token && <Route path="/admin/dashboard" component={Dashboard} />}
+        <Route path="/admin/login" component={Login} />
       </Switch>
     </Router>
 

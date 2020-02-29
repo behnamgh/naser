@@ -15,6 +15,7 @@ import "./providers/PassportJWTService";
 
 const rootDir = __dirname;
 const clientDir = path.join(rootDir, "../../client/build");
+const dashboardDir = path.join(rootDir, "../../dashboard/build");
 // const redisStore = connectRedis(session);
 
 @ServerSettings({
@@ -41,7 +42,7 @@ const clientDir = path.join(rootDir, "../../client/build");
     }
   ],
   statics: {
-    "/": clientDir
+    "/": [clientDir, dashboardDir]
   }
 })
 export class Server extends ServerLoader {
@@ -70,6 +71,9 @@ export class Server extends ServerLoader {
   }
 
   $afterRoutesInit() {
+    this.expressApp.get(`/admin`, (req, res) => {
+      res.sendFile(path.join(dashboardDir, "index.html"));
+    });
     this.expressApp.get(`*`, (req, res) => {
       res.sendFile(path.join(clientDir, "index.html"));
     });

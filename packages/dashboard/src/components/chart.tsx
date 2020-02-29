@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from 'react';
-import { Chart, Ba } from 'react-charts';
+import { Chart } from 'react-charts';
 import useDatas from "./hooks/useDatas";
 
 const ChartComponent = () => {
-    const [mode, updateMode] = useState("createdAt.date")
+    const [mode] = useState("createdAt.date")
 
     const axes = useMemo(
         () => [

@@ -12,7 +12,7 @@
     "test:e2e": "lerna run test:e2e",
     "test:client": "lerna run test --scope=@project/client",
     "test:server": "lerna run test --scope=@project/server",
-    "build": "lerna run build --scope server --scope client",
+    "build": "lerna run build",
     "build:client": "lerna run build --scope=@project/client --stream",
     "build:server": "lerna run build --scope=@project/server --stream",
     "start": "lerna run start --stream --scope server",
@@ -28,6 +28,11 @@
   "dependencies": {
     "lerna": "3.18.4",
     "pm2": "4.1.2"
+  },
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13.4",
+    "yarn": "1.22.0"
   },
   "devDependencies": {
     "cross-env": "^5.2.0"

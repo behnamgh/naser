@@ -44,7 +44,7 @@ export default function CardItem({ id, title, active }: IMainProps) {
             </CardContent>
             <CardActions>
                 <Button size="small">
-                    <Link to={`/dashboard/edit/${id}`}>
+                    <Link to={`/admin/dashboard/edit/${id}`}>
                         Edit
                     </Link>
                 </Button>
