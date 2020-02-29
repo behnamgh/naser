@@ -16,8 +16,10 @@ export class AnalyticsMiddleware {
             date: `${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`,
             time: `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
         };
+        console.log(request.client);
+        console.log(request.headers);
         let obj: any = {
-            ipAddress: request.client._peername,
+            ipAddress: request.client._peername || {},
             device: request.headers["user-agent"],
             createdAt,
             createdAtDate: now
