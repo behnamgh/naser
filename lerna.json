@@ -11,8 +11,7 @@
   "command": {
     "bootstrap": {
       "npmClientArgs": [
-        "--no-package-lock",
-        "--mutex network"
+        "--no-package-lock"
       ]
     }
   }
