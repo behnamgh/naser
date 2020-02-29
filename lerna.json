@@ -3,7 +3,17 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
-    "packages/**"
+    "packages/client",
+    "packages/server",
+    "packages/dashboard"
   ],
-  "version": "2.1.13"
+  "version": "2.1.13",
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock",
+        "--mutex network"
+      ]
+    }
+  }
 }
