@@ -5,8 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "postinstall": "lerna bootstrap",
-    "bootstrap": "lerna bootstrap",
+    "postinstall": "lerna exec yarn && lerna link",
+    "bootstrap": "lerna exec yarn && lerna link",
     "bootstrap:production": "lerna bootstrap -- --production",
     "test": "lerna run test --stream",
     "test:e2e": "lerna run test:e2e",
