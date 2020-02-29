@@ -5,6 +5,9 @@ import { AnalyticsService } from "../services/analytic-service";
 @Middleware()
 export class AnalyticsMiddleware {
     constructor(private analyticService: AnalyticsService) {
+        console.log("=================process.env");
+        console.log(process.env);
+
     }
 
     async use(@Req() request: any, @Next() next: Next) {
