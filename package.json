@@ -15,7 +15,7 @@
     "build": "lerna run build --stream",
     "build:client": "lerna run build --scope=client --stream",
     "build:server": "lerna run build --scope=server --stream",
-    "start": "lerna run start --stream --scope server",
+    "start": "lerna run start --stream --parallel",
     "start:dev": "lerna run start:dev --stream --parallel",
     "start:client": "lerna run start --scope=client --stream",
     "start:server": "lerna run start --scope=server --stream",
