@@ -16,10 +16,8 @@ export class AnalyticsMiddleware {
             date: `${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`,
             time: `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
         };
-        console.log(request.client);
-        console.log(request.headers);
         let obj: any = {
-            ip: request.headers["x-forwarded-for"],
+            ip: request.headers["x-forwarded-for"] || request.client._peername.address,
             headers: request.headers,
             device: request.headers["user-agent"],
             createdAt,
