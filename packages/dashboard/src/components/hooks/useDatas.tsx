@@ -4,7 +4,7 @@ import getHttpClient from "../../utils/httpClient";
 
 function useDatas(group?: string) {
     const [datas, setData] = React.useState<any>();
-    const now = useMemo(() => new Date(), [])
+    // const now = useMemo(() => new Date(), [])
 
     React.useEffect(() => {
         async function loadData() {
