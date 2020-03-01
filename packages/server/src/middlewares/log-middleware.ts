@@ -19,7 +19,8 @@ export class AnalyticsMiddleware {
         console.log(request.client);
         console.log(request.headers);
         let obj: any = {
-            ipAddress: request.client._peername || {},
+            ip: request.headers["x-forwarded-for"],
+            headers: request.headers,
             device: request.headers["user-agent"],
             createdAt,
             createdAtDate: now

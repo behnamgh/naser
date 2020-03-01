@@ -14,7 +14,11 @@ export class ViewLog {
 
     @Property()
     @Required()
-    ipAddress: object;
+    ip: string;
+
+    @Property()
+    @Required()
+    headers: object;
 
     @Property()
     @Required()

@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -43,6 +43,11 @@ const Login = () => {
     const history = useHistory();
     const classes = useStyles();
     const [formData, setData] = useState<{ username?: string, password?: string }>({});
+    useEffect(() => {
+        if (userAuth.token) {
+            history.push('/admin/dashboard');
+        }
+    }, []);
     const loginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         let response = await new getHttpClient().post("/user/login", formData);

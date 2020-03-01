@@ -1,4 +1,4 @@
-import { BodyParams, Controller, Get, Post, Required, Put, Delete, PathParams, Req, UseBefore, QueryParams } from "@tsed/common";
+import { BodyParams, Controller, Get, Post, Required, Put, Delete, PathParams, Req, UseAfter, QueryParams } from "@tsed/common";
 import { PagessService } from "../services/page-service";
 import { AnalyticsService } from "../services/analytic-service";
 import { IContent } from "../types/type";
@@ -18,7 +18,7 @@ export class UserController {
     }
 
     @Get("/getData")
-    @UseBefore(AnalyticsMiddleware)
+    @UseAfter(AnalyticsMiddleware)
     async getData(
         @Req() request: any
     ) {

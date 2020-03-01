@@ -71,9 +71,11 @@ export class Server extends ServerLoader {
   }
 
   $afterRoutesInit() {
-    this.expressApp.get(`/admin`, (req, res) => {
+
+    this.expressApp.get([`/admin`, `/admin/**`], (req, res) => {
       res.sendFile(path.join(dashboardDir, "index.html"));
     });
+
     this.expressApp.get(`*`, (req, res) => {
       res.sendFile(path.join(clientDir, "index.html"));
     });
