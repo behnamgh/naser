@@ -1,10 +1,10 @@
-import React, { useMemo } from "react";
+import React from "react";
 import getHttpClient from "../../utils/httpClient";
 // import { useSnackbar } from 'notistack';
 
 function useDatas(group?: string) {
     const [datas, setData] = React.useState<any>();
-    const now = useMemo(() => new Date(), [])
+    // const now = useMemo(() => new Date(), [])
 
     React.useEffect(() => {
         async function loadData() {
