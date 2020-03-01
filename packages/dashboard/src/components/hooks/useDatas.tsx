@@ -11,11 +11,14 @@ function useDatas(group?: string) {
             try {
                 const response: any = await new getHttpClient().get(`/page/readData${group ? `?mode=${group}` : ""}`);
                 if (response && response.data) {
+
                     let dataPoints: any = [];
                     if (group && group.includes("createdAt")) {
                         dataPoints = response.data.map((i: any) => ({ x: new Date(i._id), y: i.count }))
-                    } else {
+                    } else if (group) {
                         dataPoints = response.data.map((i: any) => ({ label: i._id, y: i.count }))
+                    } else {
+                        dataPoints = response.data;
                     }
                     setData(dataPoints)
                 }

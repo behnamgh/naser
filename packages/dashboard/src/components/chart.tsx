@@ -14,12 +14,7 @@ const ChartComponent = () => {
     const data = useDatas(groupMode);
 
     const handleAlignment = (event: React.MouseEvent<HTMLElement>, newGroup: string) => {
-        if (newGroup !== groupMode) {
-            setGroupMode(newGroup);
-        } else {
-            setGroupMode(undefined);
-
-        }
+        setGroupMode(newGroup);
     };
 
     const options = useMemo(
