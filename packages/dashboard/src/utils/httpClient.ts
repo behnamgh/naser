@@ -34,9 +34,6 @@ class HttpClient {
 
     public constructor(config?: IHttpConfig, errorTable?: IHttpErrorTable) {
         this.instance = axios.create({
-            baseURL: process.env.NODE_ENV === "development" ?
-                "http://192.168.0.111:8081/" :
-                "https://son-of-man.herokuapp.com/",
             headers: { token: localStorage.getItem("token") }
         });
         this.errorTable = errorTable;
