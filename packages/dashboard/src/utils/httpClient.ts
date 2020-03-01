@@ -33,8 +33,6 @@ class HttpClient {
     public errorTable: IHttpErrorTable | undefined;
 
     public constructor(config?: IHttpConfig, errorTable?: IHttpErrorTable) {
-        console.log(process.env.NODE_ENV);
-
         this.instance = axios.create({
             baseURL: process.env.NODE_ENV === "development" ?
                 "http://192.168.0.111:8081/" :

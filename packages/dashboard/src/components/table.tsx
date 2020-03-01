@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MaterialTable, { Column } from 'material-table';
 import useDatas from "./hooks/useDatas";
 import Icon from '@material-ui/core/Icon';
 import StopScreenShareSharpIcon from '@material-ui/icons/StopScreenShareSharp';
 import PhoneIphoneSharpIcon from '@material-ui/icons/PhoneIphoneSharp';
+
 
 interface Row {
   name: string;
@@ -19,14 +20,12 @@ interface TableState {
 
 export default function MaterialTableDemo() {
   const data = useDatas();
-  console.log(["data", data]);
-
   const columns = React.useMemo<TableState["columns"]>(() => [
     { title: 'ID', field: 'id', filtering: false },
     { title: 'Date', field: 'createdAtDate', type: "date" },
     { title: 'time', field: 'createdAtDate', type: "time" },
 
-    { title: 'IP', field: 'ipAddress.address' },
+    { title: 'IP', field: 'ip' },
     { title: 'Country', field: 'ipInfo.country' },
     {
       field: 'url',
@@ -43,23 +42,22 @@ export default function MaterialTableDemo() {
     },
   ], []);
 
-  return (
-    <MaterialTable
-      title="LOGS"
-      isLoading={!data}
-      columns={columns}
-      data={data}
-      options={{
-        sorting: true,
-        grouping: true,
-        exportAllData: true,
-        exportButton: true,
-        filtering: true,
-        pageSize: 10,
-        pageSizeOptions: [10, 20, 50],
-        showFirstLastPageButtons: false
+  return (<MaterialTable
+    title="LOGS"
+    isLoading={!data}
+    columns={columns}
+    data={data}
+    options={{
+      sorting: true,
+      grouping: true,
+      exportAllData: true,
+      exportButton: true,
+      filtering: true,
+      pageSize: 10,
+      pageSizeOptions: [10, 20, 50],
+      showFirstLastPageButtons: false
 
-      }}
-    />
+    }}
+  />
   );
 }

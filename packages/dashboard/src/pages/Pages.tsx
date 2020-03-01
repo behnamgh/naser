@@ -12,7 +12,7 @@ const Pages = () => {
             <Grid item xs={12}>
                 <CardList />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} style={{ marginTop: '50px' }}>
                 <Table />
             </Grid>
         </Grid>
