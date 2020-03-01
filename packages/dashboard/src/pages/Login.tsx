@@ -47,7 +47,7 @@ const Login = () => {
         if (userAuth.token) {
             history.push('/admin/dashboard');
         }
-    }, []);
+    }, [history, userAuth.token]);
     const loginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         let response = await new getHttpClient().post("/user/login", formData);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MaterialTable, { Column } from 'material-table';
 import useDatas from "./hooks/useDatas";
 import Icon from '@material-ui/core/Icon';

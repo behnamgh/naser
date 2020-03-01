@@ -6,9 +6,8 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
 import CanvasJSReact from './canvasjs.react';
 import { Grid } from '@material-ui/core';
-//var CanvasJSReact = require('./canvasjs.react');
-var CanvasJS = CanvasJSReact.CanvasJS;
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const ChartComponent = () => {
     const [groupMode, setGroupMode] = useState<string | undefined>("createdAt.date");
