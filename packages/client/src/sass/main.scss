@@ -40,11 +40,12 @@
         // width: 80%;
         z-index: 7;
         position: fixed;
-        pointer-events:none
+        pointer-events:none;
+        left: 10%;
     }
 
     img:first-child{
-        top: 1%;
+        top: 0%;
         height: 49%;
     }
 
