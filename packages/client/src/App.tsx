@@ -149,7 +149,7 @@ const App = (props : any) => {
           <Section title="News" />
         </Slide>
         <Slide>
-          <Section title="Footer" />
+          <Section title="JoinUs" />
         </Slide>
       </FullPage>
     </div>

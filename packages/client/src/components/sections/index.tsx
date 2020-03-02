@@ -32,7 +32,7 @@ const Section = ({ title }: ISampleProps) => {
       case "News":
         component = <News />;
         break;
-      case "joinUs":
+      case "JoinUs":
         component = <JoinUs />;
         break;
       default:
