@@ -36,10 +36,6 @@ const App = (props : any) => {
   const image4 = useRef<HTMLImageElement>(null);
   const image8 = useRef<HTMLImageElement>(null);
 
-  // const startChange = (data: { from: number, to: number }) => {
-  //   setstate(data.from)
-  // }
-
   useEffect(() => {
     window.addEventListener("scroll" , (e) => {
       if(image2.current) image2.current.style.transform = `rotate(${-window.scrollY/10}deg)`;
@@ -68,6 +64,7 @@ const App = (props : any) => {
 
   // const checkScrollPosition = (currentSlideIndex : number) => {
   //   let element = document.getElementsByClassName("section") as HTMLCollectionOf<HTMLElement>;
+  
   //   if(element[currentSlideIndex]) return  Math.floor(element[currentSlideIndex].offsetTop / element[currentSlideIndex].clientHeight)  === currentSlideIndex
   // }
 
