@@ -1,4 +1,4 @@
-import React, { useState , useEffect , useRef } from 'react';
+import React, { useEffect , useRef } from 'react';
 import WALL from './images/wall-left.png'
 import GEARS1 from './images/gears-1.png'
 import GEARS2 from './images/gears-2.png'
