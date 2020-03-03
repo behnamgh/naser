@@ -1,13 +1,17 @@
 
 // All styles here...
-@import './header.scss';
-
+@import './sections/index.scss';
 
 .App{
-    background-color: #000000;
     height: 100vh;
     // position: relative;
     // overflow: hidden;
+    scroll
+
+    &::-webkit-scrollbar {
+        background: #999;
+        width: 0;
+      }
 }
 
 .walls{
@@ -15,7 +19,7 @@
         position: fixed;
         width: 10%;
         height: 100%;
-        z-index: 2;
+        z-index: 10;
     }
     img:first-child{
         left: 0;
@@ -34,17 +38,20 @@
     align-items: center;
     img{
         // width: 80%;
+        z-index: 7;
         position: fixed;
+        pointer-events:none;
+        left: 10%;
     }
 
     img:first-child{
-        top: 2%;
-        height: 53%;
+        top: 0%;
+        height: 49%;
     }
 
     img:last-child{
         bottom: 0;
-        height: 52.5%;
+        height: 49%;
     }
 }
 .fixed{
@@ -54,7 +61,7 @@
 .gear-stand{
     // width: 4.5%;
     height: 30%;
-    z-index: 100;
+    z-index: 8;
     left: 10%;
     top: 34%;
 }
@@ -63,7 +70,7 @@
     left: 10%;
     top: 45.8%;
     // width: 5%;
-    z-index: 100;
+    z-index: 8;
     height: 9%;
 }
 
@@ -72,7 +79,7 @@
     top: 51.5%;
     // width: 6%;
     height: 12%;
-    z-index: 1;
+    z-index: 7;
 }
 
 .gear-3{
@@ -80,7 +87,7 @@
     top: 37.8%;
     // width: 5%;
     height: 10%;
-    z-index: 1;
+    z-index: 7;
 }
 
 .logo{
@@ -90,10 +97,11 @@
     height: 25%;
     display: flex;
     justify-content: center;
+    z-index: 1;
 
     img:first-child{
         position: absolute;
-        top: -17%;
+        top: -22%;
         // width: 500px;
         // width: 34%;
         max-height: 100%;
@@ -103,9 +111,11 @@
         position: absolute;
         // width: 25%;
         height: 70%;
-        top: 12%;
+        top: 7%;
     }
 }
+
+    
 
 .content{
     position: absolute;
@@ -116,7 +126,7 @@
     left: 10%;
     top: 0;
     color:white;
-    z-index: 127;
+    // z-index: 127;
 
     >div{
         width: 100% !important;
@@ -135,38 +145,40 @@
 
 .tabs{
     &__container{
-        img:first-child{
-            height: 48%;
-            z-index: 129;
+        > img:first-child {
+            top: 27%;
+            z-index: 6;
+            height: 52%;
+            right: 9.6%;
             position: fixed;
-            right: 9.5%;
-            top: 32%;
+            pointer-events: none;
         }
+
         img:last-child{
             top: 44.1%;
             z-index: 129;
             height: 12%;
-            right: 10.8%;
+            right: 11.3%;
             position: fixed;
+            transition: opacity 2s ease-in-out;
         }
-
     }
 
     > img {
-        height: 5.6%;
+        height: 6%;
         position: fixed;
         right: 12.7%;
-        transition: all 0.2s ease-in-out;
-        z-index: 128;
+        transition: transform 0.8s ease-in-out;
+        z-index: 5;
         cursor: pointer;
     }
 
-    &-h{ top: 35.5%; } 
-    &-v{ top: 41.2%;}
-    &-p{ top: 46.9%;}
-    &-g{ top: 52.6%;}
-    &-n{ top: 58.3%;}
-    &-j{ top: 64%;}
+    &-h{ top: 31.5%;} 
+    &-v{ top: 37.6%;}
+    &-p{ top: 43.7%;}
+    &-g{ top: 49.8%;}
+    &-n{ top: 55.9%;}
+    &-j{ top: 62%;}
 
 }
 .cloclwise,.antianticloclwise{
@@ -180,6 +192,41 @@
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
 }
+
+.section-header{
+    position: relative;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    z-index: 1;
+    pointer-events: none;
+
+    img{
+        transition: opacity .5s ease-in;
+    }
+
+    img:first-child{
+        position: fixed;
+        top: -93px;
+        height: 32%;
+        z-index: 4;
+    }
+
+    img:last-child{
+        position: fixed;
+        top: 40px;
+        height: 8%;
+        z-index: 4;
+    }
+
+    img:not(first-child ,last-child ) {
+        position: fixed;
+        top: 52px;
+        height: 5%;
+        z-index: 5;
+    } 
+
+  }
 
 
 @keyframes antiClockwiseSpin {
