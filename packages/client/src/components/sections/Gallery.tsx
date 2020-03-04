@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Gallery() {
+export default function Gallery({ page }: any) {
   return (
     <div>
-      asdasdas
+      {page && page.title}
     </div>
   )
 }

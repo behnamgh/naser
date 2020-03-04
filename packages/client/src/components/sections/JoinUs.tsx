@@ -6,7 +6,7 @@ import FACEBOOK from '../../images/-e-FB1.png'
 import TWITTER from '../../images/-e-Twitter1.png'
 import WEBSITE from '../../images/-e-WebSite1.png'
 
-export default function JoinUs() {
+export default function JoinUs({ page }: any) {
   return (
     <div className="join-us">
       <div className="join-us__body">

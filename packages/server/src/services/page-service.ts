@@ -15,8 +15,8 @@ export class PagessService {
         return doc;
     }
 
-    async getPages(): Promise<Page[]> {
-        const doc = this.pageModel.find({}).populate(["userId"]);
+    async getPages(page: string): Promise<Page> {
+        const doc = this.pageModel.findOne({ name: page }).sort({ order: 1 });
 
         return doc;
     }
