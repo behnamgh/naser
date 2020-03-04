@@ -14,6 +14,7 @@ export class Page {
     @Required()
     name: string;
 
+
     @Property()
     @Required()
     title: string;
@@ -26,10 +27,9 @@ export class Page {
     @Required()
     contents: IContent[];
 
-    @Ref(User)
-    @Description("User ID")
-    userId: Ref<User>;
-
+    @Property()
+    @Required()
+    order: number;
 
     @Property()
     @Required()

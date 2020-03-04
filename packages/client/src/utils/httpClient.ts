@@ -34,6 +34,7 @@ class HttpClient {
 
     public constructor(config?: IHttpConfig, errorTable?: IHttpErrorTable) {
         this.instance = axios.create({
+            baseURL:"http://localhost:8081/",
             headers: { token: localStorage.getItem("token") }
         });
         this.errorTable = errorTable;

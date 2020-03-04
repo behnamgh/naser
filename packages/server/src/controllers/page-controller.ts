@@ -13,8 +13,9 @@ export class UserController {
     }
     @Get("/")
     async getPages(
+        @QueryParams("page") page: string
     ) {
-        return await this.pageService.getPages();
+        return await this.pageService.getPages(page);
     }
 
     @Get("/getData")

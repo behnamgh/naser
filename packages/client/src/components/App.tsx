@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 
-
 import Section from './sections';
 import { FullPage, Slide } from 'react-full-page';
 import Frames from "./Frames";
@@ -10,57 +9,55 @@ import Menu from "./Menu";
 import Gears from "./Gears";
 import '../sass/main.scss';
 
-const App = (props: any) => {
+const App = () => {
 
   const ImageRefs = {
-    image2: useRef<HTMLImageElement>(null),
-    image3: useRef<HTMLImageElement>(null),
-    image4: useRef<HTMLImageElement>(null),
-    image8: useRef<HTMLImageElement>(null)
+    gear1: useRef<HTMLImageElement>(null),
+    gear2: useRef<HTMLImageElement>(null),
+    gear3: useRef<HTMLImageElement>(null),
+    mainHeader: useRef<HTMLImageElement>(null)
   }
-
 
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
-      if (ImageRefs.image2.current) ImageRefs.image2.current.style.transform = `rotate(${-window.scrollY / 10}deg)`;
-      if (ImageRefs.image3.current) ImageRefs.image3.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
-      if (ImageRefs.image4.current) ImageRefs.image4.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
+      if (ImageRefs.gear1.current) ImageRefs.gear1.current.style.transform = `rotate(${-window.scrollY / 10}deg)`;
+      if (ImageRefs.gear2.current) ImageRefs.gear2.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
+      if (ImageRefs.gear3.current) ImageRefs.gear3.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
     })
   });
 
   const startChange = (data: { from: number, to: number }) => {
-    if (ImageRefs.image8.current) ImageRefs.image8.current.style.display = "none"
+    if (ImageRefs.mainHeader.current) ImageRefs.mainHeader.current.style.display = "none"
   }
 
   const endChange = (data: { from: number, to: number }) => {
-    if (ImageRefs.image8.current) ImageRefs.image8.current.style.display = "unset"
+    if (ImageRefs.mainHeader.current) ImageRefs.mainHeader.current.style.display = "unset"
   }
 
   return (<div className="App">
-
     <Walls />
     <Logos />
     <Gears ImageRefs={ImageRefs} />
     <Frames />
     <div className="content">
-      <FullPage controls={(props: any) => <Menu {...props} forwardRef={ImageRefs.image8} />} afterChange={endChange} beforeChange={startChange}>
+      <FullPage controls={(props: any) => <Menu {...props} forwardRef={ImageRefs.mainHeader} />} afterChange={endChange} beforeChange={startChange}>
         <Slide>
-          <Section title="Header" />
+          <Section title="homepage" />
         </Slide>
         <Slide>
-          <Section title="Videos" />
+          <Section title="videos" />
         </Slide>
         <Slide>
-          <Section title="GamePlay" />
+          <Section title="gameplay" />
         </Slide>
         <Slide>
-          <Section title="Gallery" />
+          <Section title="gallery" />
         </Slide>
         <Slide>
-          <Section title="News" />
+          <Section title="news" />
         </Slide>
         <Slide>
-          <Section title="JoinUs" />
+          <Section title="joinus" />
         </Slide>
       </FullPage>
     </div>
