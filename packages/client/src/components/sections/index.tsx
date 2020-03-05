@@ -6,41 +6,38 @@ import Header from './Header'
 import GamePlay from './GamePlay';
 import News from './News';
 import JoinUs from './JoinUs';
-import usePages from '../hooks/usePages';
-
 
 
 interface ISampleProps {
-  title: string;
+  page: any;
 }
 
-const Section = ({ title }: ISampleProps) => {
-  const pageContent = usePages(title);
+const Section = ({ page }: ISampleProps) => {
 
   const renderComponent = () => {
-    console.log(["pageContent", pageContent]);
+    console.log(["page.pageContent", page.title]);
 
-    switch (title) {
+    switch (page.name) {
       case "homepage":
-        return <Header page={pageContent} />;
+        return <Header page={page} />;
 
       case "videos":
-        return <Videos page={pageContent} />;
+        return <Videos page={page} />;
 
       case "gallery":
-        return <Gallery page={pageContent} />;
+        return <Gallery page={page} />;
 
       case "gameplay":
-        return <GamePlay page={pageContent} />;
+        return <GamePlay page={page} />;
 
       case "news":
-        return <News page={pageContent} />;
+        return <News page={page} />;
 
       case "joinus":
-        return <JoinUs page={pageContent} />;
+        return <JoinUs page={page} />;
 
       default:
-        return <Header page={pageContent} />;
+        return <Header page={page} />;
     }
 
   }
