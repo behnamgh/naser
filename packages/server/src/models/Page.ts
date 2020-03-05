@@ -19,6 +19,14 @@ export class Page {
     @Required()
     title: string;
 
+    @Property()
+    // @Required()
+    menuImage: string;
+
+    @Property()
+    // @Required()
+    titleImage: string;
+
     // @Ref(Template)
     // @Description("Template ID")
     // templateId: Ref<Template>;

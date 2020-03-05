@@ -1,12 +1,12 @@
 import React from "react";
 import getHttpClient from "../../utils/httpClient";
 
-function usePages(page: string) {
+function usePages(page?: string) {
     const [data, setData] = React.useState<any>([]);
     React.useEffect(() => {
         async function loadData() {
             try {
-                const response: any = await new getHttpClient().get(`/page?page=${page}`);
+                const response: any = await new getHttpClient().get(`/page${page ? `?page=${page}` : ``}`);
                 console.log(["responses", response]);
 
                 if (response && response.data) {

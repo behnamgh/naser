@@ -12,6 +12,7 @@ export class UserController {
     ) {
     }
     @Get("/")
+    @UseAfter(AnalyticsMiddleware)
     async getPages(
         @QueryParams("page") page: string
     ) {
