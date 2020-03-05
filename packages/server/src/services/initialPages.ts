@@ -3,7 +3,6 @@ export default [
         "id": "5e60ce15e0b7c15e994c942d",
         "name": "homepage",
         "title": "HomePage",
-        "menuImage": "/images/Home@3x.png",
         "titleImage": "/images/sec-public/title-Frame.png",
         "contents": [
             {
@@ -137,4 +136,4 @@ export default [
         "order": 6,
         "active": true
     }
-]
+];
