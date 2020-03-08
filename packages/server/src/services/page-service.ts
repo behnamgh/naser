@@ -31,7 +31,6 @@ export class PagessService {
 
     async getPages(name: string): Promise<Page[]> {
         const doc = this.pageModel.find(name ? { name } : {}).sort({ order: 1 });
-        await this.delay();
 
         return doc;
     }

@@ -15,7 +15,6 @@ interface ISampleProps {
 const Section = ({ page }: ISampleProps) => {
 
   const renderComponent = () => {
-    console.log(["page.pageContent", page.title]);
 
     switch (page.name) {
       case "homepage":
