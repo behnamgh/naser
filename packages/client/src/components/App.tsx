@@ -43,7 +43,7 @@ const App = ({ pages }: any) => {
     <div className="content">
       {pages && pages.length &&
         <FullPage controls={(props: any) => <Menu {...props} forwardRef={ImageRefs.mainHeader} pages={pages} />} afterChange={endChange} beforeChange={startChange}>
-          {pages.map((page: any) => <Slide>
+          {pages.map((page: any) => <Slide key={page.id}>
             <Section page={page} />
           </Slide>)}
         </FullPage>

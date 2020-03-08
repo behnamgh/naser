@@ -7,8 +7,6 @@ function usePages(page?: string) {
         async function loadData() {
             try {
                 const response: any = await new getHttpClient().get(`/page${page ? `?page=${page}` : ``}`);
-                console.log(["responses", response]);
-
                 if (response && response.data) {
                     setData(response.data)
                 }
