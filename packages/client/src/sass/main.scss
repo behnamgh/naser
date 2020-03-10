@@ -21,10 +21,10 @@
 .walls{
     img{
         position: fixed;
-        width: 12%;
+        width: 11%;
         height: 110%;
         top: -10px;
-        z-index: 0;
+        z-index: 50;
     }
     img:first-child{
         left: -10px;

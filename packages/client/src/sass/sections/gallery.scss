@@ -1,0 +1,28 @@
+.gallery{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &__container{
+    height: 89%;
+    position: absolute;
+    bottom: -12px;
+    z-index: 1;
+  }
+
+  &__holder{
+    position: absolute;
+    height: 16%;
+    top: 0;
+  }
+
+  &__bottom{
+    z-index: 1;
+    position: absolute;
+    bottom: 2%;
+    height: 26%;
+  }
+}
