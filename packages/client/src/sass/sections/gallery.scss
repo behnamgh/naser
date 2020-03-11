@@ -6,7 +6,7 @@
   justify-content: center;
   position: relative;
 
-  &__container{
+  &__background{
     height: 89%;
     position: absolute;
     bottom: -12px;
@@ -21,8 +21,41 @@
 
   &__bottom{
     z-index: 1;
+    height: 170px;
+    position: relative;
+    bottom: 25px;
+  }
+
+  &__naser{
+    z-index: 2;
+    width: 165px;
+    height: 103px;
     position: absolute;
-    bottom: 2%;
-    height: 26%;
+    top: -5px;
+    object-fit: cover;  
+  }
+
+  &__images{
+    position: relative;
+  }
+
+  &__container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+    width: 60%;
+    z-index: 5;
+    height: 100%;
+    right: 10px;
+
+    > div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+    }
   }
 }
