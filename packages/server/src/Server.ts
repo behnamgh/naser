@@ -20,7 +20,7 @@ const dashboardDir = path.join(rootDir, "../../dashboard/build");
 
 @ServerSettings({
   mongoose: {
-    url: process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : "mongodb://127.0.0.1:27017/example-mongoose"
+    url: process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : "mongodb://192.168.0.111:27017/load-mongoose"
   },
   rootDir,
   acceptMimes: ["application/json"],
