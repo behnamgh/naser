@@ -20,7 +20,6 @@ export class AnalyticsMiddleware {
             createdAtDate: now
         };
         if (request.ipInfo && request.ipInfo.country) {
-            console.log(request.ipInfo.country);
             obj = Object.assign(obj, { ipInfo: request.ipInfo });
         }
         await this.analyticService.addLog(obj);
