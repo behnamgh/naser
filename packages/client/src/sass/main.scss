@@ -2,6 +2,10 @@
 // All styles here...
 @import './sections/index.scss';
 
+.loadingContainer{
+    background-image: "images/wall-left.png";
+    height: 100vh;
+}
 .App{
     height: 100vh;
     // position: relative;
@@ -17,15 +21,16 @@
 .walls{
     img{
         position: fixed;
-        width: 10%;
-        height: 100%;
-        z-index: 10;
+        width: 12%;
+        height: 110%;
+        top: -10px;
+        z-index: 0;
     }
     img:first-child{
-        left: 0;
+        left: -10px;
     }
     img:last-child{
-        right: 0;
+        right: -10px;
     }
 }
 
@@ -66,28 +71,47 @@
     top: 34%;
 }
 
-.gear-1{
+.loading-gear{
     left: 10%;
     top: 45.8%;
     // width: 5%;
     z-index: 8;
     height: 9%;
 }
+.gear1{
+    left: 10%;
+    top: 45.8%;
+    // width: 5%;
+    z-index: 8;
+    height: 9%;
+    &-loading{ 
+        top: 40%;
+        left: 40%;
+    } 
+}
 
-.gear-2{
+.gear2{
     left: 9.4%;
     top: 51.5%;
     // width: 6%;
     height: 12%;
     z-index: 7;
+    &-loading{ 
+        top: 42%;
+        left: 31.7%;
+    } 
 }
 
-.gear-3{
+.gear3{
     left: 11%;
     top: 37.8%;
     // width: 5%;
     height: 10%;
     z-index: 7;
+    &-loading{ 
+        top: 42%;
+        left: 46%;
+    } 
 }
 
 .logo{
@@ -173,12 +197,12 @@
         cursor: pointer;
     }
 
-    &-h{ top: 31.5%;} 
-    &-v{ top: 37.6%;}
-    &-p{ top: 43.7%;}
-    &-g{ top: 49.8%;}
-    &-n{ top: 55.9%;}
-    &-j{ top: 62%;}
+    &-0{ top: 31.5%;} 
+    &-1{ top: 37.6%;}
+    &-2{ top: 43.7%;}
+    &-3{ top: 49.8%;}
+    &-4{ top: 55.9%;}
+    &-5{ top: 62%;}
 
 }
 .cloclwise,.antianticloclwise{

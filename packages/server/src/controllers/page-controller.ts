@@ -12,9 +12,11 @@ export class UserController {
     ) {
     }
     @Get("/")
+    @UseAfter(AnalyticsMiddleware)
     async getPages(
+        @QueryParams("page") page: string
     ) {
-        return await this.pageService.getPages();
+        return await this.pageService.getPages(page);
     }
 
     @Get("/getData")

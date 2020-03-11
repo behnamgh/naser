@@ -1,10 +1,9 @@
 import React from 'react'
 
-export default function News() {
+export default function News({ page }: any) {
   return (
     <div>
-      asdasd
-      
+      {page && page.title}
     </div>
   )
 }

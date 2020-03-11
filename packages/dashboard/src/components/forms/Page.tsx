@@ -24,8 +24,12 @@ const EditPage = ({ id }: any) => {
         console.log(["reposne", response]);
 
     }
-    const handleChange = (index: number, lang: string) => (event: any) => {
+    const handleContentsChange = (index: number, lang: string) => (event: any) => {
         pageData.contents[index].values[lang] = event.target.value;
+        setPageData({ ...pageData })
+    }
+    const handleChange = (name: string) => (event: any) => {
+        pageData[name] = event.target.value;
         setPageData({ ...pageData })
     }
     const handleRepeatableChange = (index: number, index2: number, lang: string) => (event: any) => {
@@ -45,6 +49,18 @@ const EditPage = ({ id }: any) => {
                     <Grid item xs={12}>
                         {pageData && pageData.title}
                     </Grid>
+                    <Grid item xs={12}>
+                        <TextField value={pageData.title} onChange={handleChange("title")} label="Title" variant="outlined" />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField value={pageData.titleImage} onChange={handleChange("titleImage")} label="titleImage" variant="outlined" />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField value={pageData.menuImage} onChange={handleChange("menuImage")} label="menuImage" variant="outlined" />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField value={pageData.order} onChange={handleChange("order")} label="Order" variant="outlined" />
+                    </Grid>
                     {pageData.contents.map((content: any, index: number) =>
                         <Grid item xs={12} md={4} lg={3}>
                             {content.unlimited ?
@@ -55,7 +71,7 @@ const EditPage = ({ id }: any) => {
                                     </IconButton>
                                 </>
                                 :
-                                <TextField value={content.values.en} onChange={handleChange(index, "en")} label={content.title} variant="outlined" />
+                                <TextField value={content.values?.en} onChange={handleContentsChange(index, "en")} label={content.title} variant="outlined" />
                             }
                         </Grid>)}
                     <Grid item xs={12}>

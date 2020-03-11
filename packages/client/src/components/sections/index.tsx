@@ -8,45 +8,45 @@ import News from './News';
 import JoinUs from './JoinUs';
 
 
-
 interface ISampleProps {
-    title: string;
+  page: any;
 }
 
-const Section = ({ title }: ISampleProps) => {
+const Section = ({ page }: ISampleProps) => {
 
-    let component = null;
-    switch(title) {
-      case "Header":
-        component = <Header />;
-        break;
-      case "Videos":
-        component = <Videos />;
-        break;
-      case "Gallery":
-        component = <Gallery />;
-        break;
-      case "GamePlay":
-        component = <GamePlay />;
-        break;
-      case "News":
-        component = <News />;
-        break;
-      case "JoinUs":
-        component = <JoinUs />;
-        break;
+  const renderComponent = () => {
+
+    switch (page.name) {
+      case "homepage":
+        return <Header page={page} />;
+
+      case "videos":
+        return <Videos page={page} />;
+
+      case "gallery":
+        return <Gallery page={page} />;
+
+      case "gameplay":
+        return <GamePlay page={page} />;
+
+      case "news":
+        return <News page={page} />;
+
+      case "joinus":
+        return <JoinUs page={page} />;
+
       default:
-        component = <Header />;
+        return <Header page={page} />;
     }
 
+  }
 
 
-    return (
-        <div className="section">
-
-            {component}
-        </div>
-    )
+  return (
+    <div className="section">
+      {renderComponent()}
+    </div>
+  )
 };
 
 export default Section;
