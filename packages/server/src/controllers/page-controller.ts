@@ -28,9 +28,11 @@ export class UserController {
     }
     @Get("/readData")
     async readData(
-        @QueryParams("mode") mode: string
+        @QueryParams("mode") mode: string,
+        @QueryParams("page") page: number,
+        @QueryParams("pageSize") pageSize: number,
     ) {
-        return await this.analyticsService.readLogs(mode ? `$${mode}` : undefined);
+        return this.analyticsService.readLogs(mode ? `$${mode}` : undefined, page, pageSize);
     }
 
     @Get("/:id")

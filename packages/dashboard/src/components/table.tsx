@@ -4,6 +4,7 @@ import useDatas from "./hooks/useDatas";
 import Icon from '@material-ui/core/Icon';
 import StopScreenShareSharpIcon from '@material-ui/icons/StopScreenShareSharp';
 import PhoneIphoneSharpIcon from '@material-ui/icons/PhoneIphoneSharp';
+import getHttpClient from "../utils/httpClient";
 
 
 interface Row {
@@ -52,15 +53,21 @@ export default function MaterialTableDemo() {
     title="LOGS"
     isLoading={!data}
     columns={columns}
-    data={data}
+    data={query =>
+      new Promise((resolve, reject) => {
+        console.log(["query", query]);
+        new getHttpClient().get(`/page/readData?page=${query.page}&pageSize=${query.pageSize}`).then((result: { data: any }) => result.data).then(resolve).catch(reject);
+      })
+    }
     options={{
       sorting: true,
       grouping: true,
       exportAllData: true,
       exportButton: true,
       filtering: true,
-      pageSize: 10,
-      pageSizeOptions: [10, 20, 50],
+      search: false,
+      pageSize: 20,
+      pageSizeOptions: [20, 50, 100],
       showFirstLastPageButtons: false
 
     }}
