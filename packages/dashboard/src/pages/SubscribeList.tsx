@@ -1,10 +1,8 @@
 import React from 'react';
-import CardList from '../components/chart';
 import Table from '../components/table';
-import { Grid } from '@material-ui/core';
 import getHttpClient from "../utils/httpClient";
 
-const Pages = () => {
+const SubscribeList = () => {
     // const pages = usePages();
     const columns = [
         { title: 'ID', field: 'id', filtering: false },
@@ -36,4 +34,4 @@ const Pages = () => {
     );
 };
 
-export default Pages;
+export default SubscribeList;
