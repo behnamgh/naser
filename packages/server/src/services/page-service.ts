@@ -29,8 +29,8 @@ export class PagessService {
         return doc;
     }
 
-    async getPages(name: string): Promise<Page[]> {
-        const doc = this.pageModel.find(name ? { name } : {}).sort({ order: 1 });
+    async getPages(): Promise<Page[]> {
+        const doc = this.pageModel.find({}).sort({ order: 1 });
 
         return doc;
     }

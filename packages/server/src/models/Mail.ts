@@ -4,32 +4,33 @@ import { Description } from "@tsed/swagger";
 import { Model, ObjectID } from "@tsed/mongoose";
 
 @Model()
-export class ViewLog {
+export class Mail {
 
     @ObjectID("id")
     _id: string;
 
     @Property()
-    ipInfo: object;
+    @Required()
+    html: string;
 
     @Property()
     @Required()
-    ip: string;
+    subject: string;
 
     @Property()
     @Required()
-    headers: object;
+    accepted: string[];
 
     @Property()
     @Required()
-    os: string;
+    rejected: string[];
 
     @Property()
-    @Required()
-    browser: string;
+    createdBy: string;
+
 
     @Property()
-    @Required()
+    // @Required()
     @Description("Creation's date")
     createdAt: Date = new Date();
 

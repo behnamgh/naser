@@ -1,6 +1,7 @@
 .join-us{
   width: 100%;
   height: 100%;
+
   &__body{
     background-image: url("../../images/1150231-popular-forest-wallpaper-hd-1920x1200.jpg");
     width: 100%;
@@ -18,6 +19,17 @@
       height: 40%;
     }
 
+    &-input{
+      bottom: 31%;
+      position: absolute;
+      background-color: black;
+      opacity: 0.5;
+      height: 4.8%;
+      width: 33%;
+      color: white;
+      border: none;
+      font-size: 2em;
+    }
     &-social{
       position: absolute;
       width: 38%;

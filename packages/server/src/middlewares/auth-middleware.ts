@@ -20,7 +20,7 @@ export class IsAuthenticated {
             if (options && options.role && (!decodedToken.role || decodedToken.role !== options.role)) {
                 throw new Unauthorized(options.role);
             }
-            console.log("hereee.e.e.e.e..e.e.e.e.e.e", decodedToken);
+            // console.log("hereee.e.e.e.e..e.e.e.e.e.e", decodedToken);
 
         } catch (error) {
             console.log(["error", error]);
