@@ -13,11 +13,10 @@ export class UserController {
     ) {
     }
     @Get("/")
-    
-    // @UseAfter(AnalyticsMiddleware)
+    @UseAfter(AnalyticsMiddleware)
     async getPages(
     ) {
-      return await this.pageService.getPages();
+        return await this.pageService.getPages();
     }
 
     @Get("/read")
