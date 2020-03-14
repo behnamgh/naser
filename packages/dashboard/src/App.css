@@ -1,17 +1,4 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -24,10 +11,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -38,4 +21,22 @@
 }
 body{
   background-color: #efefef !important;
+}
+
+.pt-20 {
+  padding-top: 20px;
+}
+.bg-white {
+  background-color: white;
+}
+
+.wysiwyg-wrapper {
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.wysiwyg-editor{
+  min-height: 500px;
+}
+.wysiwyg-toolbar{
+  border-radius: 10px;
 }

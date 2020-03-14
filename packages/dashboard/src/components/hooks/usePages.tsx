@@ -9,7 +9,7 @@ function usePages() {
     React.useEffect(() => {
         async function loadData() {
             try {
-                const response: any = await new getHttpClient().get("/page");
+                const response: any = await new getHttpClient().get("/page/read");
 
                 if (response && response.data) {
                     setData(response.data)

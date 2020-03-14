@@ -10,7 +10,7 @@ import { Grid } from '@material-ui/core';
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const ChartComponent = () => {
-    const [groupMode, setGroupMode] = useState<string | undefined>("createdAt.date");
+    const [groupMode, setGroupMode] = useState<string | undefined>("createdAt");
     const data = useDatas(groupMode);
 
     const handleAlignment = (event: React.MouseEvent<HTMLElement>, newGroup: string) => {
@@ -44,16 +44,22 @@ const ChartComponent = () => {
                 >
                     <ToggleButton value="ipInfo.country" aria-label="left aligned">
                         Country
-        </ToggleButton>
-                    <ToggleButton value="createdAt.date" aria-label="centered">
+                    </ToggleButton>
+                    <ToggleButton value="createdAt" aria-label="centered">
                         Date
-        </ToggleButton>
+                    </ToggleButton>
                     <ToggleButton value="ip" aria-label="centered">
                         IP
-        </ToggleButton>
+                    </ToggleButton>
+                    <ToggleButton value="browser" aria-label="centered">
+                        Browser
+                    </ToggleButton>
+                    <ToggleButton value="os" aria-label="centered">
+                        OS
+                    </ToggleButton>
                     <ToggleButton value="city" aria-label="justified" disabled>
                         CITY
-        </ToggleButton>
+                    </ToggleButton>
                 </ToggleButtonGroup>
             </Grid>
             <Grid item >

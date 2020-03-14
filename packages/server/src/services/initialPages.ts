@@ -3,7 +3,7 @@ export default [
         "id": "5e60ce15e0b7c15e994c942d",
         "name": "homepage",
         "title": "HomePage",
-        "titleImage": "/images/sec-public/title-Frame.png",
+        "menuImage": "/images/Home@3x.png",
         "contents": [
             {
                 "title": "image",

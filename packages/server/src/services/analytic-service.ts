@@ -16,10 +16,13 @@ export class AnalyticsService {
     }
 
     async readLogs(group?: any, page = 0, pageSize = 20): Promise<{ page: number, totalCount: number, pageSize: number, data: any }> {
+        if (group === "$createdAt") {
+            group = { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } };
+        }
         const data = await (group ? this.analyticModel.aggregate([
             {
                 $group: {
-                    _id: { $dateToString: { format: "%Y-%m-%d", date: "$createdAtDate" } },
+                    _id: group,
                     count: { $sum: 1 }
                 }
             },
