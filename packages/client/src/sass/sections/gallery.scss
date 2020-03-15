@@ -30,10 +30,13 @@
 
   &__bottom{
     z-index: 1;
-    height: 170px;
+    height: 225px;
     position: relative;
-    bottom: 25px;
+    left: -30px;
+    top: -9px;
+    width: 300px;
   }
+  
 
   &__naser{
     z-index: 2;
@@ -54,16 +57,8 @@
     align-items: flex-end;
     position: relative;
     overflow: hidden;
-    width: 60%;
+    width: 59%;
     z-index: 5;
     height: 100%;
-    right: 10px;
-
-    > div{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
   }
 }
