@@ -75,11 +75,12 @@ export default function Gallery({ page }: any) {
       {/* <img src={FRAMEHOLDER} className="gallery__holder" alt=""/> */}
       {/* <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/> */}
 
-      {/* <img src={NAVBARRIGHT} className="navbar" alt="" onClick={handlePreviousClick} /> */}
+      {/* <img src={NAVBARRIGHT} className="navbar" alt="" onClick={prevSlide} /> */}
       <img src={NAVBARRIGHT} className="gallery__navbar" alt="navbar" onClick={handleNextClick} />
 
 
       <div className="gallery__container"> 
+
       <Slider heading="Example Slider" currentData={current} slides={slideData} handleSlide={handleSlideClick} />
       </div>
     </div>

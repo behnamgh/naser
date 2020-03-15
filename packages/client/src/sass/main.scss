@@ -27,10 +27,10 @@
         z-index: 50;
     }
     img:first-child{
-        left: -10px;
+        left: -16px;
     }
     img:last-child{
-        right: -10px;
+        right: -14px;
     }
 }
 
@@ -231,21 +231,21 @@
 
     img:first-child{
         position: fixed;
-        top: -93px;
+        top: -115px;
         height: 32%;
         z-index: 4;
     }
 
     img:last-child{
         position: fixed;
-        top: 40px;
+        top: 50px;
         height: 8%;
         z-index: 4;
     }
 
     img:not(first-child ,last-child ) {
         position: fixed;
-        top: 52px;
+        top: 65px;
         height: 5%;
         z-index: 10;
     } 
