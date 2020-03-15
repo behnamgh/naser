@@ -7,10 +7,10 @@ const tokenHelper = {
             ...user,
             tokenCreationDate: new Date()
         },
-        "XeTDv&%j3qC_jKM"
+        process.env.SECRET || "XeTDv&%j3qC_jKM"
     ),
-    verifyToken: (token: string) => verify(token, "XeTDv&%j3qC_jKM"),
-    secretOrPrivateKey: "XeTDv&%j3qC_jKM"
+    verifyToken: (token: string) => verify(token, process.env.SECRET || "XeTDv&%j3qC_jKM"),
+    secretOrPrivateKey: process.env.SECRET || "XeTDv&%j3qC_jKM"
 };
 
 export default tokenHelper;
