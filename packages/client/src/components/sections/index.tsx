@@ -2,7 +2,7 @@ import React from 'react';
 
 import Videos from './Videos'
 import Gallery from './Gallery'
-import Header from './Header'
+import HomePage from './HomePage'
 import GamePlay from './GamePlay';
 import News from './News';
 import JoinUs from './JoinUs';
@@ -18,7 +18,7 @@ const Section = ({ page }: ISampleProps) => {
 
     switch (page.name) {
       case "homepage":
-        return <Header page={page} />;
+        return <HomePage page={page} />;
 
       case "videos":
         return <Videos page={page} />;
@@ -36,7 +36,7 @@ const Section = ({ page }: ISampleProps) => {
         return <JoinUs page={page} />;
 
       default:
-        return <Header page={page} />;
+        return <HomePage page={page} />;
     }
 
   }
