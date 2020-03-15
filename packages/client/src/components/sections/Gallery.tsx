@@ -81,7 +81,7 @@ export default function Gallery({ page }: any) {
 
       <div className="gallery__container"> 
 
-      <Slider heading="Example Slider" currentData={current} slides={slideData} handleSlide={handleSlideClick} />
+      <Slider heading="Example Slider" currentData={current} type="GALLERY" slides={slideData} handleSlide={handleSlideClick} />
       </div>
     </div>
   )     

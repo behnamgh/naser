@@ -7,18 +7,26 @@ function Slider(props : any) {
     props.handleSlide(value)
   }
 
-  const { slides, currentData } = props;
+  const { slides, currentData, type } = props;
   const wrapperTransform = {
-    transform: `translateX(-${currentData * (100 / slides.length)}%)`
+    transform: type === "GALLERY" 
+    ?  `translateX(-${currentData * (100 / slides.length)}%)`
+    : `translateX(-${currentData * (100 / slides.length) + 10}%)`
   };
 
+  let classNames ="";
+
+  if (type === "NEWS") classNames += "news-";
+  else if (type === "GALLERY") classNames += "gallery-";
+
   return (
-    <div className="slider" >
-      <ul className="slider__wrapper" style={wrapperTransform}>
+    <div className={classNames + "slider"} >
+      <ul className={classNames +  "slider__wrapper"} style={wrapperTransform}>
         {slides.map((slide : any) => {
           return (
             <Slide
               key={slide.index}
+              type={type}
               slide={slide}
               current={currentData}
               handleSlideClick={handleSlideclicking}
