@@ -20,23 +20,28 @@ export default function Gallery({ page }: any) {
   const slideData = [
     {
       index: 0,
-      src : FIRSTONE
+      src : FIRSTONE,
+      headline: "first image",
     },
     {
       index: 1,
-      src : SECONDONE
+      src : SECONDONE,
+      headline: "first image",
     },
     {
       index: 2,
-      src : THIRDONE
+      src : THIRDONE,
+      headline: "first image",
     },
     {
       index: 3,
-      src : FOURTHONE
+      src : FOURTHONE,
+      headline: "first image",
     },
     {
       index: 4,
-      src : FIFTHONE
+      src : FIFTHONE,
+      headline: "first image",
     }
   ];
 
@@ -70,17 +75,11 @@ export default function Gallery({ page }: any) {
       {/* <img src={FRAMEHOLDER} className="gallery__holder" alt=""/> */}
       {/* <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/> */}
 
-      {/* <img src={NAVBARRIGHT} className="navbar" alt="" onClick={prevSlide} /> */}
+      {/* <img src={NAVBARRIGHT} className="navbar" alt="" onClick={handlePreviousClick} /> */}
       <img src={NAVBARRIGHT} className="gallery__navbar" alt="navbar" onClick={handleNextClick} />
 
 
       <div className="gallery__container"> 
-        {/* {imageSourcesToDisplay.map((image, index) =>
-          <div className="gallery__images">
-            <img key={index} src={image} className="gallery__naser" alt="" />
-            <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/>
-          </div>
-        )} */}
       <Slider heading="Example Slider" currentData={current} slides={slideData} handleSlide={handleSlideClick} />
       </div>
     </div>

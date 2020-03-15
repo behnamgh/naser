@@ -1,5 +1,9 @@
 import React from 'react';
 
+import BOTTOMFRAME from '../../images/-e-SmallFrame.png'
+import IMAGELIGHT from '../../images/-e-SmallFrame-Light.png'
+
+
 function Slide(props : any) {
 
 
@@ -7,12 +11,12 @@ function Slide(props : any) {
     props.handleSlideClick(props.slide.index);
   }
 
-  const imageLoaded = (event : any) =>  {
-    event.target.style.opacity = 1;
-  }
+  // const imageLoaded = (event : any) =>  {
+  //   event.target.style.opacity = 1;
+  // }
 
-  const { src, headline, index } = props.slide;
-  console.log(src)
+  const { index } = props.slide;
+
   const current = props.current;
   let classNames = "slide";
 
@@ -26,12 +30,9 @@ function Slide(props : any) {
       onClick={handleSlideClick}
     >
       <div className="slide__image-wrapper">
-        <img
-          className="slide__image"
-          alt={headline}
-          src={src}
-          onLoad={imageLoaded}
-        />
+        {/* <img key={index} src={src} className="slide__image" alt={headline} onLoad={imageLoaded}/> */}
+        <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/>
+        <img src={IMAGELIGHT} className="slide--current-light" alt=""/>
       </div>
     </li>
   );
