@@ -1,7 +1,5 @@
 import React from 'react';
-import CardList from '../components/chart';
 import Table from '../components/table';
-import { Grid } from '@material-ui/core';
 import getHttpClient from "../utils/httpClient";
 
 const MailList = () => {

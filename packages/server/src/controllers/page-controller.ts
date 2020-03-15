@@ -36,12 +36,12 @@ export class UserController {
         return this.analyticsService.readLogs(mode ? `$${mode}` : undefined, page, pageSize);
     }
 
-    // @Get("/:id")
-    // async getPage(
-    //     @Required() @PathParams("id") id: string
-    // ) {
-    //     return await this.pageService.getPage(id);
-    // }
+    @Get("/:id")
+    async getPage(
+        @Required() @PathParams("id") id: string
+    ) {
+        return await this.pageService.getPage(id);
+    }
 
     // @Post("/")
     // async addPage(
