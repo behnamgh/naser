@@ -2,6 +2,8 @@ import React from 'react';
 
 import BOTTOMFRAME from '../../images/-e-SmallFrame.png'
 import IMAGELIGHT from '../../images/-e-SmallFrame-Light.png'
+import NEWSHOLDER from '../../images/Layer 1.png'
+
 
 
 function Slide(props : any) {
@@ -10,15 +12,14 @@ function Slide(props : any) {
   const handleSlideClick = (event : any) => {
     props.handleSlideClick(props.slide.index);
   }
-
-  // const imageLoaded = (event : any) =>  {
-  //   event.target.style.opacity = 1;
-  // }
-
+  
   const { index } = props.slide;
 
   const current = props.current;
-  let classNames = "slide";
+  let classNames = "";
+
+  if(props.type === "GALLERY") classNames = "gallery-slide"
+  else if (props.type === "NEWS") classNames += " news-slide";
 
   if (current === index) classNames += " slide--current";
   else if (current - 1 === index) classNames += " slide--previous";
@@ -29,11 +30,22 @@ function Slide(props : any) {
       className={classNames}
       onClick={handleSlideClick}
     >
-      <div className="slide__image-wrapper">
-        {/* <img key={index} src={src} className="slide__image" alt={headline} onLoad={imageLoaded}/> */}
-        <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/>
-        <img src={IMAGELIGHT} className="slide--current-light" alt=""/>
-      </div>
+      {
+        props.type === "GALLERY" &&
+          <div className="gallery-slide__image-wrapper">
+            {/* <img key={index} src={src} className="slide__image" alt={headline} onLoad={imageLoaded}/> */}
+            <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/>
+            <img src={IMAGELIGHT} className="slide--current-light" alt=""/>
+          </div>
+      }
+
+      {
+        props.type === "NEWS" && 
+          <div className="">
+            <img className="news__holder" src={NEWSHOLDER} alt=""/>
+          </div>
+      }
+
     </li>
   );
 }
