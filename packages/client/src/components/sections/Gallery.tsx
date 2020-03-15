@@ -1,8 +1,10 @@
-import React, {   useState } from 'react';
+import React , { useState } from 'react';
+
+import Slider from '../slider/Slider'
 
 import BIGFRAME from '../../images/-e-BigFrame-1.png'
 // import FRAMEHOLDER from '../../images/-e-hanger.png'
-import BOTTOMFRAME from '../../images/-e-SmallFrame.png'
+// import BOTTOMFRAME from '../../images/-e-SmallFrame.png'
 import NAVBARRIGHT from '../../images/-e-GalleryArrowFrame-Right.png'
 
 import FIRSTONE from '../../images/test.jpg'
@@ -11,39 +13,57 @@ import THIRDONE from '../../images/test.jpg'
 import FOURTHONE from '../../images/naser2.jpeg'
 import FIFTHONE from '../../images/test.jpg'
 
-export default function Gallery({ page }: any) {
+export default function Gallery() {
 
-  const [ activeImage, setActiveImage ] = useState(0);
+  const [ current, setCurrent ] = useState(1);
 
-  const images = [FIRSTONE,SECONDONE,THIRDONE,FOURTHONE,FIFTHONE]
+  const slideData = [
+    {
+      index: 0,
+      headline: "New Fashion Apparel",
+      button: "Shop now",
+      src : FIRSTONE
+    },
+    {
+      index: 1,
+      headline: "In The Wilderness",
+      button: "Book travel",
+      src : SECONDONE
+    },
+    {
+      index: 2,
+      headline: "For Your Current Mood",
+      button: "Listen",
+      src : THIRDONE
+    },
+    {
+      index: 3,
+      headline: "Focus On The Writing",
+      button: "Get Focused",
+      src : FOURTHONE
+    },
+    {
+      index: 4,
+      headline: "New Fashion Apparel",
+      button: "Shop now",
+      src : FIFTHONE
+    }
+  ];
 
-  // const prevSlide = () => {
-  //   const resetToVeryBack = activeImage === 0;
 
-  //   const index = resetToVeryBack ? images.length - 1 : activeImage - 1;
+  // const handlePreviousClick = () => {
+  //   const previous = current - 1;
 
-  //   setActiveImage(index);
+  //   let currentNumber = previous < 0 ? slideData.length - 1 : previous
+  //   setCurrent(currentNumber)
   // }
 
-  const nextSlide = () => {
-    const resetIndex = activeImage === images.length - 1;
-    console.log(activeImage,resetIndex)
-
-    const index = resetIndex ? 0 : activeImage + 1;
-
-    setActiveImage(index);
+  const handleNextClick = ()=> {
+    const next = current + 1;
+    let currentNumber = next === slideData.length ? 0 : next
+    setCurrent(currentNumber)
   }
 
-  const activeImageSourcesFromState = images.slice(activeImage, activeImage + 3);
-
-  console.log(activeImageSourcesFromState)
-
-  const imageSourcesToDisplay = activeImageSourcesFromState.length < 3
-    ? [...activeImageSourcesFromState, ...images.slice(0, 3 - activeImageSourcesFromState.length) ]
-    : activeImageSourcesFromState;
-
-    console.log(imageSourcesToDisplay)
-  
 
 
   return (
@@ -53,16 +73,17 @@ export default function Gallery({ page }: any) {
       {/* <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/> */}
 
       {/* <img src={NAVBARRIGHT} className="navbar" alt="" onClick={prevSlide} /> */}
-      <img src={NAVBARRIGHT} className="gallery__navbar" alt="" onClick={nextSlide} />
+      <img src={NAVBARRIGHT} className="gallery__navbar" alt="navbar" onClick={handleNextClick} />
 
 
       <div className="gallery__container"> 
-        {imageSourcesToDisplay.map((image, index) =>
+        {/* {imageSourcesToDisplay.map((image, index) =>
           <div className="gallery__images">
             <img key={index} src={image} className="gallery__naser" alt="" />
             <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/>
           </div>
-        )}
+        )} */}
+      <Slider heading="Example Slider" currentData={current} slides={slideData} />
       </div>
     </div>
   )     
