@@ -8,16 +8,17 @@ export class AnalyticsMiddleware {
 
     async use(@Req() request: any, @Next() next: Next) {
         const now = new Date();
-        const createdAt = {
-            date: `${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`,
-            time: `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
-        };
+        // const createdAt = {
+        //     date: `${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`,
+        //     time: `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+        // };
         let obj: any = {
             ip: request.headers["x-forwarded-for"] || request.client._peername.address,
             headers: request.headers,
-            device: request.headers["user-agent"],
-            createdAt,
-            createdAtDate: now
+            browser: findBrowser(request.headers["user-agent"]),
+            os: findOS(request.headers["user-agent"]),
+            // createdAt,
+            createdAt: now
         };
         if (request.ipInfo && request.ipInfo.country) {
             obj = Object.assign(obj, { ipInfo: request.ipInfo });
@@ -32,16 +33,14 @@ export class AnalyticsMiddleware {
 const findBrowser = (userAgent): string => {
     if (userAgent.includes("Chrome")) {
         return "Chrome";
-    } else if (userAgent.includes("")) {
-        return "";
-    } else if (userAgent.includes("")) {
-        return "";
-    } else if (userAgent.includes("")) {
-        return "";
-    } else if (userAgent.includes("")) {
-        return "";
-    } else if (userAgent.includes("")) {
-        return "";
+    } else if (userAgent.includes("Mobile")) {
+        return "Mobile";
+    } else if (userAgent.includes("Safari")) {
+        return "Safari";
+    } else if (userAgent.includes("Firefox")) {
+        return "Firefox";
+    } else {
+        return userAgent;
     }
 };
 
@@ -49,7 +48,7 @@ const findOS = (userAgent): string => {
     const regExp = /\(([^)]+)\)/;
     const matches = regExp.exec(userAgent);
 
-    return matches[1];
+    return matches && matches.length ? matches[1] : userAgent;
 };
 // User-Agent: Mozilla/<version> (<system-information>) <platform> (<platform-details>) <extensions>
 // let browsers = [

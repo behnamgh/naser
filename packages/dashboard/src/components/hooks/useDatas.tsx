@@ -14,11 +14,11 @@ function useDatas(group?: string) {
 
                     let dataPoints: any = [];
                     if (group && group.includes("createdAt")) {
-                        dataPoints = response.data.map((i: any) => ({ x: new Date(i._id), y: i.count }))
+                        dataPoints = response.data.data.map((i: any) => ({ x: new Date(i._id), y: i.count }))
                     } else if (group) {
-                        dataPoints = response.data.map((i: any) => ({ label: i._id, y: i.count }))
+                        dataPoints = response.data.data.map((i: any) => ({ label: i._id, y: i.count }))
                     } else {
-                        dataPoints = response.data;
+                        dataPoints = response.data.data;
                     }
                     setData(dataPoints)
                 }

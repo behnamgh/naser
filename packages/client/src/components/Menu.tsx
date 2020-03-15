@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // import HOME from '../images/Home@3x.png'
 // import VIDEO from '../images/video@3x.png'
@@ -20,6 +20,9 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
     const currentSlideIndex = getCurrentSlideIndex();
     let lightPosition = 28.3 + (6.25 * currentSlideIndex) + "%";
 
+    useEffect(() => {
+        scrollToSlide(0)
+    }, [scrollToSlide])
     return (
         <div className="tabs">
 

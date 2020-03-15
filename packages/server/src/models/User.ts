@@ -14,12 +14,11 @@ export class User {
   username: string;
 
   @Property()
-  @Required()
   password: string;
 
   @Property()
   @Required()
-  role: "user" | "admin";
+  role: "user" | "admin" | "subscriber";
 
 
   @Property()

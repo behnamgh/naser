@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 // import MenuList from '@material-ui/core/MenuList';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import Paper from '@material-ui/core/Paper';
@@ -9,8 +9,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Grid, Container, } from '@material-ui/core';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
-import Pages from './Pages';
+import Home from './Home';
 import Add from './Add';
+import MailSender from './MailSender';
+import SubscribeList from './SubscribeList';
 import EditPage from '../components/forms/Page';
 
 import Drawer from '@material-ui/core/Drawer';
@@ -24,11 +26,19 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import usePages from '../components/hooks/usePages';
 import { IPage } from '../types/types';
+import MailList from './MailList';
 
 export default function Dashboard() {
   const pages = usePages();
 
+  const mainItems = useMemo(() => [
+    { title: "Home", icon: InboxIcon, url: "" },
+    { title: "SubscribeList", icon: MailIcon, url: "subscribers" },
+    { title: "Send Mail", icon: MailIcon, url: "mailer" },
+    { title: "Mail List", icon: MailIcon, url: "mailList" }], []);
+
   const [side, setSide] = useState(false);
+  
   const toggleDrawer = (open: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent,
   ) => {
@@ -49,11 +59,11 @@ export default function Dashboard() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {['Home'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <Link to={`/admin/dashboard`}>
-              <ListItemText primary={text} />
+        {mainItems.map((item: any, index: number) => (
+          <ListItem button key={index}>
+            <ListItemIcon><item.icon /></ListItemIcon>
+            <Link to={`/admin/dashboard/${item.url}`}>
+              <ListItemText primary={item.title} />
             </Link>
           </ListItem>
         ))}
@@ -96,7 +106,10 @@ export default function Dashboard() {
 
           </Grid>
         </Grid>
-        <Route path="/admin/dashboard" title="Dashboard" exact component={Pages} />
+        <Route path="/admin/dashboard" title="Dashboard" exact component={Home} />
+        <Route path="/admin/dashboard/subscribers" title="Subscribe List" exact component={SubscribeList} />
+        <Route path="/admin/dashboard/mailer" title="Mail Sender" exact component={MailSender} />
+        <Route path="/admin/dashboard/mailList" title="Mail Sender" exact component={MailList} />
         <Route path="/admin/dashboard/add" title="Add New Page" exact component={Add} />
         <Route path="/admin/dashboard/edit/:id" title="Edit Page" exact component={EditPage} />
       </Router>
