@@ -33,8 +33,6 @@ export class PassportLocalService implements BeforeRoutesInit, AfterRoutesInit {
     }
 
     public initializeLogin() {
-        console.log("login initial>>>>>>>>>>>>>>>>>>>>>>");
-
         Passport.use("login", new Strategy({
             // by default, local strategy uses username and password, we will override with email
             usernameField: "username",
@@ -56,7 +54,6 @@ export class PassportLocalService implements BeforeRoutesInit, AfterRoutesInit {
             jwtFromRequest: ExtractJwt.fromHeader("authorization"),
             secretOrKey: tokenHelper.secretOrPrivateKey.toString()
         }, (jwt_payload: any, done) => {
-            console.log(["jwt_payload", jwt_payload]);
 
             this.verify(jwt_payload._id, jwt_payload.extraData)
                 .then((data) => done(null, data))

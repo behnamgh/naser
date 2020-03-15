@@ -27,6 +27,8 @@
     "react-draft-wysiwyg": "^1.14.4",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "@types/draft-js": "^0.10.38",
+    "@types/react-draft-wysiwyg": "^1.13.0",
     "typescript": "~3.7.2"
   },
   "scripts": {
@@ -49,9 +51,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/draft-js": "^0.10.38",
-    "@types/react-draft-wysiwyg": "^1.13.0"
   }
 }
