@@ -13,39 +13,29 @@ import THIRDONE from '../../images/test.jpg'
 import FOURTHONE from '../../images/naser2.jpeg'
 import FIFTHONE from '../../images/test.jpg'
 
-export default function Gallery() {
+export default function Gallery({ page }: any) {
 
   const [ current, setCurrent ] = useState(1);
 
   const slideData = [
     {
       index: 0,
-      headline: "New Fashion Apparel",
-      button: "Shop now",
       src : FIRSTONE
     },
     {
       index: 1,
-      headline: "In The Wilderness",
-      button: "Book travel",
       src : SECONDONE
     },
     {
       index: 2,
-      headline: "For Your Current Mood",
-      button: "Listen",
       src : THIRDONE
     },
     {
       index: 3,
-      headline: "Focus On The Writing",
-      button: "Get Focused",
       src : FOURTHONE
     },
     {
       index: 4,
-      headline: "New Fashion Apparel",
-      button: "Shop now",
       src : FIFTHONE
     }
   ];
@@ -63,6 +53,14 @@ export default function Gallery() {
     let currentNumber = next === slideData.length ? 0 : next
     setCurrent(currentNumber)
   }
+
+
+  const handleSlideClick = (index:number) => {
+    if (current !== index) {
+      setCurrent(index)
+    }
+  }
+
 
 
 
@@ -83,7 +81,7 @@ export default function Gallery() {
             <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/>
           </div>
         )} */}
-      <Slider heading="Example Slider" currentData={current} slides={slideData} />
+      <Slider heading="Example Slider" currentData={current} slides={slideData} handleSlide={handleSlideClick} />
       </div>
     </div>
   )     

@@ -19,11 +19,8 @@ function Slider(props : any) {
   //   setCurrent(currentNumber)
   // }
 
-  const handleSlideClick = (index:number) => {
-    // if (current !== index) {
-    //   setCurrent(index)
-    // }
-    console.log("object")
+  const handleSlideclicking = (value:number) => {
+    props.handleSlide(value)
   }
 
   const { slides, heading, currentData } = props;
@@ -47,25 +44,11 @@ function Slider(props : any) {
               key={slide.index}
               slide={slide}
               current={currentData}
-              handleSlideClick={handleSlideClick}
+              handleSlideClick={handleSlideclicking}
             />
           );
         })}
       </ul>
-{/* 
-      <div className="slider__controls">
-        <SliderControl
-          type="previous"
-          title="Go to previous slide"
-          handleClick={handlePreviousClick}
-        />
-
-        <SliderControl
-          type="next"
-          title="Go to next slide"
-          handleClick={handleNextClick}
-        /> */}
-      {/* </div> */}
     </div>
   );
   }
