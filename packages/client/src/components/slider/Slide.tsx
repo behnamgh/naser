@@ -7,8 +7,6 @@ import NEWSHOLDER from '../../images/Layer 1.png'
 
 
 function Slide(props: any) {
-  console.log(props.slide);
-
 
   const handleSlideClick = (event: any) => {
     props.handleSlideClick(props.slide.index);

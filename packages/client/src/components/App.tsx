@@ -10,9 +10,7 @@ import Gears from "./Gears";
 import '../sass/main.scss';
 
 const App = ({ pages }: any) => {
-  console.log("app");
   
-
   const ImageRefs = {
     gear1: useRef<HTMLImageElement>(null),
     gear2: useRef<HTMLImageElement>(null),

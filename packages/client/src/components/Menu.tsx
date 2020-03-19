@@ -28,7 +28,7 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
 
             <div className="section-header">
                 <img src={TITLEFRAME} style={{ opacity: (currentSlideIndex === 0 || currentSlideIndex === 5) ? `0` : `1` }} alt="title-frame" />
-                {pages.map((page: any, index: number) => (page.titleImage && <img src={page.titleImage} style={{ opacity: currentSlideIndex === index ? `1` : `0` }} alt="title-video" />))}
+                {pages.map((page: any, index: number) => (page.titleImage && <img key={index} src={page.titleImage} style={{ opacity: currentSlideIndex === index ? `1` : `0` }} alt="title-video" />))}
                 <img src={TITLELIGHT} style={{ opacity: (currentSlideIndex === 0 || currentSlideIndex === 5) ? `0` : `1` }} alt="title-light" />
             </div>
             <div className="tabs__container">

@@ -11,10 +11,8 @@ import NAVBARRIGHT from '../../images/-e-GalleryArrowFrame-Right.png'
 import languageContext from '../contexts/lang';
 
 export default function Gallery({ page }: any) {
-  console.log(page);
   const lang = useContext(languageContext);
   const slideData = page.contents[0].values && page.contents[0].values[lang];
-  console.log(slideData);
 
   const [current, setCurrent] = useState(1);
 

@@ -2,7 +2,6 @@ import React from "react";
 import Slide from "./Slide";
 
 function Slider(props: any) {
-console.log(props);
 
   const handleSlideclicking = (value: number) => {
     props.handleSlide(value)
