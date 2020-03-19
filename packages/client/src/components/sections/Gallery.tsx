@@ -24,9 +24,11 @@ export default function Gallery({ page }: any) {
   // }
 
   const handleNextClick = (increment: number) => () => {
-    const next = current + increment;
-    let currentNumber = next === slideData.length ? 0 : next
-    setCurrent(currentNumber)
+    let next = current + increment;
+    if (next < 0) {
+      next += slideData.length;
+    }
+    setCurrent(next % slideData.length)
   }
 
 
@@ -46,8 +48,8 @@ export default function Gallery({ page }: any) {
       {/* <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/> */}
 
       {/* <img src={NAVBARRIGHT} className="navbar" alt="" onClick={prevSlide} /> */}
-      <img src={NAVBARRIGHT} className="gallery__navbar_left" alt="navbar" onClick={handleNextClick(1)} />
-      <img src={NAVBARRIGHT} className="gallery__navbar_right" alt="navbar" onClick={handleNextClick(-1)} />
+      <img src={NAVBARRIGHT} className="gallery__navbar_left" alt="navbar" onClick={handleNextClick(-1)} />
+      <img src={NAVBARRIGHT} className="gallery__navbar_right" alt="navbar" onClick={handleNextClick(1)} />
 
 
       <div className="gallery__container">
