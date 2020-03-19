@@ -13,8 +13,17 @@
     z-index: 1;
   }
 
-  &__navbar{
+  &__navbar_right{
     right: 11%;
+    position: absolute;
+    bottom: 0;
+    /* left: 0; */
+    z-index: 2;
+    height: 15%;
+  }
+  &__navbar_left{
+    left: 11%;
+    transform: rotateY(180deg);
     position: absolute;
     bottom: 0;
     /* left: 0; */

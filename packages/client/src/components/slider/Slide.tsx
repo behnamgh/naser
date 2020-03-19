@@ -12,7 +12,7 @@ function Slide(props: any) {
     props.handleSlideClick(props.slide.index);
   }
 
-  const { index } = props.slide;
+  const { index,src } = props.slide;
 
   const current = props.current;
   let classNames = "";
@@ -32,7 +32,7 @@ function Slide(props: any) {
       {
         props.type === "GALLERY" &&
         <div className="gallery-slide__image-wrapper">
-          {/* <img key={index} src={src} className="slide__image" alt={headline} onLoad={imageLoaded}/> */}
+          <img key={index} src={src} className="slide__image" alt={src} />
           <img src={BOTTOMFRAME} className="gallery__bottom" alt="" />
           <img src={IMAGELIGHT} className="slide--current-light" alt="" />
         </div>

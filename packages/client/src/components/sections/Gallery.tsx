@@ -23,8 +23,8 @@ export default function Gallery({ page }: any) {
   //   setCurrent(currentNumber)
   // }
 
-  const handleNextClick = () => {
-    const next = current + 1;
+  const handleNextClick = (increment: number) => () => {
+    const next = current + increment;
     let currentNumber = next === slideData.length ? 0 : next
     setCurrent(currentNumber)
   }
@@ -46,11 +46,11 @@ export default function Gallery({ page }: any) {
       {/* <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/> */}
 
       {/* <img src={NAVBARRIGHT} className="navbar" alt="" onClick={prevSlide} /> */}
-      <img src={NAVBARRIGHT} className="gallery__navbar" alt="navbar" onClick={handleNextClick} />
+      <img src={NAVBARRIGHT} className="gallery__navbar_left" alt="navbar" onClick={handleNextClick(1)} />
+      <img src={NAVBARRIGHT} className="gallery__navbar_right" alt="navbar" onClick={handleNextClick(-1)} />
 
 
       <div className="gallery__container">
-
         <Slider heading="Example Slider" currentData={current} type="GALLERY" slides={slideData} handleSlide={handleSlideClick} />
       </div>
     </div>
