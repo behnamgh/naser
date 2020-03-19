@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import BACKGROUND from "../../images/-e-TopBG1.png"
 import MAINBACKGROUND from "../../images/-e-BIG1.png"
@@ -8,8 +8,12 @@ import DOWNBACKGROUND2 from "../../images/-e-SmallDown-2.png"
 import TOPBACKGROUND from "../../images/-e-Smalltop.png"
 import TOPBACKGROUND2 from "../../images/-e-Smalltop-2.png"
 import YouTube from 'react-youtube';
+import languageContext from '../contexts/lang'
 
 export default function Videos({ page }: any) {
+  const lang = useContext(languageContext);
+  const youtubeLink = page.contents[0].values && page.contents[0].values[lang];
+
   const [videoState, changeVideoState] = useState("empty");
   return (
     <div className="videos">
@@ -18,7 +22,7 @@ export default function Videos({ page }: any) {
         <img src={BACKGROUND} alt="background" />
         <div className="videos__body-main">
           <YouTube
-            videoId="FjnWqR3UPhs"
+            videoId={youtubeLink}
             className={`videos__body-main-youtube-${videoState}`}
             containerClassName="videos__body-main-container"
             opts={{

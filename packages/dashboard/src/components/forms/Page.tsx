@@ -25,6 +25,9 @@ const EditPage = ({ id }: any) => {
 
     }
     const handleContentsChange = (index: number, lang: string) => (event: any) => {
+        if (!pageData.contents[index].values) {
+            pageData.contents[index].values = {}
+        }
         pageData.contents[index].values[lang] = event.target.value;
         setPageData({ ...pageData })
     }
@@ -65,13 +68,13 @@ const EditPage = ({ id }: any) => {
                         <Grid item xs={12} md={4} lg={3}>
                             {content.unlimited ?
                                 <>
-                                    {(content.values.en || [""]).map((value: any, index2: any) => <TextField value={value} onChange={handleRepeatableChange(index, index2, "en")} label={content.title} variant="outlined" />)}
-                                    <IconButton color="secondary" aria-label="add an alarm" onClick={addRepeatable(index, "en")}>
+                                    {(content.values["en-US"] || [""]).map((value: any, index2: any) => <TextField value={value} onChange={handleRepeatableChange(index, index2, "en-US")} label={content.title} variant="outlined" />)}
+                                    <IconButton color="secondary" aria-label="add an alarm" onClick={addRepeatable(index, "en-US")}>
                                         <AlarmIcon />
                                     </IconButton>
                                 </>
                                 :
-                                <TextField value={content.values?.en} onChange={handleContentsChange(index, "en")} label={content.title} variant="outlined" />
+                                <TextField value={content.values["en-US"]} onChange={handleContentsChange(index, "en-US")} label={content.title} variant="outlined" />
                             }
                         </Grid>)}
                     <Grid item xs={12}>

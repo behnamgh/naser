@@ -6,12 +6,12 @@ import initialPages from "./initialPages";
 @Service()
 export class PagessService {
     constructor(@Inject(Page) private pageModel: MongooseModel<Page>) {
-        this.pageModel.find().count().then(pagesCount => {
-            if (pagesCount < 6) {
-                this.pageModel.deleteMany({}).exec();
-                this.pageModel.insertMany(initialPages);
-            }
-        });
+        // this.pageModel.find().count().then(pagesCount => {
+        //     if (pagesCount < 6) {
+        //         this.pageModel.deleteMany({}).exec();
+        //         this.pageModel.insertMany(initialPages);
+        //     }
+        // });
 
     }
 
