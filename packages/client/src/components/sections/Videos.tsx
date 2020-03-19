@@ -21,7 +21,7 @@ export default function Videos({ page }: any) {
       <div className="videos__body">
         <img src={BACKGROUND} alt="background" />
         <div className="videos__body-main">
-          <YouTube
+          {youtubeLink && <YouTube
             videoId={youtubeLink}
             className={`videos__body-main-youtube-${videoState}`}
             containerClassName="videos__body-main-container"
@@ -37,7 +37,7 @@ export default function Videos({ page }: any) {
             onPlay={(e) => changeVideoState("playing")}
             onPause={(e) => { changeVideoState("paused"); }}
             onEnd={(e) => changeVideoState("end")}
-            onError={(e) => changeVideoState("error")} />
+            onError={(e) => changeVideoState("error")} />}
           <img src={MAINBACKGROUND} alt={"top-background"} />
           <img src={MAINBACKGROUND2} alt={"top-background"} />
         </div>
