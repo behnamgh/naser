@@ -1,33 +1,33 @@
-import React  from "react";
+import React from "react";
 import Slide from "./Slide";
 
-function Slider(props : any) {
+function Slider(props: any) {
 
-  const handleSlideclicking = (value:number) => {
+  const handleSlideclicking = (value: number) => {
     props.handleSlide(value)
   }
 
   const { slides, currentData, type } = props;
   const wrapperTransform = {
-    transform: type === "GALLERY" 
-    ?  `translateX(-${currentData * (100 / slides.length)}%)`
-    : `translateX(-${currentData * (100 / slides.length) + 10}%)`
+    transform: type === "GALLERY"
+      ? `translateX(-${currentData * (100 / slides.length)}%)`
+      : `translateX(-${currentData * (100 / slides.length) + 10}%)`
   };
 
-  let classNames ="";
+  let classNames = "";
 
   if (type === "NEWS") classNames += "news-";
   else if (type === "GALLERY") classNames += "gallery-";
 
   return (
     <div className={classNames + "slider"} >
-      <ul className={classNames +  "slider__wrapper"} style={wrapperTransform}>
-        {slides.map((slide : any) => {
+      <ul className={classNames + "slider__wrapper"} style={wrapperTransform}>
+        {slides.map((slide: any, index: number) => {
           return (
             <Slide
-              key={slide.index}
+              key={index}
               type={type}
-              slide={slide}
+              slide={{ src: slide, index }}
               current={currentData}
               handleSlideClick={handleSlideclicking}
             />
@@ -36,6 +36,6 @@ function Slider(props : any) {
       </ul>
     </div>
   );
-  }
+}
 
 export default Slider;

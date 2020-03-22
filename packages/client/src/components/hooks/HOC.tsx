@@ -6,10 +6,16 @@ import Walls from "../Walls";
 import Logos from "../Logos";
 import Gears from "../Gears";
 import Frames from "../Frames";
+
+
 function WithLoading(Component: any) {
     return function WihLoadingComponent({ Loading, ...props }: any) {
+
         const ImageRefs = useRef(null);
+
         if (Loading) return (<Component {...props} />);
+
+
         return (<div className="App section">
             <Walls />
             <Logos />
@@ -19,6 +25,7 @@ function WithLoading(Component: any) {
             <img src={GEARS2} className={`fixed cloclwise gear2-loading`} alt="gear two" />
             <img src={GEARS3} className={`fixed cloclwise gear3-loading`} alt="gear 3" />
         </div>);
+
     }
 }
 

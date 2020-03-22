@@ -1,39 +1,15 @@
-import React , { useState } from  'react'
+import React , { useState, useContext } from  'react'
 import Slider from '../slider/Slider'
 import ARROWLEFT from '../../images/-e-GalleryArrow-left.png'
 import ARROWRIGHT from '../../images/-e-GalleryArrow-Right.png'
+import languageContext from '../contexts/lang';
 
 export default function News({ page }: any) {
+  const lang = useContext(languageContext);
+  const slideData = page.contents[0].values && page.contents[0].values[lang];
+
 
   const [ current, setCurrent ] = useState(1);
-
-  const slideData = [
-    {
-      index: 0,
-      headline: "first image",
-      text: 'this txt is for test'
-    },
-    {
-      index: 1,
-      headline: "this is header",
-      text: 'this txt is for test'
-    },
-    {
-      index: 2,
-      headline: "this is header",
-      text: 'this txt is for test'
-    },
-    {
-      index: 3,
-      headline: "this is header",
-      text: 'this txt is for test'
-    },
-    {
-      index: 4,
-      headline: "this is header",
-      text: 'this txt is for test'
-    }
-  ];
 
     const handlePreviousClick = () => {
     const previous = current - 1;

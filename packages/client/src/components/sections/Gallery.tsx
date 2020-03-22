@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import Slider from '../slider/Slider'
 
@@ -7,44 +7,14 @@ import BIGFRAME from '../../images/-e-BigFrame-1.png'
 // import BOTTOMFRAME from '../../images/-e-SmallFrame.png'
 import NAVBARRIGHT from '../../images/-e-GalleryArrowFrame-Right.png'
 
-import FIRSTONE from '../../images/test.jpg'
-import SECONDONE from '../../images/naser8.jpeg'
-import THIRDONE from '../../images/test.jpg'
-import FOURTHONE from '../../images/naser2.jpeg'
-import FIFTHONE from '../../images/test.jpg'
+
+import languageContext from '../contexts/lang';
 
 export default function Gallery({ page }: any) {
+  const lang = useContext(languageContext);
+  const slideData = page.contents[0].values && page.contents[0].values[lang];
 
-  const [ current, setCurrent ] = useState(1);
-
-  const slideData = [
-    {
-      index: 0,
-      src : FIRSTONE,
-      headline: "first image",
-    },
-    {
-      index: 1,
-      src : SECONDONE,
-      headline: "first image",
-    },
-    {
-      index: 2,
-      src : THIRDONE,
-      headline: "first image",
-    },
-    {
-      index: 3,
-      src : FOURTHONE,
-      headline: "first image",
-    },
-    {
-      index: 4,
-      src : FIFTHONE,
-      headline: "first image",
-    }
-  ];
-
+  const [current, setCurrent] = useState(1);
 
   // const handlePreviousClick = () => {
   //   const previous = current - 1;
@@ -53,14 +23,16 @@ export default function Gallery({ page }: any) {
   //   setCurrent(currentNumber)
   // }
 
-  const handleNextClick = ()=> {
-    const next = current + 1;
-    let currentNumber = next === slideData.length ? 0 : next
-    setCurrent(currentNumber)
+  const handleNextClick = (increment: number) => () => {
+    let next = current + increment;
+    if (next < 0) {
+      next += slideData.length;
+    }
+    setCurrent(next % slideData.length)
   }
 
 
-  const handleSlideClick = (index:number) => {
+  const handleSlideClick = (index: number) => {
     if (current !== index) {
       setCurrent(index)
     }
@@ -71,18 +43,18 @@ export default function Gallery({ page }: any) {
 
   return (
     <div className="gallery">
-      <img src={BIGFRAME} className="gallery__background" alt=""/>
+      <img src={BIGFRAME} className="gallery__background" alt="" />
       {/* <img src={FRAMEHOLDER} className="gallery__holder" alt=""/> */}
       {/* <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/> */}
 
       {/* <img src={NAVBARRIGHT} className="navbar" alt="" onClick={prevSlide} /> */}
-      <img src={NAVBARRIGHT} className="gallery__navbar" alt="navbar" onClick={handleNextClick} />
+      <img src={NAVBARRIGHT} className="gallery__navbar_left" alt="navbar" onClick={handleNextClick(-1)} />
+      <img src={NAVBARRIGHT} className="gallery__navbar_right" alt="navbar" onClick={handleNextClick(1)} />
 
 
-      <div className="gallery__container"> 
-
-      <Slider heading="Example Slider" currentData={current} type="GALLERY" slides={slideData} handleSlide={handleSlideClick} />
+      <div className="gallery__container">
+        <Slider heading="Example Slider" currentData={current} type="GALLERY" slides={slideData} handleSlide={handleSlideClick} />
       </div>
     </div>
-  )     
+  )
 }

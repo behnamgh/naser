@@ -10,8 +10,7 @@ import Gears from "./Gears";
 import '../sass/main.scss';
 
 const App = ({ pages }: any) => {
-
-
+  
   const ImageRefs = {
     gear1: useRef<HTMLImageElement>(null),
     gear2: useRef<HTMLImageElement>(null),
@@ -42,7 +41,7 @@ const App = ({ pages }: any) => {
     <Frames />
     <div className="content">
       {pages && pages.length &&
-        <FullPage controls={(props: any) => <Menu {...props} forwardRef={ImageRefs.mainHeader} pages={pages} />} afterChange={endChange} beforeChange={startChange}>
+        <FullPage controls={(props: any) => <Menu key="menu" {...props} forwardRef={ImageRefs.mainHeader} pages={pages} />} afterChange={endChange} beforeChange={startChange}>
           {pages.map((page: any) => <Slide key={page.id}>
             <Section page={page} />
           </Slide>)}

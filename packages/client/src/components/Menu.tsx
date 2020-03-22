@@ -28,14 +28,14 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
 
             <div className="section-header">
                 <img src={TITLEFRAME} style={{ opacity: (currentSlideIndex === 0 || currentSlideIndex === 5) ? `0` : `1` }} alt="title-frame" />
-                {pages.map((page: any, index: number) => (page.titleImage && <img src={page.titleImage} style={{ opacity: currentSlideIndex === index ? `1` : `0` }} alt="title-video" />))}
+                {pages.map((page: any, index: number) => (page.titleImage && <img key={index} src={page.titleImage} style={{ opacity: currentSlideIndex === index ? `1` : `0` }} alt="title-video" />))}
                 <img src={TITLELIGHT} style={{ opacity: (currentSlideIndex === 0 || currentSlideIndex === 5) ? `0` : `1` }} alt="title-light" />
             </div>
             <div className="tabs__container">
                 <img src={TABS} alt="" />
                 <img src={LIGHT} alt="" ref={forwardRef} style={{ top: `${lightPosition}` }} />
             </div>
-            {pages.map((page: any, index: number) => <img src={page.menuImage} className={`tabs-${index}`} style={{ transform: currentSlideIndex === index ? `translateX(-30px)` : `translateX(-10px)` }} onClick={() => scrollToSlide(index)} alt="" />)}
+            {pages.map((page: any, index: number) => <img key={index} src={page.menuImage} className={`tabs-${index}`} style={{ transform: currentSlideIndex === index ? `translateX(-30px)` : `translateX(-10px)` }} onClick={() => scrollToSlide(index)} alt="" />)}
 
         </div>
     );
