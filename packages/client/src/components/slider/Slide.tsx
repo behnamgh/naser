@@ -3,7 +3,7 @@ import React from 'react';
 import BOTTOMFRAME from '../../images/-e-SmallFrame.png'
 import IMAGELIGHT from '../../images/-e-SmallFrame-Light.png'
 import NEWSHOLDER from '../../images/Layer 1.png'
-
+import cx from "classnames";
 
 
 function Slide(props: any) {
@@ -12,7 +12,7 @@ function Slide(props: any) {
     props.handleSlideClick(props.slide.index);
   }
 
-  const { index,src } = props.slide;
+  const { index, src } = props.slide;
 
   const current = props.current;
   let classNames = "";
@@ -32,9 +32,9 @@ function Slide(props: any) {
       {
         props.type === "GALLERY" &&
         <div className="gallery-slide__image-wrapper">
-          <img key={index} src={src} className="slide__image" alt={src} />
-          <img src={BOTTOMFRAME} className="gallery__bottom" alt="" />
-          <img src={IMAGELIGHT} className="slide--current-light" alt="" />
+          <img key={index} src={src} className={cx("slide__image", { "slide--current-image": current === index })} alt={src} />
+          <img src={BOTTOMFRAME} className={cx("gallery__bottom", { "slide--current-frame": current === index })} alt="" />
+          <img src={IMAGELIGHT} className={cx("slide--current-light", { "slide--current-light": current === index })} alt="" />
         </div>
       }
 
