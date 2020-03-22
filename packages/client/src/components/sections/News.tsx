@@ -1,7 +1,6 @@
-import React , { useState, useContext } from  'react'
+import React, { useState, useContext } from 'react'
 import Slider from '../slider/Slider'
-import ARROWLEFT from '../../images/-e-GalleryArrow-left.png'
-import ARROWRIGHT from '../../images/-e-GalleryArrow-Right.png'
+import NAVBARRIGHT from '../../images/-e-GalleryArrowFrame-Right.png'
 import languageContext from '../contexts/lang';
 
 export default function News({ page }: any) {
@@ -9,23 +8,19 @@ export default function News({ page }: any) {
   const slideData = page.contents[0].values && page.contents[0].values[lang];
 
 
-  const [ current, setCurrent ] = useState(1);
+  const [current, setCurrent] = useState(1);
 
-    const handlePreviousClick = () => {
-    const previous = current - 1;
 
-    let currentNumber = previous < 1 ? slideData.length - 1 : previous
-    setCurrent(currentNumber)
+
+  const handleNextClick = (increment: number) => () => {
+    let next = current + increment;
+    if (next < 0) {
+      next += slideData.length;
+    }
+    setCurrent(next % slideData.length)
   }
 
-  const handleNextClick = ()=> {
-    const next = current + 1;
-    let currentNumber = next === slideData.length ? 1 : next
-    setCurrent(currentNumber)
-  }
-
-
-  const handleSlideClick = (index:number) => {
+  const handleSlideClick = (index: number) => {
     if (current !== index && (current !== slideData.length || current !== 0)) {
       setCurrent(index)
     }
@@ -34,11 +29,9 @@ export default function News({ page }: any) {
 
   return (
     <div className="news">
-      <img src={ARROWLEFT} onClick={handlePreviousClick} alt=""/>
-      <img src={ARROWRIGHT} onClick={handleNextClick} alt=""/>
-
-      <Slider heading="Example Slider" currentData={current} type="NEWS" slides={slideData} handleSlide={handleSlideClick} />
-      
+      <img src={NAVBARRIGHT} className="news__navbar_left" alt="navbar" onClick={handleNextClick(-1)} />
+      <img src={NAVBARRIGHT} className="news__navbar_right" alt="navbar" onClick={handleNextClick(1)} />
+        <Slider heading="Example Slider" currentData={current} type="NEWS" slides={slideData} handleSlide={handleSlideClick} />
     </div>
   )
 }
