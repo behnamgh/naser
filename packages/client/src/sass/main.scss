@@ -156,7 +156,6 @@
     >div{
         width: 100% !important;
         height: 100% !important;
-
     }
 
     .section{
@@ -265,6 +264,29 @@
 @-webkit-keyframes clockwiseSpin {
 	100% {-webkit-transform: rotate(360deg);transform: rotate(360deg);}  
 }
+
 @keyframes clockwiseSpin {
 	100% {-webkit-transform: rotate(360deg);transform: rotate(360deg);}	
 }
+
+
+/* 
+-------------------------------- breakPoints
+*/
+
+
+@media #{$mq-xlarge} {
+    .frames{
+        img:first-child{
+            top: 0%;
+            height: 478px;
+            left: 188px;
+        }
+    
+        img:last-child{
+            bottom: 0;
+            height: 478px;
+            left: 188px;
+        }
+    }
+  }
