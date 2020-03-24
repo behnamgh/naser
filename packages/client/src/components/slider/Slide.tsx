@@ -7,6 +7,7 @@ import cx from "classnames";
 
 
 function Slide(props: any) {
+  console.log(props);
 
   const handleSlideClick = (event: any) => {
     props.handleSlideClick(props.slide.index);
@@ -15,18 +16,10 @@ function Slide(props: any) {
   const { index, src } = props.slide;
 
   const current = props.current;
-  let classNames = "";
-
-  if (props.type === "GALLERY") classNames = "gallery-slide"
-  else if (props.type === "NEWS") classNames += " news-slide";
-
-  if (current === index) classNames += " slide--current";
-  else if (current - 1 === index) classNames += " slide--previous";
-  else if (current + 1 === index) classNames += " slide--next";
 
   return (
     <li
-      className={classNames}
+      className={cx({ "gallery-slide": props.type === "GALLERY", "news-slide": props.type === "NEWS", "slide--current": current === index, "slide--previous": current - 1 === index, "slide--next": current + 1 === index })}
       onClick={handleSlideClick}
     >
       {
@@ -40,8 +33,9 @@ function Slide(props: any) {
 
       {
         props.type === "NEWS" &&
-        <div className="">
-          <img className="news__holder" src={NEWSHOLDER} alt="" />
+        <div className="news-slide__wrapper">
+          <img className="news-slide__holder" src={NEWSHOLDER} alt="" />
+          <span className="news-slide__content">{src}</span>
         </div>
       }
 

@@ -1,12 +1,5 @@
 import React, { useEffect } from 'react';
 
-// import HOME from '../images/Home@3x.png'
-// import VIDEO from '../images/video@3x.png'
-// import GAMEPLAY from '../images/gamePlay@3x.png'
-// import GALLERY from '../images/gallery@3x.png'
-// import NEWS from '../images/news@3x.png'
-// import JOIN from '../images/join@3x.png'
-
 import TABS from '../images/tabs-frame@3x.png'
 
 import TITLEFRAME from '../images/sec-public/title-Frame.png'
@@ -19,10 +12,12 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
 
     const currentSlideIndex = getCurrentSlideIndex();
     let lightPosition = 28.3 + (6.25 * currentSlideIndex) + "%";
+    const rightSpace = window.innerWidth > 1680 ? ((window.innerWidth - 1680) / 2) - 5 : 10;
 
     useEffect(() => {
-        scrollToSlide(0)
-    }, [scrollToSlide])
+        scrollToSlide(0);
+    }, [scrollToSlide]);
+
     return (
         <div className="tabs">
 
@@ -32,10 +27,10 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
                 <img src={TITLELIGHT} style={{ opacity: (currentSlideIndex === 0 || currentSlideIndex === 5) ? `0` : `1` }} alt="title-light" />
             </div>
             <div className="tabs__container">
-                <img src={TABS} alt="" />
-                <img src={LIGHT} alt="" ref={forwardRef} style={{ top: `${lightPosition}` }} />
+                <img src={TABS} alt="" style={{ right: `${rightSpace}px` }} />
+                <img src={LIGHT} alt="" ref={forwardRef} style={{ top: `${lightPosition}`, right: `${rightSpace + 33}px` }} />
             </div>
-            {pages.map((page: any, index: number) => <img key={index} src={page.menuImage} className={`tabs-${index}`} style={{ transform: currentSlideIndex === index ? `translateX(-40px)` : `translateX(-10px)` }} onClick={() => scrollToSlide(index)} alt="" />)}
+            {pages.map((page: any, index: number) => <img key={index} src={page.menuImage} className={`tabs-${index}`} style={{ right: `${rightSpace + 55}px`, transform: currentSlideIndex === index ? `translateX(-30px)` : `translateX(-10px)` }} onClick={() => scrollToSlide(index)} alt="" />)}
 
         </div>
     );

@@ -1,15 +1,35 @@
+@font-face {
+  font-family: 'dk_carambolaregular';
+  src: url("../DK\ Carambola.otf") format('truetype');
+}
+
 .news{
   width: 100%;
   height: 100%;
   display: flex;
+  position: relative;
   padding-left: 180px;
   align-items: flex-end;
   overflow-x: hidden;
   justify-content: flex-start;
 
-  &__holder{
+  &-slide__holder{
     height: 85%;
     margin-left: 100px;
+  }
+  &-slide__content{
+    font-size: 1.2em;
+    line-height: 1.2em;
+    color: burlywood;
+    position: absolute;
+    right: 10%;
+    z-index: 10;
+    max-width: 60%;
+    /* top: 0; */
+    /* bottom: 41%; */
+    padding-top: 15%;
+    word-break: break-word;
+    font-family: dk_carambolaregular, sans-serif, Arial, Helvetica, sans-serif;
   }
 
   > img:first-child{
@@ -23,6 +43,23 @@
     z-index: 20;
     margin: 0 100px;
 
+  }
+  &__navbar_right{
+    right: 11%;
+    position: absolute;
+    bottom: 0;
+    /* left: 0; */
+    z-index: 2 !important;
+    height: 15%;
+  }
+  &__navbar_left{
+    left: 11%;
+    transform: rotateY(180deg);
+    position: absolute;
+    bottom: 0;
+    /* left: 0; */
+    z-index: 2 !important;
+    height: 15%;
   }
 
 }

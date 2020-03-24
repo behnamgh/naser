@@ -16,13 +16,6 @@ export default function Gallery({ page }: any) {
 
   const [current, setCurrent] = useState(1);
 
-  // const handlePreviousClick = () => {
-  //   const previous = current - 1;
-
-  //   let currentNumber = previous < 0 ? slideData.length - 1 : previous
-  //   setCurrent(currentNumber)
-  // }
-
   const handleNextClick = (increment: number) => () => {
     let next = current + increment;
     if (next < 0) {
