@@ -272,21 +272,21 @@
 
     img:first-child{
         position: fixed;
-        top: -115px;
+        top: -11%;
         height: 32%;
         z-index: 4;
     }
 
     img:last-child{
         position: fixed;
-        top: 50px;
+        top: 6.5%;
         height: 8%;
         z-index: 4;
     }
 
     img:not(first-child ,last-child ) {
         position: fixed;
-        top: 65px;
+        top: 8%;
         height: 5%;
         z-index: 10;
     } 

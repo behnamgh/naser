@@ -10,11 +10,11 @@ import GEARSTAND from '../images/gears-stands.png'
 
 const Gears = ({ ImageRefs }: { ImageRefs: any }) => {
     useEffect(() => {
-        if (ImageRefs.stand) ImageRefs.stand.current.style.left = `${((window.innerWidth - 1680) / 2)-5}px`;
-        if (ImageRefs.gear1) ImageRefs.gear1.current.style.left = `${((window.innerWidth - 1680) / 2)-5}px`;
-        if (ImageRefs.gear2) ImageRefs.gear2.current.style.left = `${((window.innerWidth - 1680) / 2)-5}px`;
-        if (ImageRefs.gear3) ImageRefs.gear3.current.style.left = `${((window.innerWidth - 1680) / 2)-5}px`;
-    }, []);
+        if (ImageRefs.stand) ImageRefs.stand.current.style.left = `${((window.innerWidth - 1680) / 2) - 5}px`;
+        if (ImageRefs.gear1) ImageRefs.gear1.current.style.left = `${((window.innerWidth - 1680) / 2) - 5}px`;
+        if (ImageRefs.gear2) ImageRefs.gear2.current.style.left = `${((window.innerWidth - 1680) / 2) - 5}px`;
+        if (ImageRefs.gear3) ImageRefs.gear3.current.style.left = `${((window.innerWidth - 1680) / 2) - 5}px`;
+    }, [...ImageRefs]);
 
     return (
         <>
