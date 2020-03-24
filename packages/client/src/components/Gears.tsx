@@ -14,7 +14,7 @@ const Gears = ({ ImageRefs }: { ImageRefs: any }) => {
         if (ImageRefs.gear1) ImageRefs.gear1.current.style.left = `${((window.innerWidth - 1680) / 2) - 5}px`;
         if (ImageRefs.gear2) ImageRefs.gear2.current.style.left = `${((window.innerWidth - 1680) / 2) - 5}px`;
         if (ImageRefs.gear3) ImageRefs.gear3.current.style.left = `${((window.innerWidth - 1680) / 2) - 5}px`;
-    }, [...ImageRefs]);
+    }, [ImageRefs]);
 
     return (
         <>
