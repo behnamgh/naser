@@ -38,16 +38,12 @@ export default function Gallery({ page }: any) {
     }
   }
 
-  let IMAGS = slideData[0]
-
-
-
 
   return (
     <div className="gallery">
       <div className="gallery__big-frame">
         <img src={BIGFRAME} alt="bigframe" />
-        <img src={IMAGS} alt="bigimage"/>
+        <img src={slideData[current]} alt="bigimage"/>
       </div>
 
       <img src={NAVBARRIGHT} className="gallery__navbar_left" alt="navbar" onClick={handleNextClick(-1)} />
