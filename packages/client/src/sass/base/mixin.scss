@@ -1,0 +1,95 @@
+// Breakpoints
+$bp-small: 48em; // 768px
+$bp-medium: 64em; // 1024px
+$bp-large: 85.375em; // 1366px
+$bp-xlarge: 120em; // 1920px
+$bp-xxlarge: 160em; // 2560px
+
+
+// Media Queries
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";
+$mq-xlarge: "(min-width: #{$bp-xlarge})";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+
+
+// Make Center
+@mixin makeCenter($align, $justify, $direction) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+
+// unselectable 
+@mixin unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+
+@mixin easeTransition($time) {
+  transition: all $time ease-in-out;
+}
+
+@mixin spin($duration) {
+  animation-name: spin;
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+  }
+}
+
+
+// // Responsive
+// @mixin MIN_QUERY($min) {
+//   @media screen and (min-width: $min){
+//     @content;
+//   }
+// }
+
+// @mixin MAX_QUERY($max) {
+//   @media screen and (max-width: $max){
+//     @content;
+//   }
+// }
+
+// @mixin MIN_MAX_QUERY($min , $max) {
+//   @media screen and (min-width: $min) and (max-width: $max) {
+//     @content;
+//   }
+// }
+
+@mixin loader($background, $forground, $width, $height: 150%) {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $width;
+  height: $height;
+  display: block;
+  transform: scale(1.6) translateY(0px) rotateZ(10deg);
+  animation: loading infinite 1.65s cubic-bezier(0.63, 0.62, 0.07, 0.96);
+  // animation-delay: 0.295s;
+  background: linear-gradient(to left, $background 0%, $forground  50%, $background 100%);
+
+
+
+  @keyframes loading {
+    0% { right: -100%; opacity: 0 }
+    30%, 60% { opacity: 1 }
+    90%, 100% { right: 100% ; opacity: 0 }
+  }
+}

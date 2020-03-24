@@ -32,18 +32,15 @@ export default function Gallery({ page }: any) {
   }
 
 
-
-
   return (
     <div className="gallery">
-      <img src={BIGFRAME} className="gallery__background" alt="" />
-      {/* <img src={FRAMEHOLDER} className="gallery__holder" alt=""/> */}
-      {/* <img src={BOTTOMFRAME} className="gallery__bottom" alt=""/> */}
+      <div className="gallery__big-frame">
+        <img src={BIGFRAME} alt="bigframe" />
+        <img src={slideData[current]} alt="bigimage"/>
+      </div>
 
-      {/* <img src={NAVBARRIGHT} className="navbar" alt="" onClick={prevSlide} /> */}
       <img src={NAVBARRIGHT} className="gallery__navbar_left" alt="navbar" onClick={handleNextClick(-1)} />
       <img src={NAVBARRIGHT} className="gallery__navbar_right" alt="navbar" onClick={handleNextClick(1)} />
-
 
       <div className="gallery__container">
         <Slider heading="Example Slider" currentData={current} type="GALLERY" slides={slideData} handleSlide={handleSlideClick} />
