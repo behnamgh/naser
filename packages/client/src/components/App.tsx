@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import Section from './sections';
 import { FullPage, Slide } from 'react-full-page';
-import Frames from "./Frames";
+// import Frames from "./Frames";
 import Logos from "./Logos";
 import Walls from "./Walls";
 import Menu from "./Menu";
@@ -11,10 +11,12 @@ import '../sass/main.scss';
 
 const App = ({ pages }: any) => {
   
+  const contentRef = useRef<HTMLImageElement>(null);
   const ImageRefs = {
     gear1: useRef<HTMLImageElement>(null),
     gear2: useRef<HTMLImageElement>(null),
     gear3: useRef<HTMLImageElement>(null),
+    stand: useRef<HTMLImageElement>(null),
     mainHeader: useRef<HTMLImageElement>(null)
   }
 
@@ -23,7 +25,10 @@ const App = ({ pages }: any) => {
       if (ImageRefs.gear1.current) ImageRefs.gear1.current.style.transform = `rotate(${-window.scrollY / 10}deg)`;
       if (ImageRefs.gear2.current) ImageRefs.gear2.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
       if (ImageRefs.gear3.current) ImageRefs.gear3.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
+     
+      
     })
+    if (contentRef && contentRef.current) contentRef.current.style.left = `${((window.innerWidth - 1680) / 2) - 5}px`;
   });
 
   const startChange = (data: { from: number, to: number }) => {
@@ -38,8 +43,8 @@ const App = ({ pages }: any) => {
     <Walls />
     <Logos />
     <Gears ImageRefs={ImageRefs} />
-    <Frames />
-    <div className="content">
+    {/* <Frames /> */}
+    <div className="content" ref={contentRef}>
       {pages && pages.length &&
         <FullPage controls={(props: any) => <Menu key="menu" {...props} forwardRef={ImageRefs.mainHeader} pages={pages} />} afterChange={endChange} beforeChange={startChange}>
           {pages.map((page: any) => <Slide key={page.id}>
