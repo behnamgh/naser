@@ -34,8 +34,8 @@ function Slide(props: any) {
       {
         props.type === "NEWS" &&
         <div className="news-slide__wrapper">
-          <img className="news-slide__holder" src={NEWSHOLDER} alt="" />
           <span className="news-slide__content">{src}</span>
+          <img className="news-slide__holder" src={NEWSHOLDER} alt="" />
         </div>
       }
 
