@@ -1,3 +1,5 @@
+@import './base/base_hub.scss';
+
 .join-us{
   width: 100%;
   height: 100%;
@@ -14,17 +16,16 @@
     position: relative;
 
     > img {
-      position: relative;
+      // position: relative;
       bottom: 0;
-      height: 40%;
     }
 
     &-input{
-      bottom: 31%;
+      bottom: 33%;
       position: absolute;
       background-color: black;
       opacity: 0.5;
-      height: 4.8%;
+      // height: 4.8%;
       width: 31%;
       color: white;
       border: none;
@@ -32,29 +33,28 @@
     }
     &-social{
       position: absolute;
-      width: 38%;
-      height: 18%;
-      bottom: .4%;
-      img{
+      bottom: 3%;
+
+      a{
         position: absolute;
-        height: 78%;
+        bottom: 0%;
+        display: inline-table;
+        @media #{$mq-xlarge} {
+          width: 165px;
+          height: 165px;
+        }
+        &:hover{
+          img{
+            display: block;
+          }
+        }
+        img{
+          display: none;
+        }
       }
-
-      img:first-child{
-        left: 25.5%;
-      }
-
-      img:nth-child(2){
-        left: 3px;
-      }
-
-      img:nth-child(3){
-        right: 26%;
-      }
-
-      img:last-child{
-        right: 0%;
-      }
+      // img:hover{
+      //   display: block;
+      // }
     }
   }
 }
