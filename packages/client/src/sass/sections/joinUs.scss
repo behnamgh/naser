@@ -3,10 +3,11 @@
 .join-us{
   width: 100%;
   height: 100%;
-
+  
   &__body{
     background-image: url("../../images/1150231-popular-forest-wallpaper-hd-1920x1200.jpg");
     width: 100%;
+
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,12 +17,15 @@
     position: relative;
 
     > img {
-      // position: relative;
+      @media #{$mq-xlarge} {
+        width: 750px;
+      }
       bottom: 0;
     }
 
     &-input{
-      bottom: 33%;
+      bottom: 310px;
+      height: 50px;
       position: absolute;
       background-color: black;
       opacity: 0.5;
@@ -33,16 +37,17 @@
     }
     &-social{
       position: absolute;
-      bottom: 3%;
-
+      bottom: 2%;
+      width: 33%;
+      @media #{$mq-xlarge} {
+        width: 750px;
+      }
+      
       a{
         position: absolute;
         bottom: 0%;
         display: inline-table;
-        @media #{$mq-xlarge} {
-          width: 165px;
-          height: 165px;
-        }
+
         &:hover{
           img{
             display: block;
@@ -52,9 +57,24 @@
           display: none;
         }
       }
-      // img:hover{
-      //   display: block;
-      // }
+      @media #{$mq-xlarge} {
+        a{
+          width: 165px;
+          height: 165px;
+        }
+      a:first-child{
+        left: 70px;
+      }
+      a:nth-child(2){
+        left: 218px;
+      }
+      a:nth-child(3){
+        left: 370px;
+      }
+      a:last-child{
+        left: 515px;
+      }
+      }
     }
   }
 }
