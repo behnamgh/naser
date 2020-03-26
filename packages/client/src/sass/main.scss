@@ -27,6 +27,14 @@
         top: -10px;
         z-index: 1;
     }
+    &__side-bar-left, &__side-bar-right{
+        position: fixed;
+        height: 110%;
+        top: -10px;
+        z-index: 2;
+        width: 170px;
+    }
+    
     &__background-image{
         position: fixed;
         width: 100%;
