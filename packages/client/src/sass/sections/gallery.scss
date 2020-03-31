@@ -1,3 +1,5 @@
+@import './base/base_hub.scss';
+
 .gallery{
   display: flex;
   height: 100%;
@@ -17,8 +19,13 @@
       z-index: 1;
       position: absolute;
       left: 50%;
-      margin-left: -45%;
+      margin-left: -51%;
       width: 100%;
+      @media #{$mq-xlarge} {
+        margin-left: -53%;
+        width: 100%;
+        max-width: 1680px;
+      }
     }
 
     img:last-child{

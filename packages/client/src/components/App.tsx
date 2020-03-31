@@ -10,7 +10,7 @@ import Gears from "./Gears";
 import '../sass/main.scss';
 
 const App = ({ pages }: any) => {
-  
+
   const contentRef = useRef<HTMLImageElement>(null);
   const ImageRefs = {
     gear1: useRef<HTMLImageElement>(null),
@@ -25,10 +25,10 @@ const App = ({ pages }: any) => {
       if (ImageRefs.gear1.current) ImageRefs.gear1.current.style.transform = `rotate(${-window.scrollY / 10}deg)`;
       if (ImageRefs.gear2.current) ImageRefs.gear2.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
       if (ImageRefs.gear3.current) ImageRefs.gear3.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
-     
-      
+    
+
     })
-    if (contentRef && contentRef.current) contentRef.current.style.left = `${((window.innerWidth - 1680) / 2) - 5}px`;
+    if (contentRef && contentRef.current) contentRef.current.style.left = window.innerWidth > 1680 ? `${((window.innerWidth - 1680) / 2) - 5}px` : "0px";
   });
 
   const startChange = (data: { from: number, to: number }) => {
