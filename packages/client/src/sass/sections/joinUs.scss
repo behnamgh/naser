@@ -22,9 +22,8 @@
       position: absolute;
       bottom: 0;
       left: 50%;
-      width: 30%;
       height: 32%;
-      margin-left: -15%;
+      margin-left: -30vh;
       @media #{$mq-xlarge} {
         width: 750px;
         height: unset;
@@ -57,14 +56,14 @@
     &-social{
       position: absolute;
       bottom: 2%;
-      width: 33%;
+      width: 66vh;
       @media #{$mq-xlarge} {
         width: 750px;
       }
       
       a{
         position: absolute;
-        bottom: 0%;
+        bottom: 0.6vh;
         left: 50%;
         width: 20%;
         &:hover{
@@ -78,16 +77,16 @@
           height: 100%;
         }
         &:first-child{
-          margin-left: -37%;
+          margin-left: -25vh;
         }
         &:nth-child(2){
-          margin-left: -19%;
+          margin-left: -13vh;
         }
         &:nth-child(3){
-          margin-left: -1%;
+          margin-left: -1vh;
         }
         &:last-child{
-          margin-left: 18%;
+          margin-left: 11.5vh;
         }
       }
       @media #{$mq-xlarge} {
