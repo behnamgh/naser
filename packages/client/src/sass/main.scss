@@ -211,7 +211,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 125%;
+        width: inherit;
         height: inherit;
     }
 }
@@ -280,15 +280,18 @@
 
     img:first-child{
         position: fixed;
-        top: -11%;
-        height: 32%;
+        top: -13%;
+        height: 35%;
+        width: 100%;
         z-index: 4;
+        max-width: 1800px;
     }
 
     img:last-child{
         position: fixed;
         top: 6.5%;
         height: 8%;
+        width: 18.5%;
         z-index: 4;
     }
 
