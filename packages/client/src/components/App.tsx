@@ -16,6 +16,8 @@ const App = ({ pages }: any) => {
     gear1: useRef<HTMLImageElement>(null),
     gear2: useRef<HTMLImageElement>(null),
     gear3: useRef<HTMLImageElement>(null),
+    gear4: useRef<HTMLImageElement>(null),
+    gear5: useRef<HTMLImageElement>(null),
     stand: useRef<HTMLImageElement>(null),
     mainHeader: useRef<HTMLImageElement>(null)
   }
@@ -25,6 +27,8 @@ const App = ({ pages }: any) => {
       if (ImageRefs.gear1.current) ImageRefs.gear1.current.style.transform = `rotate(${-window.scrollY / 10}deg)`;
       if (ImageRefs.gear2.current) ImageRefs.gear2.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
       if (ImageRefs.gear3.current) ImageRefs.gear3.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
+      if (ImageRefs.gear4.current) ImageRefs.gear4.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
+      if (ImageRefs.gear5.current) ImageRefs.gear5.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
     
 
     })
