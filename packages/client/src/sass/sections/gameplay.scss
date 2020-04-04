@@ -10,10 +10,15 @@
     justify-content: center;
 
     img{
-      width: 70%;
-      height: 82%;
-      right: 15%;
       position: absolute;
+      width: 85%;
+      height: 100%;
+      max-width: 1480px;
+      margin-left: -43%;
+      left: 50%;
+      @media #{$mq-xlarge} {
+        margin-left: -740px;
+      }
     }
   }
 }

@@ -1,3 +1,5 @@
+@import './base/base_hub.scss';
+
 .videos{
   height: 100%;
   width: 100%;
@@ -7,10 +9,17 @@
       align-items: flex-end;
 
       > img:first-child {
-        width: 70%;
-        right: 15%;
-        height: 80%;
+        // width: 70%;
+        // right: 15%;
+        height: 99%;
         position: absolute;
+        left: 50%;
+        margin-left: -43%;
+        width: 85%;
+        max-width: 1480px;
+        @media #{$mq-xlarge} {
+          margin-left: -740px;
+        }
       }
 
       > div {
@@ -22,49 +31,35 @@
       &-main{
 
         .videos__body-main-container{
-
-          height: 43%;
-          width: 125%;
-          left: 55%;
           position: absolute;
-          top: 37%;
+          top: 40%;
           z-index: 15000;
+          left: 50%;
+          max-width: 640px;
+          margin-left: -30%;
+          width: 100%;
           .videos__body-main-youtube{
             &-paused{
-              height: 100%;
-              width: 103%;
+              // height: 100%;
+              // width: 103%;
               filter: sepia(100%);
             }
             &-end{
-              height: 100%;
-              width: 103%;
+              // height: 100%;
+              // width: 103%;
               filter: sepia(100%);
             }
             &-ready{
-              height: 100%;
-              width: 103%;
+              // height: 100%;
+              // width: 103%;
               filter: sepia(100%);
             }
             &-playing{
-              height: 100%;
-              width: 103%;
+              // height: 100%;
+              // width: 103%;
             }
           }
         }
-        img:first-child{
-          height: 10%;
-          position: absolute;
-          left: 107%;
-          top: 53.5%;
-        }
-
-        img:last-child {
-          height: 44%;
-          position: absolute;
-          left: 54%;
-          top: 36.5%;
-        }
-
       }
 
       &-top{

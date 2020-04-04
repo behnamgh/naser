@@ -2,10 +2,11 @@ import React, { useState, useContext } from 'react';
 
 import Slider from '../slider/Slider'
 
-import BIGFRAME from '../../images/-e-BigFrame-1.png'
+// import BIGFRAME from '../../images/-e-BigFrame-1.png'
 // import FRAMEHOLDER from '../../images/-e-hanger.png'
 // import BOTTOMFRAME from '../../images/-e-SmallFrame.png'
 import NAVBARRIGHT from '../../images/-e-GalleryArrowFrame-Right.png'
+import BIGFRAME from '../../images/Galleryframe.png'
 
 
 import languageContext from '../contexts/lang';

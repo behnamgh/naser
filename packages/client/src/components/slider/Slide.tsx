@@ -7,8 +7,6 @@ import cx from "classnames";
 
 
 function Slide(props: any) {
-  console.log(props);
-
   const handleSlideClick = (event: any) => {
     props.handleSlideClick(props.slide.index);
   }
