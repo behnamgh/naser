@@ -6,19 +6,23 @@
     &__body{
       height: inherit;
       display: flex;
+      position: relative;
       align-items: flex-end;
 
       > img:first-child {
         // width: 70%;
         // right: 15%;
-        height: 99%;
+        height: 112vh;
+        max-height: 112vh;
         position: absolute;
         left: 50%;
-        margin-left: -43%;
-        width: 85%;
-        max-width: 1480px;
+        margin-left: -50%;
+        width: 100%;
+        top: -10vh;
+        max-width: 1680px;
         @media #{$mq-xlarge} {
-          margin-left: -740px;
+          height: 110vh;
+          margin-left: -855px;
         }
       }
 

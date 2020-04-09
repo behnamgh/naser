@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import GEARS1 from '../../images/gears-1.png';
 import GEARS2 from '../../images/gears-2.png'
 import GEARS3 from '../../images/gears-3.png'
@@ -11,7 +11,8 @@ import Frames from "../Frames";
 function WithLoading(Component: any) {
     return function WihLoadingComponent({ Loading, ...props }: any) {
         const [width, setWidth] = useState(0);
-
+        const date = useMemo(() => new Date().getTime() , []);
+        
         const ImageRefs = useRef(null);
 
         useEffect(() => {
@@ -20,7 +21,7 @@ function WithLoading(Component: any) {
             })
         }, [width, setWidth]);
 
-        if (Loading) return (<Component key={width} {...props} />);
+        if (Loading) return (<Component key={`${width}-${date}`} {...props} />);
         return (<div className="App section">
             <Walls />
             <Logos />

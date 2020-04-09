@@ -4,6 +4,7 @@
   width: 100%;
   max-width: 1680px;
   height: 100%;
+  position: relative;
   
   &__body{
     background-image: url("../../images/1150231-popular-forest-wallpaper-hd-1920x1200.jpg");
@@ -15,8 +16,12 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    position: relative;
-
+    position: absolute;
+    top: 6%;
+    @media #{$mq-xlarge} {
+      
+      top: 0%;
+    }
     > img {
       left: 50%;
       position: absolute;
