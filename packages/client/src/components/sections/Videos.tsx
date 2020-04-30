@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import BACKGROUND from "../../images/NewsPaper-Top.png";
+import BACKGROUND from "../../images/NewsPaper-Top1.png";
 import YouTube from 'react-youtube';
 import languageContext from '../contexts/lang'
 

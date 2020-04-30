@@ -15,26 +15,38 @@
     bottom: 0%;
 
     img:first-child{
-      z-index: 1;
-      z-index: 1;
+      height: 110vh;
+      max-height: 110vh;
+      top: -3vh;
       position: absolute;
       left: 50%;
-      margin-left: -50%;
-      width: 100%;
+      margin-left: -54%;
+      max-width: 1820px;
+      width: 105vw;
       @media #{$mq-xlarge} {
-        margin-left: -840px;
-        width: 100%;
-        max-width: 1680px;
+        top: -9vh;
+        height: 117vh;
+        max-height: 117vh;
+        width: 95vw;
+        margin-left: -54%;
       }
+      z-index: 1;
+   
     }
 
     img:last-child{
       position: absolute;
       width: 52%;
-      height: 55.2%;
-      top: 18.5%;
-      left: 24%;
+      height: 48.2vh;
+      top: 26.5vh;
+      left: 50%;
+      margin-left: -430px;
       z-index: 50;
+      @media #{$mq-xlarge} {
+        width: 52%;
+        height: 58.2vh;
+        top: 21.5vh;
+      }
     }
 
 

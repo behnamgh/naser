@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import TABS from '../images/tabs-frame@3x.png'
 
@@ -14,17 +14,13 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
     let lightPosition = 28.3 + (6.25 * currentSlideIndex) + "%";
     const rightSpace = window.innerWidth > 1680 ? ((window.innerWidth - 1680) / 2) - 5 : 10;
 
-    useEffect(() => {
-        scrollToSlide(0);
-    }, [scrollToSlide]);
-
     return (
         <div className="tabs">
 
             <div className="section-header">
-                <img src={TITLEFRAME} style={{ opacity: (currentSlideIndex === 0 || currentSlideIndex === 5) ? `0` : `1` }} alt="title-frame" />
+                <img src={TITLEFRAME} style={{ opacity: pages && pages[currentSlideIndex] && pages[currentSlideIndex].titleImage ? `1` : `0` }} alt="title-frame" />
                 {pages.map((page: any, index: number) => (page.titleImage && <img key={index} src={page.titleImage} style={{ opacity: currentSlideIndex === index ? `1` : `0` }} alt="title-video" />))}
-                <img src={TITLELIGHT} style={{ opacity: (currentSlideIndex === 0 || currentSlideIndex === 5) ? `0` : `1` }} alt="title-light" />
+                <img src={TITLELIGHT} style={{ opacity: pages && pages[currentSlideIndex] && pages[currentSlideIndex].titleImage ? `1` : `0` }} alt="title-light" />
             </div>
             <div className="tabs__container">
                 <img src={TABS} alt="" style={{ right: `${rightSpace}px` }} />
