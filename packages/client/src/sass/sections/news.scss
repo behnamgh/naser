@@ -16,7 +16,7 @@
     height: 85%;
     margin-left: 100px;
 
-    @media #{$mq-medium} {
+    @include MIN_MAX_QUERY(1280 , 1366) {
       height: 70%
     }
   }
@@ -34,7 +34,7 @@
     word-break: break-word;
     font-family: CourierPolski1941, sans-serif, Arial, Helvetica, sans-serif;
 
-    @media #{$mq-medium} {
+    @include MIN_MAX_QUERY(1280 , 1366) {
       font-size: 1rem;
       right: 16%;
       max-width: 48%;

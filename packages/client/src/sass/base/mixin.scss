@@ -55,23 +55,23 @@ $mq-xxlarge: "(min-width: #{$bp-xxlarge})";
 
 
 // // Responsive
-// @mixin MIN_QUERY($min) {
-//   @media screen and (min-width: $min){
-//     @content;
-//   }
-// }
+@mixin MIN_QUERY($min) {
+  @media screen and (min-width: $min){
+    @content;
+  }
+}
 
-// @mixin MAX_QUERY($max) {
-//   @media screen and (max-width: $max){
-//     @content;
-//   }
-// }
+@mixin MAX_QUERY($max) {
+  @media screen and (max-width: $max){
+    @content;
+  }
+}
 
-// @mixin MIN_MAX_QUERY($min , $max) {
-//   @media screen and (min-width: $min) and (max-width: $max) {
-//     @content;
-//   }
-// }
+@mixin MIN_MAX_QUERY($min , $max) {
+  @media screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
 
 @mixin loader($background, $forground, $width, $height: 150%) {
   position: absolute;

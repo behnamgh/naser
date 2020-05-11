@@ -42,13 +42,14 @@
       left: 50%;
       margin-left: -430px;
       z-index: 50;
+
       @media #{$mq-xlarge} {
         width: 52%;
         height: 58.2vh;
         top: 21.5vh;
       }
 
-      @media #{$mq-medium} {
+      @include MIN_MAX_QUERY(1280 , 1366) {
         width: 54.5%;
         height: 55.2vh;
         top: 25.5vh;
@@ -91,7 +92,7 @@
     top: -9px;
     width: 300px;
 
-    @media #{$mq-medium} {
+    @include MIN_MAX_QUERY(1280 , 1366) {
       top: 57px;
       height: 180px;
     }
