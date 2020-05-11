@@ -15,6 +15,10 @@
   &-slide__holder{
     height: 85%;
     margin-left: 100px;
+
+    @media #{$mq-medium} {
+      height: 70%
+    }
   }
   &-slide__content{
     font-size: 1.2em;
@@ -29,6 +33,12 @@
     padding-top: 15%;
     word-break: break-word;
     font-family: CourierPolski1941, sans-serif, Arial, Helvetica, sans-serif;
+
+    @media #{$mq-medium} {
+      font-size: 1rem;
+      right: 16%;
+      max-width: 48%;
+    }
   }
 
   > img:first-child{

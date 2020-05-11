@@ -93,6 +93,10 @@
     width: 530px;
     z-index: 1;
 
+    @media #{$mq-medium} {
+      height: 0;
+    }
+
     &__image-wrapper {
       background-color: transparent;
       border-radius: 1%;
@@ -180,6 +184,11 @@
           calc(var(--y) / var(--d) * 1px)
         ); 
     }
+  }
+
+  @media #{$mq-medium} {
+    top: 26%;
+    height: 109px;
   }
 }
 

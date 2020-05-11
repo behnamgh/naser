@@ -47,6 +47,13 @@
         height: 58.2vh;
         top: 21.5vh;
       }
+
+      @media #{$mq-medium} {
+        width: 54.5%;
+        height: 55.2vh;
+        top: 25.5vh;
+        left: 55%;
+      }
     }
 
 
@@ -83,6 +90,11 @@
     left: -30px;
     top: -9px;
     width: 300px;
+
+    @media #{$mq-medium} {
+      top: 57px;
+      height: 180px;
+    }
   }
   
 
