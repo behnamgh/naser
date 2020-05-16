@@ -97,6 +97,10 @@
       height: 0;
     }
 
+    @media #{$mq-xlarge} {
+      height: 160px;
+    }
+
     &__image-wrapper {
       background-color: transparent;
       border-radius: 1%;

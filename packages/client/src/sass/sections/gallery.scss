@@ -41,12 +41,13 @@
       top: 26.5vh;
       left: 50%;
       margin-left: -430px;
-      z-index: 50;
+      z-index: 1;
 
       @media #{$mq-xlarge} {
-        width: 52%;
+        width: 56%;
         height: 58.2vh;
         top: 21.5vh;
+        left: 47.7%;
       }
 
       @include MIN_MAX_QUERY(1280 , 1366) {
@@ -119,7 +120,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    z-index: 5;
+    z-index: 4;
     height: 100%;
   }
 }

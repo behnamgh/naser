@@ -19,6 +19,12 @@
     @include MIN_MAX_QUERY(1280 , 1366) {
       height: 70%
     }
+
+    @media #{$mq-xlarge} {
+      height: 80%
+    }
+
+    
   }
   &-slide__content{
     font-size: 1.2em;
