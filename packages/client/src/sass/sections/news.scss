@@ -13,7 +13,10 @@
     height: 100vh;
   }
   &-slide__holder{
-    height: 85%;
+    height: 70%;
+    @media #{$mq-xlarge} {
+      height: 85%;
+    }
     margin-left: 100px;
 
     @include MIN_MAX_QUERY(1280 , 1366) {
@@ -31,16 +34,18 @@
     line-height: 1.2em;
     color: burlywood;
     position: absolute;
-    right: 10%;
     z-index: 10;
-    max-width: 60%;
+
+      right: 10%;
+      max-width: 60%;
+    
     /* top: 0; */
     /* bottom: 41%; */
     padding-top: 15%;
     word-break: break-word;
     font-family: CourierPolski1941, sans-serif, Arial, Helvetica, sans-serif;
 
-    @include MIN_MAX_QUERY(1280 , 1366) {
+    @include MIN_MAX_QUERY(680 , 1366) {
       font-size: 1rem;
       right: 16%;
       max-width: 48%;
