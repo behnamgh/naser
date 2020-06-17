@@ -21,7 +21,7 @@ const App = ({ pages, key }: any) => {
     stand: useRef<HTMLImageElement>(null),
     mainHeader: useRef<HTMLImageElement>(null)
   }
-  
+
   useEffect(() => {
     window.addEventListener('scroll', function (e) {
       if (ImageRefs.gear1.current) ImageRefs.gear1.current.style.transform = `rotate(${-window.scrollY / 10}deg)`;
@@ -29,10 +29,11 @@ const App = ({ pages, key }: any) => {
       if (ImageRefs.gear3.current) ImageRefs.gear3.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
       if (ImageRefs.gear4.current) ImageRefs.gear4.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
       if (ImageRefs.gear5.current) ImageRefs.gear5.current.style.transform = `rotate(${window.scrollY / 10}deg)`;
-    
+
 
     })
-    if (contentRef && contentRef.current) contentRef.current.style.left = window.innerWidth > 1680 ? `${((window.innerWidth - 1680) / 2) - 5}px` : "0px";
+    // if (contentRef && contentRef.current) contentRef.current.style.left = window.innerWidth > 1680 ? `${((window.innerWidth - 1680) / 2) - 5}px` : "0px";
+    if (contentRef && contentRef.current) contentRef.current.style.left = window.innerWidth / window.innerHeight > 16 / 10 ?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) - 5}px`: "15vh";
   });
 
   const startChange = (data: { from: number, to: number }) => {

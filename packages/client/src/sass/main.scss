@@ -32,13 +32,13 @@
         height: 110%;
         top: -10px;
         z-index: 2;
-        width: 170px;
+        // width: 170px;prox37484be15-yt35prox37484891693
     }
     
     &__background-image{
         position: fixed;
         width: 100%;
-        // max-width: 1680px;
+        // max-width: calc( 100vh * 16 / 10);
         height: 100%;
         z-index: -50;
         // filter: grayscale(1),;
@@ -67,7 +67,7 @@
 
     &__top-frame{
         width: 100%;
-        max-width: 1680px;
+        max-width: calc( 100vh * 16 / 10);
         top: 0%;
         z-index: 7;
         position: fixed;
@@ -77,7 +77,7 @@
 
     &__bottom-frame{
             width: 100%;
-    max-width: 1680px;
+    max-width: calc( 100vh * 16 / 10);
         bottom: 0;
         z-index: 7;
         position: fixed;
@@ -96,7 +96,7 @@
 
     &__frame-top,&__frame-bottom{
         width: 100%;
-        max-width: 1680px;
+        max-width: calc( 100vh * 16 / 10);
         z-index: 7;
         position: fixed;
         pointer-events:none;
@@ -205,7 +205,7 @@
 .content{
     position: absolute;
     width: 100%;
-    max-width: 1680px;
+    max-width: calc( 100vh * 16 / 10);
     height: 100%;
     display: flex;
     justify-content: center;
