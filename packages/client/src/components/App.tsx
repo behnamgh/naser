@@ -33,7 +33,7 @@ const App = ({ pages, key }: any) => {
 
     })
     // if (contentRef && contentRef.current) contentRef.current.style.left = window.innerWidth > 1680 ? `${((window.innerWidth - 1680) / 2) - 5}px` : "0px";
-    if (contentRef && contentRef.current) contentRef.current.style.left = window.innerWidth / window.innerHeight > 16 / 9 ?`${((window.innerWidth - (window.innerHeight*16/9)) / 2) - 5}px`: "15vh";
+    if (contentRef && contentRef.current) contentRef.current.style.left = window.innerWidth / window.innerHeight > 16 / 10 ?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) - 5}px`: "15vh";
   });
 
   const startChange = (data: { from: number, to: number }) => {
