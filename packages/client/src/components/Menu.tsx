@@ -12,7 +12,7 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
 
     const currentSlideIndex = getCurrentSlideIndex();
     let lightPosition = 28.3 + (6.25 * currentSlideIndex) + "%";
-    const rightSpace = window.innerWidth > 1680 ? ((window.innerWidth - 1680) / 2) - 5 : 10;
+    const rightSpace = window.outerWidth/window.innerHeight> 16 / 9 ? ((window.innerWidth - (window.innerHeight*16/9)) / 2) - 5 : 10;
 
     return (
         <div className="tabs">
