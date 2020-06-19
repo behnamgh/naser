@@ -12,13 +12,13 @@ const Walls = () => {
 
     useEffect(() => {
 
-        if (left_wall && left_wall.current) left_wall.current.style.width = window.outerWidth/window.innerHeight> 16 / 10 ? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) + 15}px` : `0`;
-        if (right_wall && right_wall.current) right_wall.current.style.width = window.outerWidth/window.innerHeight> 16 / 10 ? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) + 15}px` : '0';
+        if (left_wall && left_wall.current) left_wall.current.style.width = window.outerWidth / window.innerHeight > 16 / 10 ? `${((window.innerWidth - (window.innerHeight * 16 / 10)) / 2) + 15}px` : `0`;
+        if (right_wall && right_wall.current) right_wall.current.style.width = window.outerWidth / window.innerHeight > 16 / 10 ? `${((window.innerWidth - (window.innerHeight * 16 / 10)) / 2) + 15}px` : '0';
 
-        if (left_sidebar && left_sidebar.current) left_sidebar.current.style.left = window.outerWidth/window.innerHeight> 16 / 10?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) -97}px`:"-200px";
-        if (right_sidebar && right_sidebar.current) right_sidebar.current.style.right = window.outerWidth/window.innerHeight> 16 / 10?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) -97}px`:"-200px";
+        if (left_sidebar && left_sidebar.current) left_sidebar.current.style.left = window.outerWidth / window.innerHeight > 16 / 10 ? `${((window.innerWidth - (window.innerHeight * 16 / 10)) / 2) - left_sidebar.current.clientWidth-6}px` : "-200px";
+        if (right_sidebar && right_sidebar.current) right_sidebar.current.style.right = window.outerWidth / window.innerHeight > 16 / 10 ? `${((window.innerWidth - (window.innerHeight * 16 / 10)) / 2) - right_sidebar.current.clientWidth-6}px` : "-200px";
         // if (right_sidebar && right_sidebar.current) right_sidebar.current.style.right =window.outerWidth/window.innerHeight> 16 / 10? `${((window.innerWidth - 1680) / 2)-150 }px`:"-200px";
-
+        
     }, []);
 
     return (

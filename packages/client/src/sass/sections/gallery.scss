@@ -15,47 +15,40 @@
     bottom: 0%;
 
     img:first-child{
-      height: 110vh;
-      max-height: 110vh;
-      top: -3vh;
       position: absolute;
+      width: 100%;
+      height: 100%;
+      max-width: 1680px;
       left: 50%;
-      margin-left: -54%;
-      max-width: 1820px;
-      width: 105vw;
-      @media #{$mq-xlarge} {
-        top: -9vh;
-        height: 117vh;
-        max-height: 117vh;
-        width: 95vw;
-        margin-left: -54%;
-      }
+      margin-left: -50%;
+      top: 4vh;
       z-index: 1;
    
     }
 
     img:last-child{
       position: absolute;
-      width: 52%;
-      height: 48.2vh;
-      top: 26.5vh;
-      left: 50%;
-      margin-left: -430px;
+      // max-width: 1680px;
+      left: 23%;
+      width: 50vw;
+      max-width: calc(100vh*16/10*0.55);
+      height: 56.2vh;
+      top: 20.5vh;
       z-index: 1;
 
-      @media #{$mq-xlarge} {
-        width: 56%;
-        height: 58.2vh;
-        top: 21.5vh;
-        left: 47.7%;
-      }
+      // @media #{$mq-xlarge} {
+      //   width: 56%;
+      //   height: 58.2vh;
+      //   top: 21.5vh;
+      //   left: 50%;
+      // }
 
-      @include MIN_MAX_QUERY(1280 , 1366) {
-        width: 54.5%;
-        height: 55.2vh;
-        top: 25.5vh;
-        left: 55%;
-      }
+      // @include MIN_MAX_QUERY(1280 , 1366) {
+      //   width: 54.5%;
+      //   height: 55.2vh;
+      //   top: 25.5vh;
+      //   // left: 55%;
+      // }
     }
 
 
