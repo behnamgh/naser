@@ -6,7 +6,7 @@ import Slider from '../slider/Slider'
 // import FRAMEHOLDER from '../../images/-e-hanger.png'
 // import BOTTOMFRAME from '../../images/-e-SmallFrame.png'
 import NAVBARRIGHT from '../../images/-e-GalleryArrowFrame-Right.png'
-import BIGFRAME from '../../images/GalleryFrame3.png'
+import BIGFRAME from '../../images/NewExport/GalleryBigFrame.png'
 
 
 import languageContext from '../contexts/lang';
