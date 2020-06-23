@@ -9,7 +9,8 @@ const AppWithLoading = WithLoading(App);
 
 const Landing = () => {
     const lang = navigator.language;
-
+    console.log(`Language: ${lang}`);
+    
     const [loading, setLoading] = useState(false);
     const pages = usePages();
 

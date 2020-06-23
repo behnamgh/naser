@@ -10,7 +10,7 @@ import AlarmIcon from '@material-ui/icons/Add';
 const EditPage = ({ id }: any) => {
     const [pageData, setPageData] = useState<any>();
     const params: any = useParams();
-
+    const langs = ["en-US", "de"]
     useEffect(() => {
         const loadPage = async () => {
             const response: any = await new getHttpClient().get(`/page/${params.id}`);
@@ -64,19 +64,25 @@ const EditPage = ({ id }: any) => {
                     <Grid item xs={12}>
                         <TextField value={pageData.order} onChange={handleChange("order")} label="Order" variant="outlined" />
                     </Grid>
-                    {pageData.contents.map((content: any, index: number) =>
-                        <Grid item xs={12} md={4} lg={3}>
-                            {content.unlimited ?
-                                <>
-                                    {(content.values["en-US"] || [""]).map((value: any, index2: any) => <TextField value={value} onChange={handleRepeatableChange(index, index2, "en-US")} label={content.title} variant="outlined" />)}
-                                    <IconButton color="secondary" aria-label="add an alarm" onClick={addRepeatable(index, "en-US")}>
-                                        <AlarmIcon />
-                                    </IconButton>
-                                </>
-                                :
-                                <TextField value={content.values["en-US"]} onChange={handleContentsChange(index, "en-US")} label={content.title} variant="outlined" />
-                            }
-                        </Grid>)}
+                    {langs.map(lang => <Grid item xs={12} md={6} lg={6}><fieldset>
+                        <legend>{lang}</legend>
+                        <Grid container spacing={4}>
+                            {pageData.contents.map((content: any, index: number) =>
+                                <Grid item xs={12} md={4} lg={3}>
+                                    {content.values && (content.unlimited ?
+                                        <>
+                                            {(content.values[lang] || [""]).map((value: any, index2: any) => <TextField value={value} onChange={handleRepeatableChange(index, index2, lang)} label={content.title} variant="outlined" />)}
+                                            <IconButton color="secondary" aria-label="add an alarm" onClick={addRepeatable(index, lang)}>
+                                                <AlarmIcon />
+                                            </IconButton>
+                                        </>
+                                        :
+                                        <TextField value={content.values[lang]} onChange={handleContentsChange(index, lang)} label={content.title} variant="outlined" />
+                                    )}
+                                </Grid>)}
+                        </Grid>
+                    </fieldset></Grid>)}
+
                     <Grid item xs={12}>
                         <Button type="submit">Save</Button>
                         <Link to="/admin/dashboard"><Button type="submit">back</Button></Link>

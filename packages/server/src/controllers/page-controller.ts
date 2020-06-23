@@ -1,6 +1,7 @@
 import { BodyParams, Controller, Get, Post, Required, Put, Delete, PathParams, Req, UseAfter, QueryParams, UseAuth } from "@tsed/common";
 import { PagessService } from "../services/page-service";
 import { AnalyticsService } from "../services/analytic-service";
+import { ConfigService } from "../services/config-service";
 import { IContent } from "../types/type";
 import { AnalyticsMiddleware } from "../middlewares/log-middleware";
 import { IsAuthenticated } from "../middlewares/auth-middleware";
@@ -9,7 +10,8 @@ import { IsAuthenticated } from "../middlewares/auth-middleware";
 export class UserController {
     constructor(
         private pageService: PagessService,
-        private analyticsService: AnalyticsService
+        private analyticsService: AnalyticsService,
+        private configService: ConfigService,
     ) {
     }
     @Get("/")
@@ -60,10 +62,4 @@ export class UserController {
     ) {
         return await this.pageService.editPage(id, newPage);
     }
-    // @Delete("/")
-    // async deletePage(
-    //     @Required() @BodyParams("id") id: string
-    // ) {
-    //     return await this.pageService.deletePage(id);
-    // }
 }

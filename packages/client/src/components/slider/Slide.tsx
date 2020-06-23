@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BOTTOMFRAME from '../../images/-e-SmallFrame.png'
+import BOTTOMFRAME from '../../images/NewExport/SmallFrame_Cropped.png'
 import IMAGELIGHT from '../../images/-e-SmallFrame-Light.png'
 import NEWSHOLDER from '../../images/Layer 1.png'
 import cx from "classnames";
