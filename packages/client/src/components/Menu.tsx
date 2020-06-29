@@ -33,7 +33,7 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
                 {/* <img src={TABS} alt="" style={{ right: `${rightSpace}px` }} /> */}
                 <img src={LIGHT} alt="" ref={forwardRef} style={{ top: `${lightPosition-3}%`, right: `${rightSpace-(0.038*window.innerHeight)}px` }} />
             </div>
-            {pages.map((page: any, index: number) => <img key={index} src={page.menuImage} className={`tabs-${index}`} style={{ right: `${rightSpace}px`, transform: currentSlideIndex === index ? `translateX(-3vh)` : `none` }} onClick={() => scrollToSlide(index)} alt="" />)}
+            {pages.map((page: any, index: number) => <img key={index} src={page.menuImage} className={`tabs-${index}`} style={{ right: `${rightSpace}px`, transform: currentSlideIndex === index ? `translateX(-4vh)` : `none` }} onClick={() => scrollToSlide(index)} alt="" />)}
 
         </div>
     );
