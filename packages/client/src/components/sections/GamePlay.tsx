@@ -1,6 +1,6 @@
 import React from 'react'
 
-import BACKGROUND from '../../images/NewsPaper-Down.png';
+import BACKGROUND from '../../images/NewExport/NewsPaper_Down.png';
 
 export default function GamePlay({ page }: any) {
   return (

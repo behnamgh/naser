@@ -4,8 +4,8 @@ import GEARS2 from '../images/gears-2.png'
 import GEARS3 from '../images/gears-3.png'
 import GEARS4 from '../images/DownFrame-Gear2.png'
 import GEARS5 from '../images/DownFrame-Gear1.png'
-import TOPFRAME from '../images/topFrame.png';
-import DOWNFRAME from '../images/downFrame.png';
+import TOPFRAME from '../images/NewExport/Frame.png';
+// import DOWNFRAME from '../images/downFrame.png';
 
 
 import GEARSTAND from '../images/gears-stands.png'
@@ -16,8 +16,8 @@ const Gears = ({ ImageRefs }: { ImageRefs: any }) => {
         if (ImageRefs.gear1) ImageRefs.gear1.current.style.left = window.outerWidth/window.innerHeight> 16 / 10?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) - 5}px`:"0px";
         if (ImageRefs.gear2) ImageRefs.gear2.current.style.left = window.outerWidth/window.innerHeight> 16 / 10?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) - 15}px`:"-10px";
         if (ImageRefs.gear3) ImageRefs.gear3.current.style.left = window.outerWidth/window.innerHeight> 16 / 10?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) + 15}px`:"20px";
-        if (ImageRefs.gear4) ImageRefs.gear4.current.style.right =window.outerWidth/window.innerHeight> 16 / 10? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) }px`:"5px";
-        if (ImageRefs.gear5) ImageRefs.gear5.current.style.right =window.outerWidth/window.innerHeight> 16 / 10? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) }px`:"5px";
+        if (ImageRefs.gear4) ImageRefs.gear4.current.style.right =window.outerWidth/window.innerHeight> 16 / 10? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2)-6 }px`:"5px";
+        if (ImageRefs.gear5) ImageRefs.gear5.current.style.right =window.outerWidth/window.innerHeight> 16 / 10? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2)-5 }px`:"5px";
     }, [ImageRefs]);
 
     return (
@@ -32,7 +32,7 @@ const Gears = ({ ImageRefs }: { ImageRefs: any }) => {
                 <img src={GEARS4} className={`fixed gear4`} ref={ImageRefs.gear4} alt="gear four"/>
                 <img src={GEARS5} className={`fixed gear5`} ref={ImageRefs.gear5} alt="gear four"/>
 
-                <img className="frames__frame-bottom" src={DOWNFRAME} alt="down" />
+                {/* <img className="frames__frame-bottom" src={DOWNFRAME} alt="down" /> */}
             </div>
         </>
     );

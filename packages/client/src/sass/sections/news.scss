@@ -13,19 +13,11 @@
     height: 100vh;
   }
   &-slide__holder{
-    height: 70%;
-    @media #{$mq-xlarge} {
-      height: 85%;
-    }
+
     margin-left: 100px;
 
-    @include MIN_MAX_QUERY(1280 , 1366) {
-      height: 70%
-    }
 
-    @media #{$mq-xlarge} {
-      height: 80%
-    }
+    height: 85%
 
     
   }
