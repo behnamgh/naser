@@ -23,6 +23,10 @@
     height: 100vh;
     width: 100vw;
     text-align: center;
+    &__text{
+        position: absolute;
+        top:50%
+    }
 }
 
 .walls{
@@ -276,7 +280,7 @@
     }
     &__title-image {
         z-index: 10;
-        top: 8%;
+        // top: 8%;
     } 
 
   }

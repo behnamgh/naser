@@ -28,17 +28,10 @@ function WithLoading(Component: any) {
         }, [setWidth, setHeight]);
 
 
-        if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
+        if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 9 <= width / height) {
             return (<Component key={`${width}-${height}-${date}`} {...props} />);
         } else if (Loading) {
-            return (<div className="size-problem">size problem:
-                {width}<br />
-                {height}<br />
-                {height / width * 16}<br />
-                {9 / 16}<br />
-                {10 / 16}<br />
-
-            </div>);
+            return (<div className="size-problem"><span className="size-problem__text">Please maximuze your browser.</span></div>);
         } else {
 
             return (<div className="App section">

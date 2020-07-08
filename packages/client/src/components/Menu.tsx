@@ -3,7 +3,7 @@ import React from 'react';
 // import TABS from '../images/tabs-frame@3x.png'
 
 import TITLEFRAME from '../images/Header/Header.png'
-import TITLELIGHT from '../images/Header/Header-Light.png'
+// import TITLELIGHT from '../images/Header/Header-Light.png'
 
 
 import LIGHT from '../images/tabs-frame-light@3x.png'
@@ -28,7 +28,7 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
             <div className="section-header">
                 <img src={TITLEFRAME} className="section-header__title-frame" style={{ opacity: pages && pages[currentSlideIndex] && pages[currentSlideIndex].titleImage ? `1` : `0` }} alt="title-frame" />
                 {pages.map((page: any, index: number) => (page.titleImage && <img key={index} className="section-header__title-image" src={page.titleImage} style={{ opacity: currentSlideIndex === index ? `1` : `0` }} alt="title-video" />))}
-                <img src={TITLELIGHT} className="section-header__title-light" style={{ opacity: pages && pages[currentSlideIndex] && pages[currentSlideIndex].titleImage ? `1` : `0` }} alt="title-light" />
+                {/* <img src={TITLELIGHT} className="section-header__title-light" style={{ opacity: pages && pages[currentSlideIndex] && pages[currentSlideIndex].titleImage ? `1` : `0` }} alt="title-light" /> */}
             </div>
             <div className="tabs__container">
                 {/* <img src={TABS} alt="" style={{ right: `${rightSpace}px` }} /> */}
