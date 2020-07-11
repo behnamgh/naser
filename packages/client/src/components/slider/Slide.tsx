@@ -2,14 +2,14 @@ import React from 'react';
 
 import BOTTOMFRAME from '../../images/NewExport/SmallFrame_Cropped.png'
 import IMAGELIGHT from '../../images/-e-SmallFrame-Light.png'
-import NEWSHOLDER from '../../images/Layer 1.png'
+import NEWSHOLDER from '../../images/NewExport/NewsFrame.png'
 import cx from "classnames";
 
 
 function Slide(props: any) {
-  const handleSlideClick = (event: any) => {
-    props.handleSlideClick(props.slide.index);
-  }
+  // const handleSlideClick = (event: any) => {
+  //   props.handleSlideClick(props.slide.index);
+  // }
 
   const { index, src } = props.slide;
 
@@ -18,7 +18,7 @@ function Slide(props: any) {
   return (
     <li
       className={cx({ "gallery-slide": props.type === "GALLERY", "news-slide": props.type === "NEWS", "slide--current": current === index, "slide--previous": current - 1 === index, "slide--next": current + 1 === index })}
-      onClick={handleSlideClick}
+      // onClick={handleSlideClick}
     >
       {
         props.type === "GALLERY" &&
@@ -32,7 +32,7 @@ function Slide(props: any) {
       {
         props.type === "NEWS" &&
         <div className="news-slide__wrapper">
-          <span className="news-slide__content">{src}</span>
+          <span className="news-slide__content"  >{src}</span>
           <img className="news-slide__holder" src={NEWSHOLDER} alt="" />
         </div>
       }

@@ -1,10 +1,10 @@
 
 .news{
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   display: flex;
   position: relative;
-  padding-left: 180px;
+  // padding-left: 180px;
   align-items: flex-end;
   overflow-x: hidden;
   justify-content: flex-start;
@@ -14,26 +14,26 @@
   }
   &-slide__holder{
 
-    margin-left: 100px;
+    // margin-left: 100px;
+position: absolute;
+top: 0;
 
-
-    height: 85%
+    height: 100vh
 
     
   }
   &-slide__content{
-    font-size: 1.2em;
+    font-size: 2vh;
     line-height: 1.2em;
     color: burlywood;
     position: absolute;
     z-index: 10;
 
-      right: 10%;
+      right: -19vh;
       max-width: 60%;
-    
-    /* top: 0; */
-    /* bottom: 41%; */
-    padding-top: 15%;
+      top: 25vh;    
+    //  bottom: 35vh;
+    // padding-top: 15%;
     word-break: break-word;
     font-family: CourierPolski1941, sans-serif, Arial, Helvetica, sans-serif;
 
@@ -44,33 +44,28 @@
     }
   }
 
-  > img:first-child{
+
+  &__navbar{
     position: absolute;
     z-index: 20;
-  }
 
-  > img:nth-child(2){
-    position: absolute;
-    z-index: 20;
-    margin: 0 100px;
-
-  }
-  &__navbar_right{
-    right: 11%;
-    position: absolute;
-    bottom: 0;
+    &_right{
+      right: 11%;
+      position: absolute;
+      bottom: 2vh;
+      /* left: 0; */
+      z-index: 2 !important;
+      height: 15%;
+    }
+    &_left{
+      left: 11%;
+      transform: rotateY(180deg);
+      position: absolute;
+      bottom: 2vh;
     /* left: 0; */
     z-index: 2 !important;
     height: 15%;
   }
-  &__navbar_left{
-    left: 11%;
-    transform: rotateY(180deg);
-    position: absolute;
-    bottom: 0;
-    /* left: 0; */
-    z-index: 2 !important;
-    height: 15%;
-  }
+}
 
 }
