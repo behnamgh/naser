@@ -14,8 +14,14 @@ function WithLoading(Component: any) {
         const [height, setHeight] = useState(0);
         const date = new Date().getTime();
 
-        const ImageRefs = useRef(null);
-
+        const ImageRefs = {
+            gear1: useRef<HTMLImageElement>(null),
+            gear2: useRef<HTMLImageElement>(null),
+            gear3: useRef<HTMLImageElement>(null),
+            gear4: useRef<HTMLImageElement>(null),
+            gear5: useRef<HTMLImageElement>(null),
+            stand: useRef<HTMLImageElement>(null),
+          }
         useEffect(() => {
             const updateSize = () => {
                 console.log([window.innerWidth, window.innerHeight]);
