@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react';
 import BACKGROUND from "../../images/NewExport/NewsPaper_Top.png";
+
 import YouTube from 'react-youtube';
 import languageContext from '../contexts/lang'
 
 export default function Videos({ page }: any) {
-  const lang = useContext(languageContext);
+  const {lang} = useContext(languageContext);
   const youtubeLink = page.contents[0].values && page.contents[0].values[lang];
 
   const [videoState, changeVideoState] = useState("empty");
@@ -33,7 +34,7 @@ export default function Videos({ page }: any) {
             onError={(e) => changeVideoState("error")} />}
         </div>
 
- 
+
 
       </div>
     </div>

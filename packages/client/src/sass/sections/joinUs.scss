@@ -62,7 +62,7 @@
           height: 18vh;
           position: absolute;
           bottom: 10vh;
-           opacity: 0;
+          opacity: 0;
         }
 
         &:hover{
@@ -80,8 +80,14 @@
       &:nth-child(3)>img{
         left: 61.9vh;
       }
-      &:last-child>img{
+      &:nth-child(4)>img{
         left: 43.9vh;
+      }
+      &:last-child>img{
+        left: 61vh;
+        bottom: 28vh;
+        height: 11vh;
+
        }
       // a:nth-child(2){
       //   margin-left: -165px;

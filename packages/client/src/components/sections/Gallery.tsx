@@ -12,7 +12,7 @@ import BIGFRAME from '../../images/NewExport/GalleryBigFrame.png'
 import languageContext from '../contexts/lang';
 
 export default function Gallery({ page }: any) {
-  const lang = useContext(languageContext);
+  const { lang } = useContext(languageContext);
   const slideData = page.contents[0].values && page.contents[0].values[lang];
 
   const [current, setCurrent] = useState(1);
@@ -37,7 +37,7 @@ export default function Gallery({ page }: any) {
     <div className="gallery">
       <div className="gallery__big-frame">
         <img src={BIGFRAME} alt="bigframe" />
-        <img src={slideData[current]} alt="bigimage"/>
+        <img src={slideData[current]} alt="bigimage" />
       </div>
 
       <img src={NAVBARRIGHT} className="gallery__navbar_left" alt="navbar" onClick={handleNextClick(-1)} />

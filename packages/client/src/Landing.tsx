@@ -9,11 +9,14 @@ const AppWithLoading = WithLoading(App);
 
 const Landing = () => {
     const lang = navigator.language;
-    console.log(`Language: ${lang}`);
     
+    const [language, setLnaguage] = useState(lang)
+
     const [loading, setLoading] = useState(false);
     const pages = usePages();
-
+    const toggleLanguage = () => {
+        setLnaguage(language === "en-US" ? "de" : "en-US")
+    }
     useEffect(() => {
         if (pages.length) {
             setLoading(true);
@@ -21,8 +24,8 @@ const Landing = () => {
     }, [pages]);
 
     return (
-        <LangProvider value={lang}>
-            <AppWithLoading Loading={loading} pages={pages} lang={lang} />
+        <LangProvider value={{ lang: language, toggleLanguage }}>
+            <AppWithLoading Loading={loading} pages={pages} lang={language} />
         </LangProvider>
     );
 };

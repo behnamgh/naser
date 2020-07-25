@@ -4,7 +4,7 @@ import NAVBARRIGHT from '../../images/-e-GalleryArrowFrame-Right.png'
 import languageContext from '../contexts/lang';
 
 export default function News({ page }: any) {
-  const lang = useContext(languageContext);
+  const {lang} = useContext(languageContext);
   const slideData = page.contents[0].values && page.contents[0].values[lang];
 
 

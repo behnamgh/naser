@@ -5,7 +5,8 @@ import SOCIALHOLDER from '../../images/JoinUs/JoinUs.png';
 import FACEBOOK from '../../images/facebook.png';
 import INSTAGRAM from '../../images/instagram.png';
 import TWITTER from '../../images/twitter.png';
-import MAIL from '../../images/website.png';
+import MAIL from '../../images/Mail.png';
+import JOINUS_BUTTON from '../../images/joinUs.png';
 
 import getHttpClient from "../../utils/httpClient";
 
@@ -21,10 +22,8 @@ export default function JoinUs({ page }: any) {
     setMail(event.target.value)
   }
 
-  const handleKeyDown = async (event: any) => {
-    if (event.key === "Enter") {
-      await new getHttpClient().post("/user/addSubscriber", { email });
-    }
+  const handleSubmitClick = async (event: any) => {
+    await new getHttpClient().post("/user/addSubscriber", { email });
   }
   // useEffect(() => {
   //   if (bodySocial && bodySocial.current) {
@@ -39,12 +38,14 @@ export default function JoinUs({ page }: any) {
       <div className="join-us__body">
         <img src={SOCIALHOLDER} alt="" />
 
-        <input className="join-us__body-input" placeholder="Your Email Address" type="text" id="mail" name="mail" value={email} onChange={handleType} onKeyDown={handleKeyDown} />
+        <input className="join-us__body-input" placeholder="Your Email Address" type="text" id="mail" name="mail" value={email} onChange={handleType} />
         <div className="join-us__body-social" ref={bodySocial}>
-          <a onClick={() => console.log("website")}><img src={MAIL} alt="website icon" /></a>
-          <a onClick={() => console.log("twitter")}><img src={TWITTER} alt="twitter icon" /></a>
-          <a onClick={() => console.log("instagram")}><img src={INSTAGRAM} alt="instagram icon" /></a>
-          <a onClick={() => console.log("facebook")}><img src={FACEBOOK} alt="facebook icon" /></a>
+          <a href="http://mail.com"><img src={MAIL} alt="website icon" /></a>
+          <a href="http://twitter.com"><img src={TWITTER} alt="twitter icon" /></a>
+          <a href="http://instagram.com"><img src={INSTAGRAM} alt="instagram icon" /></a>
+          <a href="http://facebook.com"><img src={FACEBOOK} alt="facebook icon" /></a>
+          <a onClick={handleSubmitClick}><img src={JOINUS_BUTTON} alt="" /></a>
+
         </div>
       </div>
     </div>
