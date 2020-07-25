@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import WALL from '../images/NewExport/Wall-Left.png';
-import BACK from '../images/1150231-popular-forest-wallpaper-hd-1920x1200.jpg';
+import BACK from '../images/BackGround1.jpg';
 import sideBar from '../images/NewExport/Sidebar.png';
 
 const Walls = () => {
