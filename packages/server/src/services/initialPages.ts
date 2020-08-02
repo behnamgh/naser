@@ -20,7 +20,7 @@ export default [
         "name": "videos",
         "title": "Videos",
         "menuImage": "/images/video@3x.png",
-        "titleImage": "/images/VIDEOS.png",
+        "titleImage": "/images/Header_Videos.png",
         "contents": [
             {
                 "title": "main video",
@@ -49,7 +49,7 @@ export default [
         "name": "gameplay",
         "title": "Gameplay Story",
         "menuImage": "/images/gamePlay@3x.png",
-        "titleImage": "/images/GAMEPLAYSTORY.png",
+        "titleImage": "/images/Header_Gameplay.png",
         "contents": [
             {
                 "title": "pic1",
@@ -84,7 +84,7 @@ export default [
         "name": "gallery",
         "title": "Gallery",
         "menuImage": "/images/gallery@3x.png",
-        "titleImage": "/images/GALLERY.png",
+        "titleImage": "/images/Header_Gallery.png",
         "contents": [
             {
                 "title": "pic1",
@@ -108,7 +108,7 @@ export default [
         "name": "news",
         "title": "News",
         "menuImage": "/images/news@3x.png",
-        "titleImage": "/images/NEWS.png",
+        "titleImage": "/images/Header_News.png",
         "contents": [
             {
                 "title": "news item",
