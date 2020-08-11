@@ -35,14 +35,15 @@ const EditPage = ({ id }: any) => {
         pageData[name] = event.target.value;
         setPageData({ ...pageData })
     }
-    const handleRepeatableChange = (index: number, index2: number, lang: string) => (event: any) => {
+    const handleRepeatableChange = (index: number, index2: number, lang: string, key = "value") => (event: any) => {
         if (!pageData.contents[index].values[lang]) pageData.contents[index].values[lang] = [];
-        pageData.contents[index].values[lang][index2] = event.target.value;
+        if (!pageData.contents[index].values[lang][index2]) pageData.contents[index].values[lang][index2] = {};
+        pageData.contents[index].values[lang][index2][key] = event.target.value;
         setPageData({ ...pageData })
     }
     const addRepeatable = (index: number, lang: string) => (event: any) => {
-        if (!pageData.contents[index].values[lang]) pageData.contents[index].values[lang] = [""];
-        pageData.contents[index].values[lang].push("");
+        if (!pageData.contents[index].values[lang]) pageData.contents[index].values[lang] = [{ value: "" }];
+        pageData.contents[index].values[lang].push({ value: "" });
         setPageData({ ...pageData })
     }
     return (
@@ -71,13 +72,16 @@ const EditPage = ({ id }: any) => {
                                 <Grid item xs={12} md={4} lg={3}>
                                     {content.values && (content.unlimited ?
                                         <>
-                                            {(content.values[lang] || [""]).map((value: any, index2: any) => <TextField value={value} onChange={handleRepeatableChange(index, index2, lang)} label={content.title} variant="outlined" />)}
+                                            {(content.values[lang] || [{ value: "" }]).map((value: any, index2: any) => <>
+                                                <TextField value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={content.title} variant="outlined" />
+                                                {content.hasLink && <TextField value={value.link} onChange={handleRepeatableChange(index, index2, lang, "link")} label="Link" variant="outlined" />}
+                                            </>)}
                                             <IconButton color="secondary" aria-label="add an alarm" onClick={addRepeatable(index, lang)}>
                                                 <AlarmIcon />
                                             </IconButton>
                                         </>
                                         :
-                                        <TextField value={content.values[lang]} onChange={handleContentsChange(index, lang)} label={content.title} variant="outlined" />
+                                        <TextField value={content.values[lang].value} onChange={handleContentsChange(index, lang)} label={content.title} variant="outlined" />
                                     )}
                                 </Grid>)}
                         </Grid>

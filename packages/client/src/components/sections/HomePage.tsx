@@ -3,7 +3,7 @@ import languageContext from '../contexts/lang';
 
 export default function HomePage({ page }: any) {
   const {lang} = useContext(languageContext);
-  const videoPath = page.contents[0].values && page.contents[0].values[lang];
+  const videoPath = page.contents[0].values && page.contents[0].values[lang].value;
 
   return (
     <div className="header">

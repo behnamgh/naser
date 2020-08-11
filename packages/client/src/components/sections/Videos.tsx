@@ -6,7 +6,7 @@ import languageContext from '../contexts/lang'
 
 export default function Videos({ page }: any) {
   const {lang} = useContext(languageContext);
-  const youtubeLink = page.contents[0].values && page.contents[0].values[lang];
+  const youtubeLink = page.contents[0].values && page.contents[0].values[lang].value;
 
   const [videoState, changeVideoState] = useState("empty");
   return (

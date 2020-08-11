@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react'
 import Slider from '../slider/Slider'
 import NAVBARRIGHT from '../../images/-e-GalleryArrowFrame-Right.png'
+import NAVBARLIGHT from '../../images/-e-GalleryArrow-Right.png'
+
 import languageContext from '../contexts/lang';
 
 export default function News({ page }: any) {
-  const {lang} = useContext(languageContext);
+  const { lang } = useContext(languageContext);
   const slideData = page.contents[0].values && page.contents[0].values[lang];
 
 
@@ -31,7 +33,11 @@ export default function News({ page }: any) {
     <div className="news">
       <img src={NAVBARRIGHT} className="news__navbar_left" alt="navbar" onClick={handleNextClick(-1)} />
       <img src={NAVBARRIGHT} className="news__navbar_right" alt="navbar" onClick={handleNextClick(1)} />
-        <Slider heading="Example Slider" currentData={current} type="NEWS" slides={slideData} handleSlide={handleSlideClick} />
+
+      <img src={NAVBARLIGHT} className="news__navbar_light_left" alt="navbar" onClick={handleNextClick(-1)} />
+      <img src={NAVBARLIGHT} className="news__navbar_light_right" alt="navbar" onClick={handleNextClick(1)} />
+
+      <Slider heading="Example Slider" currentData={current} type="NEWS" slides={slideData} handleSlide={handleSlideClick} />
     </div>
   )
 }

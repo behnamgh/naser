@@ -68,6 +68,7 @@
   text-align: center;
   transition: opacity calc(var(--base-duration) / 2) var(--base-ease), transform calc(var(--base-duration) / 2) var(--base-ease);
   width: 25vh;
+  right: 15%;
   z-index: 1;
 
   &__image-wrapper {

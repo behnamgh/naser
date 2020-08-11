@@ -27,7 +27,7 @@ function Slider(props: any) {
             <Slide
               key={index}
               type={type}
-              slide={{ src: slide, index }}
+              slide={{ src: slide.value, link: slide.link, index }}
               current={currentData}
               handleSlideClick={handleSlideclicking}
             />
