@@ -45,8 +45,8 @@ export default function Gallery({ page }: any) {
       <img src={NAVBARRIGHT} className="gallery__navbar_left" alt="navbar" onClick={handleNextClick(-1)} />
       <img src={NAVBARRIGHT} className="gallery__navbar_right" alt="navbar" onClick={handleNextClick(1)} />
 
-      <img src={NAVBARLIGHT} className="gallery__navbar_light_right" alt="navbar" onClick={handleNextClick(-1)} />
-      <img src={NAVBARLIGHT} className="gallery__navbar_light_left" alt="navbar" onClick={handleNextClick(1)} />
+      <img src={NAVBARLIGHT} className="gallery__navbar_light_left" alt="navbar" onClick={handleNextClick(-1)} />
+      <img src={NAVBARLIGHT} className="gallery__navbar_light_right" alt="navbar" onClick={handleNextClick(1)} />
 
       <div className="gallery__container">
         <Slider heading="Example Slider" currentData={current} type="GALLERY" slides={slideData} handleSlide={handleSlideClick} />
