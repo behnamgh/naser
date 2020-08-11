@@ -57,7 +57,7 @@
   &__navbar_right{
     right: 11%;
     position: absolute;
-    bottom: 0;
+    bottom: 2vh;
     /* left: 0; */
     z-index: 6;
     height: 15%;
@@ -66,10 +66,36 @@
     left: 11%;
     transform: rotateY(180deg);
     position: absolute;
-    bottom: 0;
+    bottom: 2vh;
     /* left: 0; */
     z-index: 6;
     height: 15%;
+    
+  }
+  &__navbar_light_right{
+    position: absolute;
+    /* left: 0; */
+    z-index: 6;
+    right: 13.9%;
+    bottom: 8.7vh;
+    height: 8%;
+    opacity: 0;
+       &:hover{
+         opacity: 1;
+        }
+      }  
+  &__navbar_light_left{
+    transform: rotateY(180deg);
+    position: absolute;
+    /* left: 0; */
+    z-index: 6;
+    left: 13.9%;
+    bottom: 8.7vh;
+    height: 8%;
+    opacity: 0;
+    &:hover{
+      opacity: 1;
+  }
   }
 
   &__holder{

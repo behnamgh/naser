@@ -15,12 +15,24 @@
   &-slide__holder{
 
     // margin-left: 100px;
-position: absolute;
-top: 0;
+    position: absolute;
+      top: 0;
 
     height: 100vh
 
     
+  }
+  &-slide__link{
+    font-size: 2vh;
+    line-height: 1.2em;
+    color: burlywood;
+    position: absolute;
+    z-index: 10;
+    right: -2vh;
+    max-width: 60%;
+    top: 76vh;
+    word-break: break-word;
+    font-family: CourierPolski1941, sans-serif, Arial, Helvetica, sans-serif;
   }
   &-slide__content{
     font-size: 2vh;
@@ -29,9 +41,9 @@ top: 0;
     position: absolute;
     z-index: 10;
 
-      right: -19vh;
-      max-width: 60%;
-      top: 25vh;    
+    right: -19vh;
+    max-width: 60%;
+    top: 25vh;    
     //  bottom: 35vh;
     // padding-top: 15%;
     word-break: break-word;
@@ -65,6 +77,31 @@ top: 0;
     /* left: 0; */
     z-index: 2 !important;
     height: 15%;
+  }
+  &_light_right{
+    position: absolute;
+    z-index: 2 !important;
+
+    right: 13.9%;
+    bottom: 8.7vh;
+    height: 8%;
+    opacity: 0;
+       &:hover{
+         opacity: 1;
+        }
+  }
+  &_light_left{
+    transform: rotateY(180deg);
+    position: absolute;
+    z-index: 2 !important;
+
+    left: 13.9%;
+    bottom: 8.7vh;
+    height: 8%;
+    opacity: 0;
+    &:hover{
+      opacity: 1;
+  }
   }
 }
 
