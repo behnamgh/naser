@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BOTTOMFRAME from '../../images/NewExport/SmallFrame_Cropped.png'
-import IMAGELIGHT from '../../images/-e-SmallFrame-Light.png'
+// import IMAGELIGHT from '../../images/-e-SmallFrame-Light.png'
 import NEWSHOLDER from '../../images/NewExport/NewsFrame.png'
 import NEWSHOLDERWITHLINK from '../../images/NewExport/NewsFrame2.png'
 import cx from "classnames";
@@ -26,7 +26,7 @@ function Slide(props: any) {
         <div className="gallery-slide__image-wrapper">
           <img key={index} src={src} className={cx("slide__image", { "slide--current-image": current === index })} alt={src} />
           <img src={BOTTOMFRAME} className={cx("gallery__bottom", { "slide--current-frame": current === index })} alt="" />
-          <img src={IMAGELIGHT} className={cx("slide--current-light", { "slide--current-light": current === index })} alt="" />
+          {/* <img src={IMAGELIGHT} className={cx("slide--current-light", { "slide--current-light": current === index })} alt="" /> */}
         </div>
       }
 
