@@ -63,11 +63,7 @@ export class PassportLocalService implements BeforeRoutesInit, AfterRoutesInit {
 
     async login(username: string, password: string): Promise<Object> {
         try {
-            console.log("in login", username, password);
-
             const user = await this.userService.findByUsername(username);
-            console.log(["?", user]);
-
 
             if (user && password === user.password) {
                 const token = tokenHelper.generateToken({ username: user.username, role: user.role });
