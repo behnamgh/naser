@@ -19,15 +19,19 @@
 }
 .size-problem{
     background-color: black;
-    color: white;
+    // color: white;
     height: 100vh;
     width: 100vw;
-    text-align: center;
-    &__text{
-        position: absolute;
-        top:50%;
-        left:40vw;
-    }
+    // text-align: center;
+    background-image: url("../images/Maximize.png");
+    background-position: center;
+background-repeat: no-repeat;
+
+    // &__text{
+    //     position: absolute;
+    //     top:50%;
+    //     left:40vw;
+    // }
 }
 
 .walls{
@@ -185,6 +189,7 @@
     img:last-child{
         position: absolute;
         height: 70%;
+        margin-left: 15vh;
     }
 }
 
