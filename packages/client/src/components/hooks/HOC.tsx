@@ -34,7 +34,7 @@ function WithLoading(Component: any) {
         }, [setWidth, setHeight]);
 
 
-        if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 9 <= width / height) {
+        if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
             return (<Component key={`${width}-${height}-${date}`} {...props} />);
         } else if (Loading) {
             return (<div className="size-problem">
