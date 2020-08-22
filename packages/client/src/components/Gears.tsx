@@ -16,8 +16,8 @@ const Gears = ({ ImageRefs }: { ImageRefs: any }) => {
         if (ImageRefs.gear1) ImageRefs.gear1.current.style.left = window.outerWidth/window.innerHeight> 16 / 10?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) - 5}px`:"0px";
         if (ImageRefs.gear2) ImageRefs.gear2.current.style.left = window.outerWidth/window.innerHeight> 16 / 10?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) - 15}px`:"-10px";
         if (ImageRefs.gear3) ImageRefs.gear3.current.style.left = window.outerWidth/window.innerHeight> 16 / 10?`${((window.innerWidth - (window.innerHeight*16 / 10)) / 2) + 15}px`:"20px";
-        if (ImageRefs.gear4) ImageRefs.gear4.current.style.right =window.outerWidth/window.innerHeight> 16 / 10? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2)-6 }px`:"5px";
-        if (ImageRefs.gear5) ImageRefs.gear5.current.style.right =window.outerWidth/window.innerHeight> 16 / 10? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2)-5 }px`:"5px";
+        if (ImageRefs.gear4) ImageRefs.gear4.current.style.right =window.outerWidth/window.innerHeight> 16 / 10? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2)+1 }px`:"5px";
+        if (ImageRefs.gear5) ImageRefs.gear5.current.style.right =window.outerWidth/window.innerHeight> 16 / 10? `${((window.innerWidth - (window.innerHeight*16 / 10)) / 2)+2 }px`:"5px";
     }, [ImageRefs]);
 
     return (

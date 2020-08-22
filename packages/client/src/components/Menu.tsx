@@ -19,8 +19,7 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
         55.8,
         61.5][currentSlideIndex];
 
-    const rightSpace = window.outerWidth / window.innerHeight > 16 / 10 ? ((window.innerWidth - (window.innerHeight * 16 / 10)) / 2) + (0.045 * window.innerHeight) : window.innerWidth * 0.10;
-    console.log(" window.outerWidth / window.innerHeight > 16 / 10", window.outerWidth / window.innerHeight > 16 / 10);
+    const rightSpace = window.outerWidth / window.innerHeight > 16 / 10 ? ((window.innerWidth - (window.innerHeight * 16 / 10)) / 2) + (0.054 * window.innerHeight) : window.innerWidth * 0.10;
 
     return (
         <div className="tabs">

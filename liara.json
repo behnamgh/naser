@@ -1,0 +1,11 @@
+{
+    "platform": "node",
+    "app": "enlightenedrobot",
+    "port": 3000,
+    "disks": [
+        {
+          "name": "images",
+          "mountTo": "/app/packages/client/public/images"
+        }
+      ]
+  }
