@@ -13,6 +13,7 @@ function WithLoading(Component: any) {
         const [width, setWidth] = useState(0);
         const [height, setHeight] = useState(0);
         const date = new Date().getTime();
+        const [seconds, setSeconds] = useState(5);
 
         const ImageRefs = {
             gear1: useRef<HTMLImageElement>(null),
@@ -21,7 +22,21 @@ function WithLoading(Component: any) {
             gear4: useRef<HTMLImageElement>(null),
             gear5: useRef<HTMLImageElement>(null),
             stand: useRef<HTMLImageElement>(null),
-          }
+        }
+        useEffect(() => {
+            let myInterval = setInterval(() => {
+                if (seconds > 0) {
+                    setSeconds(seconds - 1);
+                }
+                if (seconds === 0) {
+                    setSeconds(-5);
+                }
+            }, 1000);
+            return () => {
+                clearInterval(myInterval);
+            };
+        });
+
         useEffect(() => {
             const updateSize = () => {
                 console.log([window.innerWidth, window.innerHeight]);
@@ -31,15 +46,25 @@ function WithLoading(Component: any) {
             window.addEventListener("resize", updateSize);
             updateSize()
             return () => window.removeEventListener('resize', updateSize);
+
         }, [setWidth, setHeight]);
 
 
         if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
-            return (<Component key={`${width}-${height}-${date}`} {...props} />);
+            return (<>
+                {seconds !== -5 && <div className="loading">
+
+                <img src={GEARS1} className={`fixed anticloclwise gear1-loading`} alt="gear one" />
+                <img src={GEARS2} className={`fixed cloclwise gear2-loading`} alt="gear two" />
+                <img src={GEARS3} className={`fixed cloclwise gear3-loading`} alt="gear 3" />
+            
+                    </div>}
+                <Component key={`${width}-${height}-${date}`} {...props} />
+            </>);
         } else if (Loading) {
             return (<div className="size-problem">
                 {/* <span className="size-problem__text">Please maximuze your browser.</span> */}
-                </div>);
+            </div>);
         } else {
 
             return (<div className="App section">
