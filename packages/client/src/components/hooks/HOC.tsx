@@ -13,7 +13,7 @@ function WithLoading(Component: any) {
         const [width, setWidth] = useState(0);
         const [height, setHeight] = useState(0);
         const date = new Date().getTime();
-        const [seconds, setSeconds] = useState(5);
+        const [seconds, setSeconds] = useState(3);
 
         const ImageRefs = {
             gear1: useRef<HTMLImageElement>(null),
@@ -52,13 +52,7 @@ function WithLoading(Component: any) {
 
         if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
             return (<>
-                {seconds !== -5 && <div className="loading">
-
-                <img src={GEARS1} className={`fixed anticloclwise gear1-loading`} alt="gear one" />
-                <img src={GEARS2} className={`fixed cloclwise gear2-loading`} alt="gear two" />
-                <img src={GEARS3} className={`fixed cloclwise gear3-loading`} alt="gear 3" />
-            
-                    </div>}
+                {seconds !== -5 && <div className="loading"></div>}
                 <Component key={`${width}-${height}-${date}`} {...props} />
             </>);
         } else if (Loading) {
