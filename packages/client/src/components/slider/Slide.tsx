@@ -8,9 +8,9 @@ import cx from "classnames";
 
 
 function Slide(props: any) {
-  // const handleSlideClick = (event: any) => {
-  //   props.handleSlideClick(props.slide.index);
-  // }
+  const handleSlideClick = (event: any) => {
+    props.handleSlideClick(props.slide.index);
+  }
 
   const { index, src, link } = props.slide;
 
@@ -19,7 +19,7 @@ function Slide(props: any) {
   return (
     <li
       className={cx({ "gallery-slide": props.type === "GALLERY", "news-slide": props.type === "NEWS", "slide--current": current === index, "slide--previous": current - 1 === index, "slide--next": current + 1 === index })}
-    // onClick={handleSlideClick}
+    onClick={handleSlideClick}
     >
       {
         props.type === "GALLERY" &&
