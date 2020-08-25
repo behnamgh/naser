@@ -43,12 +43,11 @@ export default function JoinUs({ page }: any) {
         <img src={lang === "en-US" ? SOCIALHOLDER_EN : SOCIALHOLDER_DE} alt="" />
         <input className="join-us__body-input" placeholder="Your Email Address" type="text" id="mail" name="mail" value={email} onChange={handleType} />
         <div className="join-us__body-social" ref={bodySocial}>
-          <a href="http://mail.com"><img src={MAIL} alt="website icon" /></a>
-          <a href="http://twitter.com"><img src={TWITTER} alt="twitter icon" /></a>
-          <a href="http://instagram.com"><img src={INSTAGRAM} alt="instagram icon" /></a>
-          <a href="http://facebook.com"><img src={FACEBOOK} alt="facebook icon" /></a>
+          <a href="mailto:info@enlightenedrobot.com"><img src={MAIL} alt="website icon" /></a>
+          <a href="https://twitter.com/ere_studios"><img src={TWITTER} alt="twitter icon" /></a>
+          <a href="https://www.instagram.com/enlightenedrobot"><img src={INSTAGRAM} alt="instagram icon" /></a>
+          <a href="http://facebook.com/EnlightenedRobotEntertainmentGmbH"><img src={FACEBOOK} alt="facebook icon" /></a>
           <a onClick={handleSubmitClick}><img src={JOINUS_BUTTON} alt="" /></a>
-
         </div>
       </div>
     </div>

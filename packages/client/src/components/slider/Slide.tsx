@@ -19,13 +19,12 @@ function Slide(props: any) {
   return (
     <li
       className={cx({ "gallery-slide": props.type === "GALLERY", "news-slide": props.type === "NEWS", "slide--current": current === index, "slide--previous": current - 1 === index, "slide--next": current + 1 === index })}
-    onClick={handleSlideClick}
     >
       {
         props.type === "GALLERY" &&
         <div className="gallery-slide__image-wrapper">
           <img key={index} src={src} className={cx("slide__image", { "slide--current-image": current === index })} alt={src} />
-          <img src={BOTTOMFRAME} className={cx("gallery__bottom", { "slide--current-frame": current === index })} alt="" />
+          <img src={BOTTOMFRAME} onClick={handleSlideClick} className={cx("gallery__bottom", { "slide--current-frame": current === index })} alt="" />
           {/* <img src={IMAGELIGHT} className={cx("slide--current-light", { "slide--current-light": current === index })} alt="" /> */}
         </div>
       }
@@ -33,8 +32,8 @@ function Slide(props: any) {
       {
         props.type === "NEWS" &&
         <div className="news-slide__wrapper">
-          <span className="news-slide__content"  >{src}</span>
-          <img className="news-slide__holder" src={link ? NEWSHOLDERWITHLINK : NEWSHOLDER} alt="" />
+          <span className="news-slide__content" onClick={handleSlideClick}>{src}</span>
+          <img className="news-slide__holder" src={link ? NEWSHOLDERWITHLINK : NEWSHOLDER} alt="" onClick={handleSlideClick}/>
           {link && <a href={link} className="news-slide__link"  target="_blank">More</a>}
         </div>
       }

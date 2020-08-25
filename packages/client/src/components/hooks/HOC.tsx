@@ -1,11 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import GEARS1 from '../../images/gears-1.png';
 import GEARS2 from '../../images/gears-2.png'
 import GEARS3 from '../../images/gears-3.png'
-import Walls from "../Walls";
-import Logos from "../Logos";
-import Gears from "../Gears";
-import Frames from "../Frames";
 
 
 function WithLoading(Component: any) {
@@ -15,14 +11,6 @@ function WithLoading(Component: any) {
         const date = new Date().getTime();
         const [seconds, setSeconds] = useState(3);
 
-        const ImageRefs = {
-            gear1: useRef<HTMLImageElement>(null),
-            gear2: useRef<HTMLImageElement>(null),
-            gear3: useRef<HTMLImageElement>(null),
-            gear4: useRef<HTMLImageElement>(null),
-            gear5: useRef<HTMLImageElement>(null),
-            stand: useRef<HTMLImageElement>(null),
-        }
         useEffect(() => {
             let myInterval = setInterval(() => {
                 if (seconds > 0) {
@@ -52,7 +40,13 @@ function WithLoading(Component: any) {
 
         if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
             return (<>
-                {seconds !== -5 && <div className="loading"></div>}
+                {seconds !== -5 && <div className="loading">
+                    <div className="loading__gears">
+                        <img src={GEARS1} className={`fixed anticloclwise gear1-loading`} alt="gear one" />
+                        <img src={GEARS2} className={`fixed cloclwise gear2-loading`} alt="gear two" />
+                        <img src={GEARS3} className={`fixed cloclwise gear3-loading`} alt="gear 3" />
+                    </div>
+                </div>}
                 <Component key={`${width}-${height}-${date}`} {...props} />
             </>);
         } else if (Loading) {
@@ -61,15 +55,13 @@ function WithLoading(Component: any) {
             </div>);
         } else {
 
-            return (<div className="App section">
-                <Walls />
-                <Logos />
-                <Gears ImageRefs={ImageRefs} />
-                <Frames />
+            return (<div className="loading">
+            <div className="loading__gears">
                 <img src={GEARS1} className={`fixed anticloclwise gear1-loading`} alt="gear one" />
                 <img src={GEARS2} className={`fixed cloclwise gear2-loading`} alt="gear two" />
                 <img src={GEARS3} className={`fixed cloclwise gear3-loading`} alt="gear 3" />
-            </div>);
+            </div>
+        </div>);
 
         }
     }

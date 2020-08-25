@@ -36,6 +36,7 @@
   // width: 300px;
   
   &__wrapper {
+    list-style-type: none;
     height: 100%;
     display: flex;
     margin: 0 calc(var(--slide-margin) * -1);
@@ -119,7 +120,7 @@
       transition: transform calc(var(--base-duration) / 4) var(--base-ease);
       width: 100%;
     }
-
+    
     &__image {
       --d: 20;
       height: 122px;
@@ -180,7 +181,7 @@
 .slide__image {
   --d: 20;
   height: 14vh;
-  left: 5.5vh;
+  left: 4.5vh;
   // object-fit: cover;
   // opacity: 0;
   pointer-events: none;
@@ -190,7 +191,7 @@
   transition: opacity var(--base-duration) var(--base-ease), transform var(--base-duration) var(--base-ease);
   -webkit-user-select: none;
   user-select: none;
-  width: 23vh;
+  // width: 23vh;
   z-index: 2;
   
   @media (hover: hover) {
