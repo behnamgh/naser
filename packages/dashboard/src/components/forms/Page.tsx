@@ -5,7 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
-import AlarmIcon from '@material-ui/icons/Add';
+import AddIcon from '@material-ui/icons/Add';
+// import RemoveIcon from '@material-ui/icons/Remove';
 
 const EditPage = ({ id }: any) => {
     const [pageData, setPageData] = useState<any>();
@@ -69,15 +70,18 @@ const EditPage = ({ id }: any) => {
                         <legend>{lang}</legend>
                         <Grid container spacing={4}>
                             {pageData.contents.map((content: any, index: number) =>
-                                <Grid item xs={12} md={4} lg={3}>
+                                <Grid item xs={12} md={12} lg={12}>
                                     {content.values && (content.unlimited ?
                                         <>
                                             {(content.values[lang] || [{ value: "" }]).map((value: any, index2: any) => <>
-                                                <TextField value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={content.title} variant="outlined" />
+                                                <TextField fullWidth={!content.hasLink} value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={`${content.title}-${index2 + 1}`} variant="outlined" />
                                                 {content.hasLink && <TextField value={value.link} onChange={handleRepeatableChange(index, index2, lang, "link")} label="Link" variant="outlined" />}
+                                                {/* <IconButton color="secondary" aria-label="add an alarm" onClick={removeRepeatable(index, lang)}>
+                                                <RemoveIcon />
+                                            </IconButton> */}
                                             </>)}
                                             <IconButton color="secondary" aria-label="add an alarm" onClick={addRepeatable(index, lang)}>
-                                                <AlarmIcon />
+                                                <AddIcon />
                                             </IconButton>
                                         </>
                                         :

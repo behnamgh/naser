@@ -18,6 +18,7 @@ export default function JoinUs({ page }: any) {
   const bodySocial = useRef<HTMLDivElement>(null);
 
   const [email, setMail] = useState("");
+  const [inputProps, setInputProps] = useState<any>({ placeholder: "Your Email Address" });
 
   // const socialImageWidth = window.innerWidth > 1680 ? '180px' : '25%';
   // const socialElementWidth = window.innerWidth > 1680 ? '750px' : '33%';
@@ -27,7 +28,12 @@ export default function JoinUs({ page }: any) {
   }
 
   const handleSubmitClick = async (event: any) => {
-    await new getHttpClient().post("/user/addSubscriber", { email });
+    try {
+      await new getHttpClient().post("/user/addSubscriber", { email });
+      setInputProps({ placeholder: "thank you for  subscribing! ", disabled: true })
+    } catch (error) {
+
+    }
   }
   // useEffect(() => {
   //   if (bodySocial && bodySocial.current) {
@@ -41,7 +47,7 @@ export default function JoinUs({ page }: any) {
     <div className="join-us">
       <div className="join-us__body">
         <img src={lang === "en-US" ? SOCIALHOLDER_EN : SOCIALHOLDER_DE} alt="" />
-        <input className="join-us__body-input" placeholder="Your Email Address" type="text" id="mail" name="mail" value={email} onChange={handleType} />
+        <input className="join-us__body-input" type="text" id="mail" name="mail" {...inputProps} value={email} onChange={handleType} />
         <div className="join-us__body-social" ref={bodySocial}>
           <a href="mailto:info@enlightenedrobot.com"><img src={MAIL} alt="website icon" /></a>
           <a href="https://twitter.com/ere_studios"><img src={TWITTER} alt="twitter icon" /></a>
