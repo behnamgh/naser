@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
-// import RemoveIcon from '@material-ui/icons/Remove';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 const EditPage = ({ id }: any) => {
     const [pageData, setPageData] = useState<any>();
