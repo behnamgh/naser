@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import getHttpClient from "../../utils/httpClient";
 import { useParams, Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
@@ -79,7 +80,8 @@ const EditPage = ({ id }: any) => {
                                     {content.values && (content.unlimited ?
                                         <>
                                             {(content.values[lang] || [{ value: "" }]).map((value: any, index2: any) => <>
-                                                <TextField fullWidth={!content.hasLink} value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={`${content.title}-${index2 + 1}`} variant="outlined" />
+                                            {!content.hasLink && <TextField fullWidth={!content.hasLink} value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={`${content.title}-${index2 + 1}`} variant="outlined" />}
+                                            {content.hasLink && <TextareaAutosize fullWidth={!content.hasLink} value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={`${content.title}-${index2 + 1}`} variant="outlined" />}
                                                 {content.hasLink && <TextField value={value.link} onChange={handleRepeatableChange(index, index2, lang, "link")} label="Link" variant="outlined" />}
                                                 <IconButton color="secondary" aria-label="add an alarm" onClick={removeRepeatable(index,index2,lang)}>
                                                     <RemoveIcon />
