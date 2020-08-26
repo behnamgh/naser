@@ -47,6 +47,11 @@ const EditPage = ({ id }: any) => {
         pageData.contents[index].values[lang].push({ value: "" });
         setPageData({ ...pageData })
     }
+    const removeRepeatable = (index: number,index2:number, lang: string) => (event: any) => {
+        if (!pageData.contents[index].values[lang]) return;
+        pageData.contents[index].values[lang].splice(index2,1);
+        setPageData({ ...pageData });
+    }
     return (
         <>
             {pageData && <form noValidate autoComplete="off" onSubmit={handleSubmit}>
@@ -76,9 +81,9 @@ const EditPage = ({ id }: any) => {
                                             {(content.values[lang] || [{ value: "" }]).map((value: any, index2: any) => <>
                                                 <TextField fullWidth={!content.hasLink} value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={`${content.title}-${index2 + 1}`} variant="outlined" />
                                                 {content.hasLink && <TextField value={value.link} onChange={handleRepeatableChange(index, index2, lang, "link")} label="Link" variant="outlined" />}
-                                                {/* <IconButton color="secondary" aria-label="add an alarm" onClick={removeRepeatable(index, lang)}>
-                                                <RemoveIcon />
-                                            </IconButton> */}
+                                                <IconButton color="secondary" aria-label="add an alarm" onClick={removeRepeatable(index,index2,lang)}>
+                                                    <RemoveIcon />
+                                                </IconButton>
                                             </>)}
                                             <IconButton color="secondary" aria-label="add an alarm" onClick={addRepeatable(index, lang)}>
                                                 <AddIcon />
