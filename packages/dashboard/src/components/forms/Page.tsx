@@ -81,7 +81,7 @@ const EditPage = ({ id }: any) => {
                                         <>
                                             {(content.values[lang] || [{ value: "" }]).map((value: any, index2: any) => <>
                                             {!content.hasLink && <TextField fullWidth={!content.hasLink} value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={`${content.title}-${index2 + 1}`} variant="outlined" />}
-                                            {content.hasLink && <TextareaAutosize fullWidth={!content.hasLink} value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={`${content.title}-${index2 + 1}`} variant="outlined" />}
+                                            {content.hasLink && <TextareaAutosize value={value.value} onChange={handleRepeatableChange(index, index2, lang)} placeholder={`${content.title}-${index2 + 1}`}  />}
                                                 {content.hasLink && <TextField value={value.link} onChange={handleRepeatableChange(index, index2, lang, "link")} label="Link" variant="outlined" />}
                                                 <IconButton color="secondary" aria-label="add an alarm" onClick={removeRepeatable(index,index2,lang)}>
                                                     <RemoveIcon />
