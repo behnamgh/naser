@@ -30,7 +30,8 @@ export default function JoinUs({ page }: any) {
   const handleSubmitClick = async (event: any) => {
     try {
       await new getHttpClient().post("/user/addSubscriber", { email });
-      setInputProps({ placeholder: "thank you for  subscribing! ", disabled: true })
+      setInputProps({ placeholder: "thank you for  subscribing! ", disabled: true });
+      setMail("")
     } catch (error) {
 
     }
