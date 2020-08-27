@@ -32,7 +32,7 @@ function Slide(props: any) {
       {
         props.type === "NEWS" &&
         <div className="news-slide__wrapper">
-          <span className="news-slide__content" onClick={handleSlideClick}>{src.replace(/\n/g,'\\n')}</span>
+          <span className="news-slide__content" onClick={handleSlideClick}>{src}</span>
           <img className="news-slide__holder" src={link ? NEWSHOLDERWITHLINK : NEWSHOLDER} alt="" onClick={handleSlideClick}/>
           {link && <a href={link} className="news-slide__link"  target="_blank">More</a>}
         </div>
