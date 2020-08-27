@@ -10,12 +10,12 @@ function Slider(props: any) {
   const { slides, currentData, type } = props;
   const wrapperTransform = {
     transform: type === "GALLERY"
-      ? `translateX(-${currentData * (100 / slides.length) - 10}%)`
-      : `translateX(-${currentData * (100 / slides.length) + 10}%)`
+      ? `translateX(${-1*(currentData * (100 / slides.length) - 10)}%)`
+      : `translateX(${-1*(currentData * (100 / slides.length) + 10)}%)`
   };
 
   let classNames = "";
-
+  
   if (type === "NEWS") classNames += "news-";
   else if (type === "GALLERY") classNames += "gallery-";
 

@@ -17,7 +17,7 @@ export default function Gallery({ page }: any) {
   const { lang } = useContext(languageContext);
   const slideData = page.contents[0].values && page.contents[0].values[lang];
 
-  const [current, setCurrent] = useState(1);
+  const [current, setCurrent] = useState(0);
 
   const handleNextClick = (increment: number) => () => {
     let next = current + increment;
