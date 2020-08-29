@@ -26,11 +26,14 @@ const EditPage = ({ id }: any) => {
         console.log(["reposne", response]);
 
     }
-    const handleContentsChange = (index: number, lang: string) => (event: any) => {
+    const handleContentsChange = (index: number, lang: string, key = "value") => (event: any) => {
         if (!pageData.contents[index].values) {
             pageData.contents[index].values = {}
         }
-        pageData.contents[index].values[lang] = event.target.value;
+        if (!pageData.contents[index].values[lang]) {
+            pageData.contents[index].values[lang] = {}
+        }
+        pageData.contents[index].values[lang][key] = event.target.value;
         setPageData({ ...pageData })
     }
     const handleChange = (name: string) => (event: any) => {
@@ -48,9 +51,9 @@ const EditPage = ({ id }: any) => {
         pageData.contents[index].values[lang].push({ value: "" });
         setPageData({ ...pageData })
     }
-    const removeRepeatable = (index: number,index2:number, lang: string) => (event: any) => {
+    const removeRepeatable = (index: number, index2: number, lang: string) => (event: any) => {
         if (!pageData.contents[index].values[lang]) return;
-        pageData.contents[index].values[lang].splice(index2,1);
+        pageData.contents[index].values[lang].splice(index2, 1);
         setPageData({ ...pageData });
     }
     return (
@@ -80,10 +83,10 @@ const EditPage = ({ id }: any) => {
                                     {content.values && (content.unlimited ?
                                         <>
                                             {(content.values[lang] || [{ value: "" }]).map((value: any, index2: any) => <>
-                                            {!content.hasLink && <TextField fullWidth={!content.hasLink} value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={`${content.title}-${index2 + 1}`} variant="outlined" />}
-                                            {content.hasLink && <TextareaAutosize value={value.value} onChange={handleRepeatableChange(index, index2, lang)} placeholder={`${content.title}-${index2 + 1}`}  />}
+                                                {!content.hasLink && <TextField fullWidth={!content.hasLink} value={value.value} onChange={handleRepeatableChange(index, index2, lang)} label={`${content.title}-${index2 + 1}`} variant="outlined" />}
+                                                {content.hasLink && <TextareaAutosize value={value.value} onChange={handleRepeatableChange(index, index2, lang)} placeholder={`${content.title}-${index2 + 1}`} />}
                                                 {content.hasLink && <TextField value={value.link} onChange={handleRepeatableChange(index, index2, lang, "link")} label="Link" variant="outlined" />}
-                                                <IconButton color="secondary" aria-label="add an alarm" onClick={removeRepeatable(index,index2,lang)}>
+                                                <IconButton color="secondary" aria-label="add an alarm" onClick={removeRepeatable(index, index2, lang)}>
                                                     <RemoveIcon />
                                                 </IconButton>
                                             </>)}
