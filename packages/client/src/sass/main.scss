@@ -21,6 +21,15 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+.small-size-problem{
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/small-size.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 .loading{
     background-color: black;
     height: 100vh;

@@ -37,33 +37,38 @@ function WithLoading(Component: any) {
 
         }, [setWidth, setHeight]);
 
+        if (height < 600 || width < 600) {
 
-        if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
-            return (<>
-                {seconds !== -5 && <div className="loading">
+            return (<div className="small-size-problem">
+                {/* <span className="size-problem__text">Please maximuze your browser.</span> */}
+            </div>);
+        } else
+            if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
+                return (<>
+                    {seconds !== -5 && <div className="loading">
+                        <div className="loading__gears">
+                            <img src={GEARS1} className={`fixed anticloclwise gear1-loading`} alt="gear one" />
+                            <img src={GEARS2} className={`fixed cloclwise gear2-loading`} alt="gear two" />
+                            <img src={GEARS3} className={`fixed cloclwise gear3-loading`} alt="gear 3" />
+                        </div>
+                    </div>}
+                    <Component key={`${width}-${height}-${date}`} {...props} />
+                </>);
+            } else if (Loading) {
+                return (<div className="size-problem">
+                    {/* <span className="size-problem__text">Please maximuze your browser.</span> */}
+                </div>);
+            } else {
+
+                return (<div className="loading">
                     <div className="loading__gears">
                         <img src={GEARS1} className={`fixed anticloclwise gear1-loading`} alt="gear one" />
                         <img src={GEARS2} className={`fixed cloclwise gear2-loading`} alt="gear two" />
                         <img src={GEARS3} className={`fixed cloclwise gear3-loading`} alt="gear 3" />
                     </div>
-                </div>}
-                <Component key={`${width}-${height}-${date}`} {...props} />
-            </>);
-        } else if (Loading) {
-            return (<div className="size-problem">
-                {/* <span className="size-problem__text">Please maximuze your browser.</span> */}
-            </div>);
-        } else {
+                </div>);
 
-            return (<div className="loading">
-            <div className="loading__gears">
-                <img src={GEARS1} className={`fixed anticloclwise gear1-loading`} alt="gear one" />
-                <img src={GEARS2} className={`fixed cloclwise gear2-loading`} alt="gear two" />
-                <img src={GEARS3} className={`fixed cloclwise gear3-loading`} alt="gear 3" />
-            </div>
-        </div>);
-
-        }
+            }
     }
 }
 
