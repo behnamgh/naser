@@ -10,7 +10,7 @@ const AppWithLoading = WithLoading(App);
 const Landing = () => {
     const lang = navigator.language;
     
-    const [language, setLnaguage] = useState(lang)
+    const [language, setLnaguage] = useState(lang==="de"?"de":"en-US")
 
     const [loading, setLoading] = useState(false);
     const pages = usePages();
