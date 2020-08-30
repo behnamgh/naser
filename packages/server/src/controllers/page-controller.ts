@@ -34,8 +34,9 @@ export class UserController {
         @QueryParams("mode") mode: string,
         @QueryParams("page") page: number,
         @QueryParams("pageSize") pageSize: number,
+        @QueryParams("filters") filters: string,
     ) {
-        return this.analyticsService.readLogs(mode ? `$${mode}` : undefined, page, pageSize);
+        return this.analyticsService.readLogs(mode ? `$${mode}` : undefined, page, pageSize, filters ? JSON.parse(filters) : undefined);
     }
 
     @Get("/:id")

@@ -15,7 +15,7 @@ export class AnalyticsService {
         return doc;
     }
 
-    async readLogs(group?: any, page = 0, pageSize = 20): Promise<{ page: number, totalCount: number, pageSize: number, data: any }> {
+    async readLogs(group?: any, page = 0, pageSize = 20, filters: any = {}): Promise<{ page: number, totalCount: number, pageSize: number, data: any }> {
         if (group === "$createdAt") {
             group = { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } };
         }
@@ -27,10 +27,10 @@ export class AnalyticsService {
                 }
             },
             {
-                $sort: { _id: -1 }
+                $sort: { count: -1, id: -1 }
             }
-        ]).skip((page) * pageSize).limit(pageSize) : this.analyticModel.find().skip((page) * pageSize).limit(pageSize));
-        const totalCount = group ? 0 : await this.analyticModel.count({});
+        ]).skip((page) * pageSize).limit(pageSize) : this.analyticModel.find({ ...filters }).skip((page) * pageSize).limit(pageSize));
+        const totalCount = group ? 0 : await this.analyticModel.count({ ...filters });
 
         return { totalCount, pageSize, data, page };
     }
