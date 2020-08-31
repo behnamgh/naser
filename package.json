@@ -12,7 +12,7 @@
     "test:e2e": "lerna run test:e2e",
     "test:client": "lerna run test --scope=client",
     "test:server": "lerna run test --scope=server",
-    "build": "lerna run build --stream",
+    "build": "lerna bootstrap && lerna run build --stream",
     "build:client": "lerna run build --scope=client --stream",
     "build:server": "lerna run build --scope=server --stream",
     "start": "lerna run start --stream --parallel",
