@@ -128,7 +128,7 @@ export default function SimpleList() {
               Images
             </h1>
             <Grid container spacing={3}>
-              {images.map((image: string) => <Grid item xs={12} md={6}> <img className="press-image" onClick={() => window.location.href=`/Images/${image}`} src={`/Images/${image}`} alt={image} /> </Grid>)}
+              {images.map((image: string) => <Grid item xs={4} md={2}> <img className="press-image" onClick={() => window.location.href=`/Images/${image}`} src={`/Images/${image}`} alt={image} /> </Grid>)}
             </Grid>
           </CardContent>
         </Card>
