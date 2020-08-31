@@ -15,17 +15,17 @@ function ListItemLink(props: ListItemProps<'a', { button?: true }>) {
 export default function SimpleList() {
   const MenuItem = ["Factsheet", "Story", "Description", "Features", "Videos", "Images", "Logos and Wallpapers", "Contact Info"];
   const images = [
-    "S1",
-    "S2",
-    "S3",
-    "S4",
-    "S5",
-    "S6",
-    "S7",
-    "S8",
-    "S9",
-    "S10",
-    "S11",
+    "S1.jpg",
+    "S2.jpg",
+    "S3.jpg",
+    "S4.jpg",
+    "S5.jpg",
+    "S6.jpg",
+    "S7.jpg",
+    "S8.jpg",
+    "S9.jpg",
+    "S10.jpg",
+    "S11.jpg",
   ];
   const renderTabItem = (menu: any) => {
     return (<><ListItemLink href={`#${menu.replace(/ /g, "_").toLowerCase()}`}>
@@ -127,7 +127,7 @@ export default function SimpleList() {
             <h1 id="images">
               Images
             </h1>
-            {images.map((image: string) => <img src={`/images/${image}`} alt={image} />)}
+            {images.map((image: string) => <img src={`/Images/${image}`} alt={image} />)}
           </CardContent>
         </Card>
         <Card className="card-item">
