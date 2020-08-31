@@ -14,6 +14,19 @@ function ListItemLink(props: ListItemProps<'a', { button?: true }>) {
 
 export default function SimpleList() {
   const MenuItem = ["Factsheet", "Story", "Description", "Features", "Videos", "Images", "Logos and Wallpapers", "Contact Info"];
+  const images = [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+  ];
   const renderTabItem = (menu: any) => {
     return (<><ListItemLink href={`#${menu.replace(/ /g, "_").toLowerCase()}`}>
       <ListItemText primary={menu} />
@@ -114,6 +127,7 @@ export default function SimpleList() {
             <h1 id="images">
               Images
             </h1>
+            {images.map((image: string) => <img src={`/images/${image}`} alt={image} />)}
           </CardContent>
         </Card>
         <Card className="card-item">
@@ -121,6 +135,7 @@ export default function SimpleList() {
             <h1 id="logos_and_wallpapers">
               Logos and Wallpapers
             </h1>
+            <a href="/Naser_Son_of_Man_Logos%26Wallpapers.rar" download target="blank">Download HERE!</a>
           </CardContent>
         </Card>
         <Card className="card-item">
