@@ -127,7 +127,9 @@ export default function SimpleList() {
             <h1 id="images">
               Images
             </h1>
-            {images.map((image: string) => <img src={`/Images/${image}`} alt={image} />)}
+            <Grid container spacing={3}>
+              {images.map((image: string) => <Grid item xs={12} md={6}> <img className="press-image" onClick={() => window.location.href=`/Images/${image}`} src={`/Images/${image}`} alt={image} /> </Grid>)}
+            </Grid>
           </CardContent>
         </Card>
         <Card className="card-item">
@@ -135,7 +137,7 @@ export default function SimpleList() {
             <h1 id="logos_and_wallpapers">
               Logos and Wallpapers
             </h1>
-            <a href="/Naser_Son_of_Man_Logos%26Wallpapers.rar" download target="blank">Download HERE!</a>
+            <a href="/Naser_Son_of_Man_Logos%26Wallpapers.rar" download target="blank">Download Logos & Wallpapers .rar(29.4 MB)</a>
           </CardContent>
         </Card>
         <Card className="card-item">
