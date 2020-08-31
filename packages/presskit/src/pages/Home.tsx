@@ -111,7 +111,7 @@ export default function SimpleList() {
             <h1 id="videos">
               videos
             </h1>
-            <iframe width="886" height="498" title="Main Youtube Video" src="https://youtu.be/qT1H06_jKWg">
+            <iframe width="886" height="498" title="Main Youtube Video" src="https://www.youtube.com/embed/qT1H06_jKWg">
             </iframe>
           </CardContent>
         </Card>
