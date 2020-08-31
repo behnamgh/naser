@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import LOGO from '../assets/NaserLogo.png';
-import { Card, CardHeader, CardContent, Container } from '@material-ui/core';
+import { Card, CardContent, Container } from '@material-ui/core';
 
 function ListItemLink(props: ListItemProps<'a', { button?: true }>) {
   return <ListItem button component="a" {...props} />;
@@ -111,8 +111,7 @@ export default function SimpleList() {
             <h1 id="videos">
               videos
             </h1>
-            <iframe width="886" height="498"
-              src="https://youtu.be/qT1H06_jKWg">
+            <iframe width="886" height="498" title="Main Youtube Video" src="https://youtu.be/qT1H06_jKWg">
             </iframe>
           </CardContent>
         </Card>
