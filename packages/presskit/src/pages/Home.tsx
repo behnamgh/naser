@@ -1,12 +1,9 @@
 import React from 'react';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+// import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
 import Grid from '@material-ui/core/Grid';
 import LOGO from '../assets/NaserLogo.png';
 import { Card, CardHeader, CardContent, Container } from '@material-ui/core';
@@ -112,8 +109,11 @@ export default function SimpleList() {
         <Card className="card-item">
           <CardContent >
             <h1 id="videos">
-              Images
+              videos
             </h1>
+            <iframe width="886" height="498"
+              src="https://youtu.be/qT1H06_jKWg">
+            </iframe>
           </CardContent>
         </Card>
         <Card className="card-item">
