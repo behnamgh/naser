@@ -1,0 +1,42 @@
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body{
+  background-color: #efefef !important;
+}
+
+.pt-20 {
+  padding-top: 20px;
+}
+.bg-white {
+  background-color: white;
+}
+
+.wysiwyg-wrapper {
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.wysiwyg-editor{
+  min-height: 500px;
+}
+.wysiwyg-toolbar{
+  border-radius: 10px;
+}

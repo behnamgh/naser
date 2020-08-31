@@ -16,11 +16,12 @@ import "./providers/PassportJWTService";
 const rootDir = __dirname;
 const clientDir = path.join(rootDir, "../../client/build");
 const dashboardDir = path.join(rootDir, "../../dashboard/build");
+const presskitDir = path.join(rootDir, "../../presskit/build");
 // const redisStore = connectRedis(session);
 
 @ServerSettings({
   mongoose: {
-    url: process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : "mongodb://127.0.0.1:27017/load-mongoose"
+    url: process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : "mongodb://liara:LiArANaSeR2020@ds135179.mlab.com:35179/naser"
   },
   rootDir,
   acceptMimes: ["application/json"],
@@ -42,7 +43,7 @@ const dashboardDir = path.join(rootDir, "../../dashboard/build");
     }
   ],
   statics: {
-    "/": [clientDir, dashboardDir]
+    "/": [clientDir, dashboardDir, presskitDir]
   }
 })
 export class Server extends ServerLoader {
@@ -74,6 +75,10 @@ export class Server extends ServerLoader {
 
     this.expressApp.get([`/admin`, `/admin/**`], (req, res) => {
       res.sendFile(path.join(dashboardDir, "index.html"));
+    });
+
+    this.expressApp.get([`/press`, `/press/**`], (req, res) => {
+      res.sendFile(path.join(presskitDir, "index.html"));
     });
 
     this.expressApp.get(`*`, (req, res) => {

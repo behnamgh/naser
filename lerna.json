@@ -5,7 +5,8 @@
   "packages": [
     "packages/client",
     "packages/server",
-    "packages/dashboard"
+    "packages/dashboard",
+    "packages/presskit"
   ],
   "version": "2.1.13",
   "command": {
