@@ -103,7 +103,7 @@ export default function SimpleList() {
         <Card className="card-item">
           <CardContent >
             <h1 id="videos">
-              videos
+              Videos
             </h1>
             <iframe width="886" height="498" title="Main Youtube Video" src="https://www.youtube.com/embed/qT1H06_jKWg">
             </iframe>

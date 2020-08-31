@@ -3,6 +3,8 @@ import React from 'react';
 // import TABS from '../images/tabs-frame@3x.png'
 
 import TITLEFRAME from '../images/Header/Header.png'
+import Presskit_holder from '../images/Header/PressKit_Desktop.png'
+import Presskit from '../images/Header/Bottun-Up.png'
 // import TITLELIGHT from '../images/Header/Header-Light.png'
 
 
@@ -27,6 +29,10 @@ const Menu = ({ scrollToSlide, getCurrentSlideIndex, slidesCount, forwardRef, pa
             <div className="section-header">
                 <img src={TITLEFRAME} className="section-header__title-frame" style={{ opacity: pages && pages[currentSlideIndex] && pages[currentSlideIndex].titleImage ? `1` : `0` }} alt="title-frame" />
                 {pages.map((page: any, index: number) => (page.titleImage && <img key={index} className="section-header__title-image" src={page.titleImage} style={{ opacity: currentSlideIndex === index ? `1` : `0` }} alt="title-video" />))}
+                {currentSlideIndex === 5 && <><img src={Presskit_holder} className="section-header__press-frame"  alt="title-frame" />
+                    <img style={{pointerEvents:"visible"}} className="section-header__press-image" onClick={()=> {window.location.href = "https://enlightenedrobot.com/press"}} src={Presskit} alt="title-video" />
+                </>}
+
                 {/* <img src={TITLELIGHT} className="section-header__title-light" style={{ opacity: pages && pages[currentSlideIndex] && pages[currentSlideIndex].titleImage ? `1` : `0` }} alt="title-light" /> */}
             </div>
             <div className="tabs__container">

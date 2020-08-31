@@ -301,6 +301,13 @@
         z-index: 4;
         top: 0vh;
     }
+    &__press-frame {
+        width: 50vh;
+    }
+    &__press-image {
+        top: 6vh;
+        width: 28vh;
+    }
     &__title-image {
         max-width: calc( 100vh * 16 / 10);
 
