@@ -34,7 +34,9 @@ export default function SimpleList() {
       <Divider /></>)
   }
   return (<Container maxWidth="lg">
-    <img src={LOGO} alt="" className="logo" />
+    <img src={LOGO} alt="" className="logo" onClick={() => {
+      window.location.href = "https://enlightenedrobot.com/"
+    }} />
     <Grid container spacing={3}>
       <Grid item xs={12} md={3}>
         <List className="navbar" component="nav" aria-label="secondary mailbox folders">
@@ -128,7 +130,7 @@ export default function SimpleList() {
               Images
             </h1>
             <Grid container spacing={3}>
-              {images.map((image: string) => <Grid item xs={4} md={2}> <img className="press-image" onClick={() => window.location.href=`/Images/${image}`} src={`/Images/${image}`} alt={image} /> </Grid>)}
+              {images.map((image: string) => <Grid item xs={4} md={2}> <img className="press-image" onClick={() => window.location.href = `/Images/${image}`} src={`/Images/${image}`} alt={image} /> </Grid>)}
             </Grid>
           </CardContent>
         </Card>
