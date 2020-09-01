@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import GEARS1 from '../../images/gears-1.png';
 import GEARS2 from '../../images/gears-2.png'
 import GEARS3 from '../../images/gears-3.png'
+import MobileComonent from '../MobileComponent';
 
 
 function WithLoading(Component: any) {
@@ -37,11 +38,17 @@ function WithLoading(Component: any) {
 
         }, [setWidth, setHeight]);
 
-        if (height < 600 || width < 600) {
+        if (Loading && width < 600) {
+            return (<>
+                {seconds !== -5 && <div className="mobile-loading">
+                    <div className="mobile-loading__gears">
+                        <img src={GEARS1} className={`fixed anticloclwise mobile-gear1-loading`} alt="gear one" />
+                        <img src={GEARS2} className={`fixed cloclwise mobile-gear2-loading`} alt="gear two" />
+                        <img src={GEARS3} className={`fixed cloclwise mobile-gear3-loading`} alt="gear 3" />
+                    </div>
+                </div>}
+                <MobileComonent key={`${width}-${height}-${date}`} {...props} />            </>);
 
-            return (<div className="small-size-problem">
-                {/* <span className="size-problem__text">Please maximuze your browser.</span> */}
-            </div>);
         } else
             if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
                 return (<>

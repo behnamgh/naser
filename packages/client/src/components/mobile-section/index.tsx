@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React,{useContext} from 'react';
 
-import Videos from './Videos'
-import Gallery from './Gallery'
-import HomePage from './HomePage'
-import GamePlay from './GamePlay';
-import News from './News';
-import JoinUs from './JoinUs';
+import Videos from './Mobile-Videos'
+import Gallery from './Mobile-Gallery'
+import HomePage from './Mobile-HomePage'
+import News from './Mobile-News';
+import GamePlay from './Mobile-GamePlay';
+import JoinUs from './Mobile-JoinUs';
+
 import languageContext from '../contexts/lang';
+
 
 
 interface ISampleProps {
@@ -19,8 +21,8 @@ const Section = ({ page }: ISampleProps) => {
   const renderComponent = () => {
 
     switch (page.name) {
-      case "homepage":
-        return <HomePage page={page} />;
+    //   case "homepage":
+    //     return <HomePage page={page} />;
 
       case "videos":
         return <Videos page={page} />;
@@ -47,7 +49,7 @@ const Section = ({ page }: ISampleProps) => {
 
 
   return (
-    <div className="section">
+    <div className="mobile-section">
       {renderComponent()}
     </div>
   )

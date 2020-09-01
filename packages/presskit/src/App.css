@@ -1,16 +1,21 @@
-
-body{
+body {
   background-color: #efefef !important;
 }
-.card-item{
+
+.card-item {
   margin: 20px 0;
 }
 
-img.logo{
+img.logo:hover,
+.press-image:hover {
+  cursor: pointer;
+}
+
+img.logo {
   width: 50%;
   margin: 0 25%;
 }
 
-.press-image{
+.press-image {
   width: 100%;
 }

@@ -40,6 +40,17 @@
     z-index: 399;
     position: absolute;
 }
+.mobile-loading{
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/loading.png");
+    background-position: center;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    z-index: 399;
+    position: absolute;
+}
 .walls{
 
     &__side-wall{
@@ -113,7 +124,7 @@
     top: 34%;
 }
 
-.loading-gear{
+.mobile-loading-gear{
     left: 10%;
     top: 45.8%;
     // width: 5%;
@@ -159,6 +170,46 @@
         width: 7%;
     } 
 }
+.mobile-gear1{
+    // left: 10%;
+    top: 45.8%;
+    // width: 5%;
+    z-index: 8;
+    height: 9%;
+    &-loading{ 
+        top: 31%;
+        left: 40.5%;
+        width: 17%;
+    
+    } 
+}
+
+.mobile-gear2{
+    // left: 9.4%;
+    top: 51.5%;
+    // width: 6%;
+    height: 12%;
+    z-index: 7;
+    &-loading{ 
+        top: 36%;
+        width: 17%;
+        left: 27%;
+    } 
+}
+
+.mobile-gear3{
+    // left: 11%;
+    top: 37.8%;
+    // width: 5%;
+    height: 10%;
+    z-index: 7;
+    &-loading{ 
+        top: 36%;
+        left: 54%;
+        width: 17%;
+    }
+    
+}
 
 .gear4{
     top: 77.5%;
@@ -171,6 +222,7 @@
     height: 12%;
     z-index: 5;
 }
+
 
 .logo{
     position: relative;
