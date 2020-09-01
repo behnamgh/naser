@@ -40,6 +40,11 @@ export default function SimpleList() {
     <Grid container spacing={3}>
       <Grid item xs={12} md={3}>
         <List className="navbar" component="nav" aria-label="secondary mailbox folders">
+
+          <ListItemLink href="https://enlightenedrobot.com">
+            <ListItemText primary="Home" />
+          </ListItemLink>
+          <Divider />
           {MenuItem.map(menu => renderTabItem(menu))}
 
         </List>
