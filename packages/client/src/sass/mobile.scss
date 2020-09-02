@@ -81,13 +81,12 @@
     justify-content: center;
 
     &__image {
-        z-index: -1;
+        z-index: 1;
         width: 95vw;
         max-width: 95vw;
         height: 78vh;
         max-height: 78vh;
         top: 11vh;
-        left: 2.5vw;
         position: absolute;
     }
 }
