@@ -47,7 +47,7 @@ function WithLoading(Component: any) {
                         <img src={GEARS3} className={`fixed cloclwise mobile-gear3-loading`} alt="gear 3" />
                     </div>
                 </div>}
-                <MobileComonent key={`${width}-${height}-${date}`} {...props} />            </>);
+                <MobileComonent key={width} {...props} />            </>);
 
         } else
             if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
