@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import cx from "classnames";
 import NEWSHOLDER from "../../images/mobile/News.png"
+import NewsReadMore from "../../images/mobile/NewsReadMore.png"
 import Arrow from "../../images/mobile/Arrow.png"
 // import languageContext from '../contexts/lang';
 
 
 
 function SliderItem(props: any) {
-  const { index, src } = props.slide;
+  const { index, src, link } = props.slide;
   const current = props.current;
 
   return (<li
@@ -15,8 +16,8 @@ function SliderItem(props: any) {
   >
     <div className="news-mobile__slider-wrapper">
       <span className="news-mobile__slider-wrapper__content" >{src}</span>
-      <img className="news-mobile__slider-wrapper__holder" src={NEWSHOLDER} alt="" />
-      {/* {link && <a href={link} className="news-slide__link" target="_blank">More</a>} */}
+      <img className="news-mobile__slider-wrapper__holder" src={link ? NewsReadMore : NEWSHOLDER} alt="" />
+      {link && <a href={link} className="news-mobile__slider-wrapper__link" target="_blank">More</a>}
     </div>
 
   </li>);

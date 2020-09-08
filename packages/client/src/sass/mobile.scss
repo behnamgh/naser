@@ -258,7 +258,7 @@
             // height: 4.8%;
             color: white;
             border: none;
-            font-size: 1.5em;
+            font-size: 1.4em;
             z-index: 20;
 
             &:focus {
@@ -305,6 +305,7 @@
 
     &__slider-wrapper {
         width: inherit;
+        position: relative;
 
         &__content {
             white-space: pre-line;
@@ -329,10 +330,22 @@
 
         &__holder {
             width: inherit;
-            top: 10vh;
+            top: 20vw;
             /* height: 75vh; */
             position: absolute;
             z-index: 3;
+        }
+        &__link {
+            font-size: 2vh;
+            line-height: 1.2em;
+            color: burlywood;
+            position: absolute;
+            z-index: 14;
+            left: 34vw;
+            max-width: 15vw;
+            top: 121vw;
+            word-break: break-word;
+            font-family: CourierPolski1941, sans-serif, Arial, Helvetica, sans-serif;
         }
     }
 
