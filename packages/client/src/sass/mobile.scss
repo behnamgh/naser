@@ -12,7 +12,7 @@
     &__background {
         position: fixed;
         pointer-events: none;
-        height: 100%;
+        height: 100vh;
         top: 0;
     }
 
@@ -29,6 +29,8 @@
     &__background {
         z-index: -10;
         top: 0%;
+        width: 100%;
+
     }
 
 }
@@ -76,7 +78,7 @@
     height: 100%;
     overflow: hidden;
     width: 100vw;
-    max-width: calc(90vh * 10 / 16);
+    max-width: calc(90vh * 11 / 16);
 
 }
 
@@ -237,12 +239,13 @@
                     justify-content: center;
                     height: -moz-fit-content;
                     height: 11vh;
-
+                    bottom: calc(25vh * 10 / 16);
+                    position: absolute;
                 }
 
-                &:last-child>img {
 
-                    bottom: 9.5vh;
+                &:last-child>img {
+                    bottom: calc(0vh * 10 / 16);
                     height: 14vw;
                     width: 62%;
 
@@ -320,7 +323,7 @@
     }
 
     &__slide-li {
-        width: calc( 80vh * 10 / 16);
+        width: calc(80vh * 11 / 16);
     }
 
     &__slider-wrapper {
@@ -331,7 +334,7 @@
             white-space: pre-line;
             text-align: left;
             font-size: 1.8vh;
-            margin-left: calc( 15vh * 10 / 16);
+            margin-left: calc(15vh * 11 / 16);
             color: ivory;
             max-width: 50%;
             width: inherit;
@@ -365,9 +368,9 @@
             color: burlywood;
             position: absolute;
             z-index: 14;
-            left: calc( 28vh * 10 / 16);
+            left: calc(28vh * 11 / 16);
             max-width: 15vw;
-            top: calc( 107vh * 10 / 16);
+            top: calc(107vh * 11 / 16);
             word-break: break-word;
             font-family: CourierPolski1941, sans-serif, Arial, Helvetica, sans-serif;
         }
@@ -439,7 +442,7 @@
         height: 100vh;
         margin: 0 auto;
         position: relative;
-        max-width: calc(100vh * 10 / 16);
+        max-width: calc(100vh * 11 / 16);
 
         &-wrapper {
             position: relative;
@@ -492,7 +495,7 @@
             position: absolute;
             width: 95vw;
             top: 20vh;
-            max-width: calc(85vh * 10 / 16);
+            max-width: calc(85vh * 11 / 16);
             /* height: 100%; */
             /* max-width: 1680px; */
             /* left: 50%; */
@@ -503,7 +506,7 @@
 
         img:last-child {
             position: absolute;
-            max-width: calc(70vh * 10 / 16);
+            max-width: calc(70vh * 11 / 16);
             /* left: 21.4%; */
             width: 80vw;
             /* max-width: 90.8vh; */

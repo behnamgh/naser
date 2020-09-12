@@ -7,8 +7,8 @@ const Walls = () => {
     const right_wall = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        if (left_wall && left_wall.current) left_wall.current.style.width = window.outerWidth / window.innerHeight > 10 / 16 ? `${((window.innerWidth - (window.innerHeight * 10 / 16)) / 2) + 50}px` : `0`;
-        if (right_wall && right_wall.current) right_wall.current.style.width = window.outerWidth / window.innerHeight > 10 / 16 ? `${((window.innerWidth - (window.innerHeight * 10 / 16)) / 2) + 50}px` : '0';
+        if (left_wall && left_wall.current) left_wall.current.style.width = window.outerWidth / window.innerHeight > 11 / 16 ? `${((window.innerWidth - (window.innerHeight * 11 / 16)) / 2) + 50}px` : `0`;
+        if (right_wall && right_wall.current) right_wall.current.style.width = window.outerWidth / window.innerHeight > 11 / 16 ? `${((window.innerWidth - (window.innerHeight * 11 / 16)) / 2) + 50}px` : '0';
     }, []);
 
     return (

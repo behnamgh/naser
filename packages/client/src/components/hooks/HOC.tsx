@@ -29,16 +29,16 @@ function WithLoading(Component: any) {
         useEffect(() => {
             const updateSize = () => {
                 console.log([window.innerWidth, window.innerHeight]);
-                setWidth(window.outerWidth);
-                setHeight(window.innerHeight);
+                if (window.outerWidth !== width) setWidth(window.outerWidth);
+                if (window.innerHeight !== height) setHeight(window.innerHeight);
             }
-            window.addEventListener("resize", updateSize);
+            if((window.outerWidth > window.innerHeight)) window.addEventListener("resize", updateSize);
             updateSize()
             return () => window.removeEventListener('resize', updateSize);
 
-        }, [setWidth, setHeight]);
+        }, []);
 
-        if (Loading && ( width < height)) {
+        if (Loading && (width < height)) {
             return (<>
                 {seconds !== -5 && <div className="mobile-loading">
                     <div className="mobile-loading__gears">
@@ -47,7 +47,8 @@ function WithLoading(Component: any) {
                         <img src={GEARS3} className={`fixed cloclwise mobile-gear3-loading`} alt="gear 3" />
                     </div>
                 </div>}
-                <MobileComonent key={width} {...props} />            </>);
+                <MobileComonent  {...props} />
+            </>);
 
         } else
             if (Loading && 16 / 5 >= width / height && 16 / 10 <= width / height) {

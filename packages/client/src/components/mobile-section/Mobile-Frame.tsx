@@ -8,8 +8,8 @@ const Frames = () => {
     const right_side = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        if (left_side && left_side.current) left_side.current.style.left = window.outerWidth / window.innerHeight > 10 / 16 ? `${((window.innerWidth - (window.innerHeight * 10 / 16)) / 2) +30}px` : "0px";
-        if (right_side && right_side.current) right_side.current.style.right = window.outerWidth / window.innerHeight > 10 / 16 ? `${((window.innerWidth - (window.innerHeight * 10 / 16)) / 2) +30}px` : "0px";
+        if (left_side && left_side.current) left_side.current.style.left = window.outerWidth / window.innerHeight > 11 / 16 ? `${((window.innerWidth - (window.innerHeight * 11 / 16)) / 2) +30}px` : "0px";
+        if (right_side && right_side.current) right_side.current.style.right = window.outerWidth / window.innerHeight > 11 / 16 ? `${((window.innerWidth - (window.innerHeight * 11 / 16)) / 2) +30}px` : "0px";
     }, []);
 
 
