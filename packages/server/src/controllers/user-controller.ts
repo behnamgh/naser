@@ -28,6 +28,7 @@ export class UserController {
 
     @Post("/addSubscriber")
     async addSubscriber(@BodyParams("email") email: string) {
+        if (!email) return { error: true, msg: "username is required!" }
         return this.userService.save({ username: email, role: "subscriber", createdAt: new Date() });
     }
     @Get("/readSubscriber")

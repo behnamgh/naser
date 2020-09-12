@@ -38,7 +38,7 @@ function WithLoading(Component: any) {
 
         }, [setWidth, setHeight]);
 
-        if (Loading && width < 600) {
+        if (Loading && ( width < height)) {
             return (<>
                 {seconds !== -5 && <div className="mobile-loading">
                     <div className="mobile-loading__gears">
@@ -50,7 +50,7 @@ function WithLoading(Component: any) {
                 <MobileComonent key={width} {...props} />            </>);
 
         } else
-            if (Loading && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
+            if (Loading && 16 / 5 >= width / height && 16 / 10 <= width / height) {
                 return (<>
                     {seconds !== -5 && <div className="loading">
                         <div className="loading__gears">

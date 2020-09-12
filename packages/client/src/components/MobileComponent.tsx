@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import { FullPage, Slide } from 'react-full-page';
 import MobileSection from './mobile-section';
-import Menu from "./Mobile-Menu"
-import MobileFrame from "./mobile-section/Frame"
-import MobileLogo from "./mobile-section/Logo"
+import Menu from "./Mobile-Menu";
+import MobileWalls from "./mobile-section/Mobile-walls";
+import MobileFrame from "./mobile-section/Mobile-Frame";
+import MobileLogo from "./mobile-section/Mobile-Logo";
 
 import '../sass/mobile.scss';
 
@@ -23,6 +24,7 @@ const MobileComonent = ({ pages, key }: any) => {
     }
 
     return (<div className="mobile">
+        <MobileWalls />
         <MobileFrame />
         <MobileLogo />
         <div className="mobile-content">
