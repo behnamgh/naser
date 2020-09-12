@@ -28,7 +28,7 @@ function SliderItem(props: any) {
 function Slider({ currentData, slides }: any) {
 
   const wrapperTransform = {
-    transform: `translateX(${-1 * (currentData * (100 / slides.length)) + 3}%)`
+    transform: `translateX(${-1 * (currentData * (100 / slides.length)) + 0.5}%)`
   };
 
   return (
