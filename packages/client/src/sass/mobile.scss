@@ -265,6 +265,8 @@
 
         img {
             max-height: 35vh;
+            // height: 35vh;
+            // min-width: 75vw;
         }
 
         &-input {
@@ -273,7 +275,7 @@
 
             bottom: 26vh;
             height: 7vh;
-            width: 75vw;
+            width: calc(50vh * 10 / 16);
             // margin-left: -11%;
 
             background-color: transparent;
@@ -281,7 +283,7 @@
             // height: 4.8%;
             color: white;
             border: none;
-            font-size: 1.4em;
+            font-size: 1em;
             z-index: 20;
 
             &:focus {

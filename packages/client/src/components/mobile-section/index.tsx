@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 
 import Videos from './Mobile-Videos'
 import Gallery from './Mobile-Gallery'
@@ -21,8 +21,8 @@ const Section = ({ page }: ISampleProps) => {
   const renderComponent = () => {
 
     switch (page.name) {
-    //   case "homepage":
-    //     return <HomePage page={page} />;
+      //   case "homepage":
+      //     return <HomePage page={page} />;
 
       case "videos":
         return <Videos page={page} />;
