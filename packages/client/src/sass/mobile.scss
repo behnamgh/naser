@@ -320,8 +320,7 @@
     }
 
     &__slide-li {
-        width: 78vw;
-        max-width: calc(78vh * 10 / 16);
+        width: calc( 80vh * 10 / 16);
     }
 
     &__slider-wrapper {
@@ -332,7 +331,7 @@
             white-space: pre-line;
             text-align: left;
             font-size: 1.8vh;
-            margin-left: 15vw;
+            margin-left: calc( 15vh * 10 / 16);
             color: ivory;
             max-width: 50%;
             width: inherit;
@@ -366,9 +365,9 @@
             color: burlywood;
             position: absolute;
             z-index: 14;
-            left: 34vw;
+            left: calc( 28vh * 10 / 16);
             max-width: 15vw;
-            top: 121vw;
+            top: calc( 107vh * 10 / 16);
             word-break: break-word;
             font-family: CourierPolski1941, sans-serif, Arial, Helvetica, sans-serif;
         }
