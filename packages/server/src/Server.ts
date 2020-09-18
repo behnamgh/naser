@@ -14,6 +14,7 @@ import * as expressip from "express-ip";
 import "./providers/PassportJWTService";
 
 const rootDir = __dirname;
+const assetsDir = path.join(rootDir, "assets");
 const clientDir = path.join(rootDir, "../../client/build");
 const dashboardDir = path.join(rootDir, "../../dashboard/build");
 const presskitDir = path.join(rootDir, "../../presskit/build");
@@ -21,7 +22,7 @@ const presskitDir = path.join(rootDir, "../../presskit/build");
 
 @ServerSettings({
   mongoose: {
-    url: process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : "mongodb://liara:LiArANaSeR2020@ds135179.mlab.com:35179/naser"
+    url: process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : "mongodb://liara2:Therewillbeblood1030@ds135179.mlab.com:35179/naser"
   },
   rootDir,
   acceptMimes: ["application/json"],
@@ -75,6 +76,10 @@ export class Server extends ServerLoader {
 
     this.expressApp.get([`/admin`, `/admin/**`], (req, res) => {
       res.sendFile(path.join(dashboardDir, "index.html"));
+    });
+
+    this.expressApp.get(`/assets/:file`, (req, res) => {
+      res.sendFile(path.join(assetsDir, req.params.file));
     });
 
     this.expressApp.get([`/press`, `/press/**`], (req, res) => {
