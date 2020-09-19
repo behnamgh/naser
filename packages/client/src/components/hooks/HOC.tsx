@@ -32,7 +32,7 @@ function WithLoading(Component: any) {
                 if (window.outerWidth !== width) setWidth(window.outerWidth);
                 if (window.innerHeight !== height) setHeight(window.innerHeight);
             }
-            if((window.outerWidth > window.innerHeight)) window.addEventListener("resize", updateSize);
+            if ((window.outerWidth > window.innerHeight)) window.addEventListener("resize", updateSize);
             updateSize()
             return () => window.removeEventListener('resize', updateSize);
 
@@ -51,7 +51,7 @@ function WithLoading(Component: any) {
             </>);
 
         } else
-            if (Loading && 16 / 5 >= width / height && 16 / 10 <= width / height) {
+            if (Loading && width > 600 && height > 600 && 16 / 5 >= width / height && 16 / 10 <= width / height) {
                 return (<>
                     {seconds !== -5 && <div className="loading">
                         <div className="loading__gears">
