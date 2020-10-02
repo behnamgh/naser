@@ -27,7 +27,7 @@ export class AnalyticsService {
                 }
             },
             {
-                $sort: { count: -1, id: -1 }
+                $sort: group["$dateToString"] ? { _id: -1 } : { count: -1 }
             }
         ]).skip((page) * pageSize).limit(pageSize) : this.analyticModel.find({ ...filters }).skip((page) * pageSize).limit(pageSize));
         const totalCount = group ? 0 : await this.analyticModel.count({ ...filters });
