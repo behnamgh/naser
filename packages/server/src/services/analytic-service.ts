@@ -21,6 +21,13 @@ export class AnalyticsService {
         }
         const data = await (group ? this.analyticModel.aggregate([
             {
+                $match: {
+                    createdAt: { 
+                        $gte: new Date(new Date().setDate(new Date().getDate()-30))
+                     }
+                  }
+            },
+            {
                 $group: {
                     _id: group,
                     count: { $sum: 1 }
