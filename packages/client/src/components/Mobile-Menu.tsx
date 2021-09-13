@@ -18,7 +18,7 @@ const Menu = ({ getCurrentSlideIndex}: { pages: any, forwardRef: any, scrollToSl
 
         },
         {
-            titleImage: "/images/mobile/NEWS.png"
+            titleImage: "/images/mobile/NEWS-HEADER.png"
 
         }
     ]
