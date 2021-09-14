@@ -86,6 +86,10 @@ export class Server extends ServerLoader {
       res.sendFile(path.join(presskitDir, "index.html"));
     });
 
+    this.expressApp.get(`/download/:file`, (req, res) => {
+      res.redirect(`${process.env.BUCKET_URL}/${req.params.file}`);
+    });
+
     this.expressApp.get(`*`, (req, res) => {
       res.sendFile(path.join(clientDir, "index.html"));
     });
