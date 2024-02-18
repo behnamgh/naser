@@ -1,4 +1,8 @@
-import { GlobalAcceptMimesMiddleware, ServerLoader, ServerSettings } from "@tsed/common";
+import {
+  GlobalAcceptMimesMiddleware,
+  ServerLoader,
+  ServerSettings,
+} from "@tsed/common";
 import "@tsed/swagger";
 import * as bodyParser from "body-parser";
 import * as compress from "compression";
@@ -22,7 +26,7 @@ const presskitDir = path.join(rootDir, "../../presskit/build");
 
 @ServerSettings({
   mongoose: {
-    url: process.env.NODE_ENV === "production" ? process.env.MONGODB_URI : "mongodb://liara2:Therewillbeblood1030@ds135179.mlab.com:35179/naser"
+    url: process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/naser",
   },
   rootDir,
   acceptMimes: ["application/json"],
@@ -31,24 +35,29 @@ const presskitDir = path.join(rootDir, "../../presskit/build");
   logger: {
     debug: true,
     logRequest: false,
-    requestFields: ["reqId", "method", "url", "headers", "query", "params", "duration"]
+    requestFields: [
+      "reqId",
+      "method",
+      "url",
+      "headers",
+      "query",
+      "params",
+      "duration",
+    ],
   },
   mount: {
-    "/": [
-      `${rootDir}/controllers/*.ts`
-    ]
+    "/": [`${rootDir}/controllers/*.ts`],
   },
   swagger: [
     {
-      path: "/api-docs"
-    }
+      path: "/api-docs",
+    },
   ],
   statics: {
-    "/": [clientDir, dashboardDir, presskitDir]
-  }
+    "/": [clientDir, dashboardDir, presskitDir],
+  },
 })
 export class Server extends ServerLoader {
-
   constructor(settings) {
     super(settings);
   }
@@ -58,22 +67,21 @@ export class Server extends ServerLoader {
    * @returns {Server}
    */
   $beforeRoutesInit(): void | Promise<any> {
-    this
-      .use(GlobalAcceptMimesMiddleware)
+    this.use(GlobalAcceptMimesMiddleware)
       .use(cookieParser())
       .use(compress({}))
       .use(methodOverride())
       .use(bodyParser.json())
-      .use(bodyParser.urlencoded({
-        extended: true
-      }))
+      .use(
+        bodyParser.urlencoded({
+          extended: true,
+        })
+      )
       .use(cors({ origin: true, credentials: true }))
       .use(expressip().getIpInfoMiddleware);
-
   }
 
   $afterRoutesInit() {
-
     this.expressApp.get([`/admin`, `/admin/**`], (req, res) => {
       res.sendFile(path.join(dashboardDir, "index.html"));
     });

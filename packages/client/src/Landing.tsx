@@ -10,12 +10,12 @@ const AppWithLoading = WithLoading(App);
 const Landing = () => {
     const lang = navigator.language;
     
-    const [language, setLnaguage] = useState(lang==="de"?"de":"en-US")
+    const [language, setLanguage] = useState(lang==="de"?"de":"en-US")
 
     const [loading, setLoading] = useState(false);
     const pages = usePages();
     const toggleLanguage = () => {
-        setLnaguage(language === "en-US" ? "de" : "en-US")
+        setLanguage(language === "en-US" ? "de" : "en-US")
     }
     useEffect(() => {
         if (pages.length) {
